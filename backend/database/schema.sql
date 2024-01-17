@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `suit_your_look`.`products` (
   `brand` VARCHAR(45) NOT NULL,
   `product_name` VARCHAR(45) NOT NULL,
   `product_category` VARCHAR(45) NOT NULL,
-  `product_price` INT(10000) NOT NULL,
+  `product_price` INT(250) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
