@@ -162,3 +162,8 @@ button {
   border: none;
   background: none;
 }
+
+@font-face {
+  font-family: "CamptonBook";
+  src: url("../frontend/src/assets/font/CamptonBook.otf");
+}
