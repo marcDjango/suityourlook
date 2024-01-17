@@ -32,10 +32,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `suit_your_look`.`products` (
   `id` INT NOT NULL,
+  `image` LONGTEXT NOT NULL,
   `brand` VARCHAR(45) NOT NULL,
   `product_name` VARCHAR(45) NOT NULL,
   `product_category` VARCHAR(45) NOT NULL,
-  `product_price` INT(250) NOT NULL,
+  `product_price` INT(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -45,7 +46,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `suit_your_look`.`models` (
   `id` INT NOT NULL,
-  `image` LONGTEXT NOT NULL,
+  `image` LONGTEXT NULL,
   `category` VARCHAR(45) NULL,
   `name` VARCHAR(45) NULL,
   `hair_color` VARCHAR(45) NULL,
@@ -90,13 +91,13 @@ CREATE TABLE IF NOT EXISTS `suit_your_look`.`favorite` (
   CONSTRAINT `fk_models_has_users_models1`
     FOREIGN KEY (`models_id`)
     REFERENCES `suit_your_look`.`models` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_models_has_users_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `suit_your_look`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 Set foreign_key_checks = 1;
