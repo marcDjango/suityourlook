@@ -1,11 +1,7 @@
-import FormUpload from "./components/FormUpload/FormUpload";
+/*eslint-disable*/
 
 function App() {
-  return (
-    <div className="App">
-      <FormUpload />
-    </div>
-  );
+  return <div className="App"></div>;
 }
 
 export default App;

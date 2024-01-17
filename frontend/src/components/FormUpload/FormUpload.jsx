@@ -14,12 +14,6 @@ import {
 
 function FormUpload() {
   const [previewSource, setPreviewSource] = useState();
-  //   const [nameValue, setNameValue] = useState();
-  //   const [hairCutValue, setHairCutValue] = useState();
-  //   const [hairColorValue, setColorValue] = useState();
-  //   const [categoryValue, setCategoryValue] = useState();
-  //   const [skinToneValue, setSkinToneValue] = useState();
-  //   const [typeLipsValue, setLipsTypeValue] = useState();
 
   const previewFile = (file) => {
     const reader = new FileReader();

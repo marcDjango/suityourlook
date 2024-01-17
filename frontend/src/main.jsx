@@ -12,6 +12,8 @@ import Register, { enrolment } from "./pages/Register/Register";
 import RootLayout from "./RootLayout";
 import App from "./App";
 import Card from "./components/Card/Card";
+import AdminFormModel from "./pages/adminFormModel/adminFormModel";
+import AdminFormProduct from "./pages/adminFormProduct/adminFormProduct";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +25,8 @@ const router = createBrowserRouter(
       {/* <Route path="Contact" element={<Contact />} /> */}
       <Route path="/register" element={<Register />} action={enrolment} />
       <Route path="/login" element={<Login />} action={authenticate} />
+      <Route path="/admin-form-model" element={<AdminFormModel />} />
+      <Route path="/admin-form-product" element={<AdminFormProduct />} />
     </Route>
   )
 );
