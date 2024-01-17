@@ -10,7 +10,7 @@ USE `suit_your_look` ;
 -- Table `suit_your_look`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `suit_your_look`.`users` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
@@ -31,7 +31,7 @@ ENGINE = InnoDB;
 -- Table `suit_your_look`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `suit_your_look`.`products` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `image` LONGTEXT NOT NULL,
   `brand` VARCHAR(45) NOT NULL,
   `product_name` VARCHAR(45) NOT NULL,
@@ -45,7 +45,7 @@ ENGINE = InnoDB;
 -- Table `suit_your_look`.`models`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `suit_your_look`.`models` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `image` LONGTEXT NULL,
   `category` VARCHAR(45) NULL,
   `name` VARCHAR(45) NULL,
