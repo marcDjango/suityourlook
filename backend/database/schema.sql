@@ -63,9 +63,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `suit_your_look`.`models_products` (
   `models_id` INT NOT NULL,
   `products_id` INT NOT NULL,
-  PRIMARY KEY (`models_id`, `products_id`),
-  INDEX `fk_models_has_products_products1_idx` (`products_id` ASC) VISIBLE,
-  INDEX `fk_models_has_products_models_idx` (`models_id` ASC) VISIBLE,
   CONSTRAINT `fk_models_has_products_models`
     FOREIGN KEY (`models_id`)
     REFERENCES `suit_your_look`.`models` (`id`)
