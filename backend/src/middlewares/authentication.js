@@ -52,6 +52,15 @@ const verifyPassword = async (req, res, next) => {
   return null;
 };
 
+const verifyAdmin = async (req, res, next) => {
+  const { sub } = req.payload;
+  if (sub.is_admin) {
+    next();
+  } else {
+    res.sendStatus(401);
+  }
+};
+
 const verifyToken = async (req, res, next) => {
   try {
     const authorization = req.get("Authorization");
@@ -75,4 +84,4 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-module.exports = { hashPassword, verifyPassword, verifyToken };
+module.exports = { hashPassword, verifyPassword, verifyToken, verifyAdmin };

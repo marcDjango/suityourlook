@@ -12,7 +12,7 @@ class UserManager extends AbstractManager {
     // Execute the SQL INSERT query to add a new user to the "user" table
     const {
       firstname,
-      lasttname,
+      lastname,
       email,
       hashed_password: hashedPassword,
       genre,
@@ -25,10 +25,10 @@ class UserManager extends AbstractManager {
       lips_type: lipsType,
     } = user;
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (firstname, lasttname, email, hashed_password, genre, phone, birthdate, is_admin, hair_color, hair_style, skin_tone, lips_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (firstname, lastname, email, hashed_password, genre, phone, birthdate, is_admin, hair_color, hair_style, skin_tone, lips_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         firstname,
-        lasttname,
+        lastname,
         email,
         hashedPassword,
         genre,
@@ -48,7 +48,7 @@ class UserManager extends AbstractManager {
   async update(id, user) {
     const {
       firstname,
-      lasttname,
+      lastname,
       email,
       hashed_password: hashedPassword,
       genre,
@@ -61,10 +61,10 @@ class UserManager extends AbstractManager {
       lips_type: lipsType,
     } = user;
     const [rows] = await this.database.query(
-      `UPDATE ${this.table} SET firstname = ?, lasttname = ?, email = ?, hashed_password = ?, genre = ?, phone = ?, birthdate = ?, is_admin = ?, hair_color = ?, hair_style = ?, skin_tone = ?, lips_type WHERE id = ?`,
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, hashed_password = ?, genre = ?, phone = ?, birthdate = ?, is_admin = ?, hair_color = ?, hair_style = ?, skin_tone = ?, lips_type WHERE id = ?`,
       [
         firstname,
-        lasttname,
+        lastname,
         email,
         hashedPassword,
         genre,
