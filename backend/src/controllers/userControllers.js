@@ -4,7 +4,7 @@ const tables = require("../tables");
 // The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {
   try {
-    const users = await tables.user.readAll();
+    const users = await tables.users.readAll();
     res.status(200).json(users);
   } catch (err) {
     console.error(err);
@@ -15,7 +15,7 @@ const browse = async (req, res, next) => {
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
-    const user = await tables.user.read(req.params.id);
+    const user = await tables.users.read(req.params.id);
     if (user == null) {
       res.sendStatus(404);
     } else {
@@ -30,7 +30,7 @@ const read = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
   try {
-    const result = await tables.user.update(req.params.id, req.body);
+    const result = await tables.users.update(req.params.id, req.body);
     if (result.affectedRows === 0) {
       res.sendStatus(404);
     } else {
@@ -43,7 +43,7 @@ const edit = async (req, res, next) => {
 };
 const readByEmailAndPassToNext = async (req, res, next) => {
   try {
-    const user = await tables.user.readByEmail(req.body.email);
+    const user = await tables.users.readByEmail(req.body.email);
 
     if (user == null) {
       res.sendStatus(401);
@@ -60,7 +60,7 @@ const readByEmailAndPassToNext = async (req, res, next) => {
 const add = async (req, res, next) => {
   const user = req.body;
   try {
-    const insertId = await tables.user.create(user);
+    const insertId = await tables.users.create(user);
     res.status(201).json({ insertId });
   } catch (err) {
     console.error(err);
@@ -71,7 +71,7 @@ const add = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
-    const response = await tables.user.delete(req.params.id);
+    const response = await tables.users.delete(req.params.id);
     if (response.affectedRows === 0) {
       res.sendStatus(404);
     } else {
