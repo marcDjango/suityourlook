@@ -1,13 +1,5 @@
-import CardsList from "./components/cardsLisr/CardsList";
-import "./App.css";
-
 function App() {
-  return (
-    <div>
-      {" "}
-      <CardsList />
-    </div>
-  );
+  return <div className="App">App</div>;
 }
 
 export default App;
