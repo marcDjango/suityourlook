@@ -11,6 +11,7 @@ import "swiper/css/effect-cards";
 // import required modules
 function Carusel({ item }) {
   const data = item;
+  console.log(data);
   const [swiperRef, setSwiperRef] = useState(false);
   console.log();
   return (
@@ -20,11 +21,10 @@ function Carusel({ item }) {
       modules={[EffectCards]}
       className="mySwiper"
     >
-      {data.map((item, index) => (
+      {data.map((item) => (
         <SwiperSlide
-          className={item.nome}
-          key={index}
-          style={{ backgroundImage: `url(${item.nom})` }}
+          key={item.id}
+          style={{ backgroundImage: `url(${item.image})` }}
           onClick={(e) => {
             setSwiperRef(true);
           }}
