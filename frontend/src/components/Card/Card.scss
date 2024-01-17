@@ -1,6 +1,14 @@
-modal {
+.modal {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
+
+  .main-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+  }
 }
