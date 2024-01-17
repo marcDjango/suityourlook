@@ -14,11 +14,11 @@ CREATE TABLE IF NOT EXISTS `suit_your_look`.`users` (
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `hashed_password` VARCHAR(45) NOT NULL,
-  `genre` VARCHAR(45) NOT NULL,
-  `phone` VARCHAR(45) NOT NULL,
-  `birthdate` VARCHAR(45) NULL,
-  `is_admin` VARCHAR(45) NOT NULL,
+  `hashed_password` VARCHAR(255) NOT NULL,
+  `genre` TINYINT(1) NOT NULL,
+  `phone` INT(10) NOT NULL,
+  `birthdate` DATE NULL,
+  `is_admin` TINYINT(1) NOT NULL,
   `hair_color` VARCHAR(45) NULL,
   `hair_style` VARCHAR(45) NULL,
   `skin_tone` VARCHAR(45) NULL,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `suit_your_look`.`products` (
   `brand` VARCHAR(45) NOT NULL,
   `product_name` VARCHAR(45) NOT NULL,
   `product_category` VARCHAR(45) NOT NULL,
-  `product_price` VARCHAR(45) NOT NULL,
+  `product_price` INT(10000) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -45,7 +45,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `suit_your_look`.`models` (
   `id` INT NOT NULL,
-  `image` VARCHAR(45) NOT NULL,
+  `image` LONGTEXT NOT NULL,
   `category` VARCHAR(45) NULL,
   `name` VARCHAR(45) NULL,
   `hair_color` VARCHAR(45) NULL,
@@ -68,13 +68,13 @@ CREATE TABLE IF NOT EXISTS `suit_your_look`.`models_products` (
   CONSTRAINT `fk_models_has_products_models`
     FOREIGN KEY (`models_id`)
     REFERENCES `suit_your_look`.`models` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_models_has_products_products1`
     FOREIGN KEY (`products_id`)
     REFERENCES `suit_your_look`.`products` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
