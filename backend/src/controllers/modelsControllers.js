@@ -62,10 +62,21 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const readModelsAndProducts = async (req, res, next) => {
+  try {
+    const models = await tables.models.readModelsAndProducts();
+
+    res.status(200).json(models);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   browse,
   read,
   edit,
   add,
   destroy,
+  readModelsAndProducts,
 };
