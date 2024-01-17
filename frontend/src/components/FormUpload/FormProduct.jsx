@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from "react";
 import Input from "../Input/Input";
-import "./FormUpload.scss";
+import "./FormProduct.scss";
 import { useState } from "react";
 import InputSelect from "../InputSelect/InputSelect";
 import {

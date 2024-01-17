@@ -105,20 +105,34 @@ const seed = async () => {
         lips_type: "Full",
       },
     ];
-    // Generating Seed Data
 
-    const productQueryPromises = productData.map((product) => {
-      return database.query(
-        `INSERT INTO products (image, brand, product_name, product_category, product_price) VALUES (?, ?, ?, ?, ?)`,
-        [
-          product.image,
-          product.brand,
-          product.product_name,
-          product.product_category,
-          product.product_price,
-        ]
-      );
-    });
+    const modelsProductsData = [
+      {
+        models_id: 1,
+        products_id: 1,
+      },
+      {
+        models_id: 1,
+        products_id: 2,
+      },
+      {
+        models_id: 2,
+        products_id: 3,
+      },
+      {
+        models_id: 3,
+        products_id: 1,
+      },
+      {
+        models_id: 3,
+        products_id: 2,
+      },
+      {
+        models_id: 3,
+        products_id: 3,
+      },
+    ];
+    // Generating Seed Data
 
     const modelQueryPromises = modelData.map((model) => {
       return database.query(
@@ -131,6 +145,19 @@ const seed = async () => {
           model.hair_style,
           model.skin_tone,
           model.lips_type,
+        ]
+      );
+    });
+
+    const productQueryPromises = productData.map((product) => {
+      return database.query(
+        `INSERT INTO products (image, brand, product_name, product_category, product_price) VALUES (?, ?, ?, ?, ?)`,
+        [
+          product.image,
+          product.brand,
+          product.product_name,
+          product.product_category,
+          product.product_price,
         ]
       );
     });
@@ -162,6 +189,17 @@ const seed = async () => {
     ];
 
     await Promise.all(allPromises);
+
+    const modelsProductsQueryPromises = modelsProductsData.map(
+      (modelProduct) => {
+        return database.query(
+          `INSERT INTO models_products (models_id, products_id) VALUES (?, ?)`,
+          [modelProduct.models_id, modelProduct.products_id]
+        );
+      }
+    );
+
+    await Promise.all(modelsProductsQueryPromises);
 
     // Close the database connection
     database.end();

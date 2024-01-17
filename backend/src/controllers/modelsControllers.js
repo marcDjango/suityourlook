@@ -1,4 +1,5 @@
 /*eslint-disable*/
+
 const tables = require("../tables");
 const { cloudinary } = require("../../cloudinary");
 require("dotenv").config();
@@ -107,6 +108,16 @@ const getImagesFromCloud = async (req, res) => {
   }
 };
 
+const readModelsAndProducts = async (req, res, next) => {
+  try {
+    const models = await tables.models.readModelsAndProducts();
+
+    res.status(200).json(models);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   browse,
   read,
@@ -115,4 +126,5 @@ module.exports = {
   destroy,
   uploadCloud,
   getImagesFromCloud,
+  readModelsAndProducts,
 };

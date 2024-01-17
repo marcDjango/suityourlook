@@ -1,12 +1,12 @@
 /*eslint-disable*/
 import React from "react";
-import FormUpload from "../../components/FormUpload/FormUpload";
+import FormModel from "../../components/FormUpload/FormModel";
 import "./AdminFormModel.scss";
 
 function adminFormModel() {
   return (
     <div>
-      <FormUpload />
+      <FormModel />
     </div>
   );
 }
