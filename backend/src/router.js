@@ -28,10 +28,6 @@ router.post("/models", modelsControllers.add);
 router.put("/models/:id", modelsControllers.edit);
 router.delete("/models/:id", modelsControllers.destroy);
 
-// Route for CLOUDINARY
-router.post("/upload", modelsControllers.uploadCloud);
-router.get("/images", modelsControllers.getImagesFromCloud);
-
 router.get("/products", productControllers.browse);
 router.get("/products/:id", productControllers.read);
 router.post("/products", productControllers.add);
@@ -72,5 +68,13 @@ router.delete("/products/:id", productControllers.destroy);
 router.post("/models", modelsControllers.add);
 router.put("/models/:id", modelsControllers.edit);
 router.delete("/models/:id", modelsControllers.destroy);
+
+// Route for CLOUDINARY
+router.post("/models/upload", modelsControllers.uploadCloud);
+router.get("/models/images", modelsControllers.getImagesFromCloud);
+
+// Route for CLOUDINARY
+router.post("/products/upload", productControllers.uploadCloud);
+// router.get("/products/images", productControllers.getImagesFromCloud);
 
 module.exports = router;

@@ -4,13 +4,7 @@ import Input from "../Input/Input";
 import "./FormProduct.scss";
 import { useState } from "react";
 import InputSelect from "../InputSelect/InputSelect";
-import {
-  hairColorOptions,
-  haircutOptions,
-  skinTypeOptions,
-  lipsTypeOptions,
-  categoriesOptions,
-} from "../../services/modelsOptions";
+import { brandOptions, categoriesOptions } from "../../services/productOptions";
 
 function FormUpload() {
   const [previewSource, setPreviewSource] = useState();
@@ -51,7 +45,7 @@ function FormUpload() {
     console.log(objectToPost);
 
     try {
-      await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/upload`, {
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products/upload`, {
         method: "POST",
         body: JSON.stringify({ objectToPost }),
         headers: { "Content-Type": "application/json" },
@@ -74,11 +68,7 @@ function FormUpload() {
             onChange={handleFileInputChange}
           />
         </label>
-        <div className="form-upload-btn">
-          <button type="submit" name="submit">
-            Ajouter
-          </button>
-        </div>
+
         {/* </form> */}
 
         <h2 className="form-second-title">Sélectionnez des options :</h2>
@@ -90,37 +80,17 @@ function FormUpload() {
           type="name"
           maxLength="100"
         />
-
-        <InputSelect
-          labelName="hair_style"
-          labelTitle="Coupe de cheveux"
-          id="hair_style"
-          modelsOptions={haircutOptions}
-        />
-
         <InputSelect
           labelName="hair_color"
-          labelTitle="Couleur de cheveux"
-          id="hair_color"
-          modelsOptions={hairColorOptions}
-        />
-        <InputSelect
-          labelName="category"
           labelTitle="Catégorie"
-          id="category"
+          id="hair_color"
           modelsOptions={categoriesOptions}
         />
         <InputSelect
-          labelName="skin_tone"
-          labelTitle="Teint de peau"
-          id="skin_tone"
-          modelsOptions={skinTypeOptions}
-        />
-        <InputSelect
-          labelName="lips_type"
-          labelTitle="Type de lèvres"
-          id="lips_type"
-          modelsOptions={lipsTypeOptions}
+          labelName="hair_style"
+          labelTitle="Marque du produit"
+          id="hair_style"
+          modelsOptions={brandOptions}
         />
 
         <div className="form-upload-btn">

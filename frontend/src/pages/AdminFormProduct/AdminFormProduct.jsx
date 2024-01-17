@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from "react";
 import "./AdminFormProduct.scss";
-import FormProduct from "../../components/FormUpload/FormModel";
+import FormProduct from "../../components/FormUpload/FormProduct";
 
 function AdminFormProduct() {
   return (

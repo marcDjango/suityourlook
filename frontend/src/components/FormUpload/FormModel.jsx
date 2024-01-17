@@ -51,7 +51,7 @@ function FormUpload() {
     console.log(objectToPost);
 
     try {
-      await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/upload`, {
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/models/upload`, {
         method: "POST",
         body: JSON.stringify({ objectToPost }),
         headers: { "Content-Type": "application/json" },
@@ -74,12 +74,12 @@ function FormUpload() {
             onChange={handleFileInputChange}
           />
         </label>
-        <div className="form-upload-btn">
+        {/* <div className="form-upload-btn">
           <button type="submit" name="submit">
             Ajouter
           </button>
         </div>
-        {/* </form> */}
+        </form> */}
 
         <h2 className="form-second-title">Sélectionnez des options :</h2>
         {/* <form className="form-options-container" onSubmit={handleSubmitFile}> */}
