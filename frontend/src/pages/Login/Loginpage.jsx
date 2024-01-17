@@ -19,7 +19,7 @@ function Login() {
     <div className="login-page">
       <div className="input-block">
         <div className="login-input">
-          <h1 className="login-title">CONNECTE-TOI</h1>
+          <h1 className="login-title">CONNECTION</h1>
           <Form className="form" method="post" action="/login" replace>
             <Input
               className="input"
@@ -47,7 +47,7 @@ function Login() {
         </button>
       </div>
       <div className="login-text">
-        <div className="text">Nouveau dans la jungle urbaine?</div>
+        <div className="text">Pas de compte??</div>
         <button
           className="register"
           type="submit"

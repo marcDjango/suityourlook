@@ -44,13 +44,13 @@ function Register() {
             labelText="Confirmation mdp :"
             maxLength="255"
           />
-          <Input
-            className="input"
-            labelName="genre"
-            type="genre"
-            labelText="Mr / Mme ?"
-            maxLength="1"
-          />
+          <label className="label" htmlFor="genre">
+            Genre
+            <select className="select" name="genre" id="genre">
+              <option>Mr</option>
+              <option>Mme</option>
+            </select>
+          </label>
           <Input
             className="input"
             labelName="phone"
@@ -78,6 +78,11 @@ export const enrolment = async ({ request }) => {
     ...data,
     is_admin: 0,
   };
+  if (formData.genre === "Mr") {
+    formData.genre = 1;
+  } else {
+    formData.genre = 0;
+  }
 
   try {
     const response = await fetch(
