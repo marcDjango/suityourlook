@@ -1,5 +1,6 @@
 .contain-navbar-main {
   background-color: black;
+  font-family: "CamptonBook", sans-serif;
 }
 
 .contain-navbar {
@@ -36,6 +37,7 @@ li:hover {
 .header-navbar-main {
   display: flex;
   justify-content: center;
+  font-family: "CamptonBook", sans-serif;
 }
 
 .header-navbar {
@@ -59,10 +61,11 @@ img {
   display: flex;
   align-items: center;
   font-size: 10px;
+  font-size: 12px;
 }
 .header-navbar-rigth {
   display: flex;
-  font-size: 10px;
+  font-size: 12px;
   align-items: center;
 }
 .btn-recherche {
