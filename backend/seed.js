@@ -79,7 +79,7 @@ const seed = async () => {
         lastname: "Napoly",
         email: "theonapoly@me.com",
         hashed_password:
-          "$argon2id$v=19$m=65536,t=5,p=1$+S3Gb/M9gk60MWLsMtJB4A$I0/8gdRdQVhnsImLjdDNK2Uy7xdKnUnDvCaM7r2nYE0",
+          "$argon2id$v=19$m=65536,t=5,p=1$HASm7dRJ9fsoJKlLbW9Y4g$NPC4JtJDq7Vqx//3X+sQuY3HsCOTSR5PwbPxxbbqnyE",
         genre: "1",
         phone: "0606060606",
         birthdate: "2000-01-01",
@@ -94,7 +94,7 @@ const seed = async () => {
         lastname: "Johnson",
         email: "emmajohnson@example.com",
         hashed_password:
-          "$argon2id$v=19$m=65536,t=5,p=1$+S3Gb/M9gk60MWLsMtJB4A$I0/8gdRdQVhnsImLjdDNK2Uy7xdKnUnDvCaM7r2nYE0",
+          "$argon2id$v=19$m=65536,t=5,p=1$HASm7dRJ9fsoJKlLbW9Y4g$NPC4JtJDq7Vqx//3X+sQuY3HsCOTSR5PwbPxxbbqnyE",
         genre: "2",
         phone: "0712345678",
         birthdate: "1995-05-15",
@@ -105,20 +105,34 @@ const seed = async () => {
         lips_type: "Full",
       },
     ];
-    // Generating Seed Data
 
-    const productQueryPromises = productData.map((product) => {
-      return database.query(
-        `INSERT INTO products (image, brand, product_name, product_category, product_price) VALUES (?, ?, ?, ?, ?)`,
-        [
-          product.image,
-          product.brand,
-          product.product_name,
-          product.product_category,
-          product.product_price,
-        ]
-      );
-    });
+    const modelsProductsData = [
+      {
+        models_id: 1,
+        products_id: 1,
+      },
+      {
+        models_id: 1,
+        products_id: 2,
+      },
+      {
+        models_id: 2,
+        products_id: 3,
+      },
+      {
+        models_id: 3,
+        products_id: 1,
+      },
+      {
+        models_id: 3,
+        products_id: 2,
+      },
+      {
+        models_id: 3,
+        products_id: 3,
+      },
+    ];
+    // Generating Seed Data
 
     const modelQueryPromises = modelData.map((model) => {
       return database.query(
@@ -131,6 +145,19 @@ const seed = async () => {
           model.hair_style,
           model.skin_tone,
           model.lips_type,
+        ]
+      );
+    });
+
+    const productQueryPromises = productData.map((product) => {
+      return database.query(
+        `INSERT INTO products (image, brand, product_name, product_category, product_price) VALUES (?, ?, ?, ?, ?)`,
+        [
+          product.image,
+          product.brand,
+          product.product_name,
+          product.product_category,
+          product.product_price,
         ]
       );
     });
@@ -162,6 +189,17 @@ const seed = async () => {
     ];
 
     await Promise.all(allPromises);
+
+    const modelsProductsQueryPromises = modelsProductsData.map(
+      (modelProduct) => {
+        return database.query(
+          `INSERT INTO models_products (models_id, products_id) VALUES (?, ?)`,
+          [modelProduct.models_id, modelProduct.products_id]
+        );
+      }
+    );
+
+    await Promise.all(modelsProductsQueryPromises);
 
     // Close the database connection
     database.end();
