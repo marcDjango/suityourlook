@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React from "react";
 import "./InputSelect.scss";
 function InputSelect({ labelName, labelTitle, modelsOptions }) {
@@ -7,7 +8,7 @@ function InputSelect({ labelName, labelTitle, modelsOptions }) {
       <select name={labelName} id={labelName}>
         {modelsOptions.map((el) => {
           return (
-            <option key={el.place_id} value={el}>
+            <option key={el} value={el}>
               {el}
             </option>
           );

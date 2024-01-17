@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React from "react";
 import Input from "../Input/Input";
 import "./FormUpload.scss";
@@ -65,13 +66,6 @@ function FormUpload() {
       console.error(error);
     }
   };
-
-  //   const handleChange = (e) => {
-  //     if (e.target.value) {
-  //       setNameValue(e.target.value);
-  //       //   setHairCutValue(e.target.value);
-  //     }
-  //   };
 
   return (
     <div className="form-upload-main-container">

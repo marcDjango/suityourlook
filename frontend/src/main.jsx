@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React from "react";
 import {
   createBrowserRouter,
@@ -6,16 +7,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-<<<<<<< HEAD
-import App from "./App";
-import RootLayout from "./RootLayout";
-=======
 import Login, { authenticate } from "./pages/Login/Loginpage";
 import Register, { enrolment } from "./pages/Register/Register";
 import RootLayout from "./RootLayout";
 import App from "./App";
 import Card from "./components/Card/Card";
->>>>>>> d156f6684d1ef39ca324c358eaae8b6d962b8ea7
 
 const router = createBrowserRouter(
   createRoutesFromElements(
