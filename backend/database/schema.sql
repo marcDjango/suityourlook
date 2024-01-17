@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `suit_your_look`.`products` (
   `brand` VARCHAR(45) NOT NULL,
   `product_name` VARCHAR(45) NOT NULL,
   `product_category` VARCHAR(45) NOT NULL,
-  `product_price` INT(10000) NOT NULL,
+  `product_price` INT(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -46,7 +46,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `suit_your_look`.`models` (
   `id` INT NOT NULL,
-  `image` LONGTEXT NOT NULL,
+  `image` LONGTEXT NULL,
   `category` VARCHAR(45) NULL,
   `name` VARCHAR(45) NULL,
   `hair_color` VARCHAR(45) NULL,
