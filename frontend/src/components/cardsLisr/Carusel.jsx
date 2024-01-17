@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useNavigate } from "react";
 // Import Swiper React components
 import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
