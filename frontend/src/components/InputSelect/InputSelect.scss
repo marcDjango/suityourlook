@@ -1,0 +1,12 @@
+.options-main-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  width: 140px;
+  select {
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(207, 200, 200, 0.619);
+  }
+}

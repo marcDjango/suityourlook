@@ -6,13 +6,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-// import RootLayout from "./RootLayout";
 import App from "./App";
+import RootLayout from "./RootLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      {/* <Route index element={<App />} /> */}
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<App />} />
       {/* <Route path="list-cards" element={<ListCards />} /> */}
       {/* <Route path="show-product" element={<ShowProduct />} /> */}
       {/* <Route path="Contact" element={<Contact />} /> */}

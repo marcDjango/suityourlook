@@ -2,9 +2,23 @@ import React from "react";
 import Input from "../Input/Input";
 import "./FormUpload.scss";
 import { useState } from "react";
+import InputSelect from "../InputSelect/InputSelect";
+import {
+  hairColorOptions,
+  haircutOptions,
+  skinTypeOptions,
+  lipsTypeOptions,
+  categoriesOptions,
+} from "../../services/modelsOptions";
 
 function FormUpload() {
   const [previewSource, setPreviewSource] = useState();
+  //   const [nameValue, setNameValue] = useState();
+  //   const [hairCutValue, setHairCutValue] = useState();
+  //   const [hairColorValue, setColorValue] = useState();
+  //   const [categoryValue, setCategoryValue] = useState();
+  //   const [skinToneValue, setSkinToneValue] = useState();
+  //   const [typeLipsValue, setLipsTypeValue] = useState();
 
   const previewFile = (file) => {
     const reader = new FileReader();
@@ -25,38 +39,46 @@ function FormUpload() {
   const handleSubmitFile = (e) => {
     e.preventDefault();
     if (!previewSource) return;
-    uploadImage(previewSource);
+    uploadImage(previewSource, e);
   };
 
-  //       // Post l'url du fichier image, ainsi que les autres champs de la table photo sur cloudinary puis sur la database
-  // const uploadImage = async (base64EncodedImage) => {
-  //     // Penser à mettre à jour les valeurs de l'objet objectToPost !!
-  //     // une fois qu'on aura défini user_id et artwork_id
-  //     const objectToPost = {
-  //       image: base64EncodedImage,
-  //       is_validated: 0,
-  //       user_id: 1,
-  //       artwork_id: 1,
-  //     };
-  //     console.log(base64EncodedImage);
+  // Post l'url du fichier image, ainsi que les autres champs de la table photo sur cloudinary puis sur la database
+  const uploadImage = async (base64EncodedImage, e) => {
+    const formData = new FormData(e.target);
 
-  //     try {
-  //       await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/upload`, {
-  //         method: "POST",
-  //         body: JSON.stringify({ objectToPost }),
-  //         headers: { "Content-Type": "application/json" },
-  //       });
-  //     } catch (error) {
-  //       console.error(error);
+    const objectToPost = {};
+    formData.forEach((value, key) => {
+      objectToPost[key] = value;
+    });
+
+    objectToPost.image = base64EncodedImage;
+
+    console.log(objectToPost);
+
+    try {
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/upload`, {
+        method: "POST",
+        body: JSON.stringify({ objectToPost }),
+        headers: { "Content-Type": "application/json" },
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  //   const handleChange = (e) => {
+  //     if (e.target.value) {
+  //       setNameValue(e.target.value);
+  //       //   setHairCutValue(e.target.value);
   //     }
   //   };
 
   return (
     <div className="form-upload-main-container">
       <h1 className="form-main-title">Ajouter un modèle</h1>
-
-      <form>
+      <form className="form-upload-container" onSubmit={handleSubmitFile}>
         <label htmlFor="image">
+          <img src={previewSource} alt="chosen" />
           <input
             id="image"
             type="file"
@@ -64,51 +86,61 @@ function FormUpload() {
             onChange={handleFileInputChange}
           />
         </label>
-        <div className="btn-container">
+        <div className="form-upload-btn">
           <button type="submit" name="submit">
-            <span className="btn-span">Ajouter</span>
+            Ajouter
+          </button>
+        </div>
+        {/* </form> */}
+
+        <h2 className="form-second-title">Sélectionnez des options :</h2>
+        {/* <form className="form-options-container" onSubmit={handleSubmitFile}> */}
+        <Input
+          className="form-input"
+          labelName="name"
+          labelText="Nom du modèle"
+          type="name"
+          maxLength="100"
+        />
+
+        <InputSelect
+          labelName="hair_style"
+          labelTitle="Coupe de cheveux"
+          id="hair_style"
+          modelsOptions={haircutOptions}
+        />
+
+        <InputSelect
+          labelName="hair_color"
+          labelTitle="Couleur de cheveux"
+          id="hair_color"
+          modelsOptions={hairColorOptions}
+        />
+        <InputSelect
+          labelName="category"
+          labelTitle="Catégorie"
+          id="category"
+          modelsOptions={categoriesOptions}
+        />
+        <InputSelect
+          labelName="skin_tone"
+          labelTitle="Teint de peau"
+          id="skin_tone"
+          modelsOptions={skinTypeOptions}
+        />
+        <InputSelect
+          labelName="lips_type"
+          labelTitle="Type de lèvres"
+          id="lips_type"
+          modelsOptions={lipsTypeOptions}
+        />
+
+        <div className="form-upload-btn">
+          <button type="submit" name="submit">
+            Ajouter
           </button>
         </div>
       </form>
-
-      <Input
-        className="form-input"
-        labelName="input"
-        labelText="Nom du modèle"
-        type="input"
-        maxLength="100"
-      />
-      <Input
-        labelName="input"
-        labelText="Catégorie"
-        type="input"
-        maxLength="100"
-      />
-
-      <Input
-        labelName="input"
-        labelText="Couleur de cheveux"
-        type="input"
-        maxLength="100"
-      />
-      <Input
-        labelName="input"
-        labelText="Coupe de cheveux"
-        type="input"
-        maxLength="100"
-      />
-      <Input
-        labelName="input"
-        labelText="Teint de peau"
-        type="input"
-        maxLength="100"
-      />
-      <Input
-        labelName="input"
-        labelText="Type de lèvres"
-        type="input"
-        maxLength="100"
-      />
     </div>
   );
 }

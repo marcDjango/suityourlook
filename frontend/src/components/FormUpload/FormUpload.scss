@@ -1,6 +1,33 @@
 .form-upload-main-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   row-gap: 1rem;
+  .from-main-title {
+  }
+  .form-upload-container {
+    display: flex;
+    flex-direction: column;
+
+    .form-upload-btn {
+      button {
+        width: 100px;
+        height: 30px;
+        border-radius: 10px;
+        border: 1px solid black;
+      }
+    }
+  }
+  .form-options-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    .form-upload-btn {
+      button {
+        width: 100px;
+        height: 30px;
+        border-radius: 10px;
+        border: 1px solid black;
+      }
+    }
+  }
 }
