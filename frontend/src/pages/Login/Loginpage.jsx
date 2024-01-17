@@ -19,7 +19,7 @@ function Login() {
     <div className="login-page">
       <div className="input-block">
         <div className="login-input">
-          <h1 className="login-title">CONNECTION</h1>
+          <h1 className="login-title">Se Connecter</h1>
           <Form className="form" method="post" action="/login" replace>
             <Input
               className="input"

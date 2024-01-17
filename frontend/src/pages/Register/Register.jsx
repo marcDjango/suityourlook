@@ -7,7 +7,7 @@ function Register() {
   return (
     <div className="register-page">
       <div className="register-input">
-        <h1 className="register-title">inscription</h1>
+        <h1 className="register-title">Créer un compte</h1>
         <Form className="form" method="post" action="/register" replace>
           <Input
             className="input"
@@ -27,7 +27,7 @@ function Register() {
             className="input"
             labelName="email"
             type="email"
-            labelText="email :"
+            labelText="Email :"
             maxLength="45"
           />
           <Input
@@ -45,7 +45,7 @@ function Register() {
             maxLength="255"
           />
           <label className="label" htmlFor="genre">
-            Genre
+            Genre :
             <select className="select" name="genre" id="genre">
               <option>Mr</option>
               <option>Mme</option>
@@ -55,7 +55,7 @@ function Register() {
             className="input"
             labelName="phone"
             type="phone"
-            labelText="Numéros :"
+            labelText="Numéros de téléphone :"
             maxLength="10"
           />
 
