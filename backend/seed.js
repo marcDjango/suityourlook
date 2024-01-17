@@ -79,7 +79,7 @@ const seed = async () => {
         lastname: "Napoly",
         email: "theonapoly@me.com",
         hashed_password:
-          "$argon2id$v=19$m=65536,t=5,p=1$+S3Gb/M9gk60MWLsMtJB4A$I0/8gdRdQVhnsImLjdDNK2Uy7xdKnUnDvCaM7r2nYE0",
+          "$argon2id$v=19$m=65536,t=5,p=1$HASm7dRJ9fsoJKlLbW9Y4g$NPC4JtJDq7Vqx//3X+sQuY3HsCOTSR5PwbPxxbbqnyE",
         genre: "1",
         phone: "0606060606",
         birthdate: "2000-01-01",
@@ -94,7 +94,7 @@ const seed = async () => {
         lastname: "Johnson",
         email: "emmajohnson@example.com",
         hashed_password:
-          "$argon2id$v=19$m=65536,t=5,p=1$+S3Gb/M9gk60MWLsMtJB4A$I0/8gdRdQVhnsImLjdDNK2Uy7xdKnUnDvCaM7r2nYE0",
+          "$argon2id$v=19$m=65536,t=5,p=1$HASm7dRJ9fsoJKlLbW9Y4g$NPC4JtJDq7Vqx//3X+sQuY3HsCOTSR5PwbPxxbbqnyE",
         genre: "2",
         phone: "0712345678",
         birthdate: "1995-05-15",
