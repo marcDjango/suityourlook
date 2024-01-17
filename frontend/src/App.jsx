@@ -1,5 +1,11 @@
+import FormUpload from "./components/FormUpload/FormUpload";
+
 function App() {
-  return <div className="App">App</div>;
+  return (
+    <div className="App">
+      <FormUpload />
+    </div>
+  );
 }
 
 export default App;

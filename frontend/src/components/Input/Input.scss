@@ -1,0 +1,8 @@
+.label-container {
+  display: flex;
+  flex-direction: column;
+  .input-container {
+    width: 200px;
+    height: 30px;
+  }
+}
