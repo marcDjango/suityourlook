@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 const tables = require("../tables");
 const { cloudinary } = require("../../cloudinary");
 
