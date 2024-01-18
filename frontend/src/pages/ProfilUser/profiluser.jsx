@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/button-has-type */
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./profiluser.scss";
 
 function Profiluser() {
@@ -80,6 +81,12 @@ function Profiluser() {
     // Redirection de l'utilisateur vers la page d'accueil
   };
 
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/favorite");
+  };
+
   return (
     <div className="contain-profilpage">
       <div className="contain-profilpage-body">
@@ -110,7 +117,9 @@ function Profiluser() {
               </div>
               <div className="side-links">
                 {" "}
-                <button className="btn-link">LISTE DES FAVORIS</button>
+                <button className="btn-link" onClick={handleNavigate}>
+                  LISTE DES FAVORIS
+                </button>
                 <p>&gt;</p>
               </div>
             </div>

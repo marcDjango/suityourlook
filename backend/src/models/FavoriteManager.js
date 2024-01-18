@@ -11,6 +11,7 @@ class modelsManager extends AbstractManager {
   async readFavorite() {
     const [rows] = await this.database.query(
       `SELECT 
+    users.id,
     users.firstname, 
     users.lastname,
     users.email,

@@ -53,13 +53,13 @@ router.get("/models-products", modelsControllers.readModelsAndProducts);
 router.get("/models", modelsControllers.browse);
 router.get("/models/:id", modelsControllers.read);
 
+router.get("/favorite", favoriteControllers.readFavorite);
 // Add middleware to verify if the user is authenticated
 router.use(verifyToken);
 
 router.put("/users/:id", userControllers.edit);
 router.delete("/users/:id", userControllers.destroy);
 
-router.get("/favorite", favoriteControllers.readFavorite);
 router.post("/favorite", favoriteControllers.add);
 
 // Add middleware to verify if the user is an admin
