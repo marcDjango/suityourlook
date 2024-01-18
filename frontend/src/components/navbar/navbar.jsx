@@ -13,6 +13,7 @@ function Navbar() {
     "HOME",
     "SERVICES EXCLUSIFS",
     "NOS ENGAGEMENTS",
+    "SUIT YOUR LOOK",
   ];
   const navigate = useNavigate();
   const handleClickRegister = () => {

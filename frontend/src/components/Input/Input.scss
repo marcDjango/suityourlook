@@ -1,0 +1,20 @@
+.input-main-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  .label-main-title {
+    font-family: "CamptonBook", sans-serif;
+  }
+  .input-container {
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    padding: 10px;
+    &:hover {
+      background-color: rgb(227, 227, 227);
+      transition-duration: 2s;
+    }
+  }
+}
