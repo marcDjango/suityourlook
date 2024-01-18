@@ -1,28 +1,20 @@
 /* eslint-disable */
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useNavigate } from "react";
 // Import Swiper React components
 import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Card from "../Card/Card";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-cards";
 
 // import required modules
-function Carusel() {
-  const data = [
-    {
-      nom: "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-oap-fr-ng-Library/default/dw7cba0f40/images/landing-page/offress-peciales/Exclusive-offer-pages-4_DESK-opt.jpg?sw=1998&sh=1126&sm=cut&q=70",
-    },
-    {
-      nom: "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-oap-fr-ng-Library/default/dw7cba0f40/images/landing-page/offress-peciales/Exclusive-offer-pages-4_DESK-opt.jpg?sw=1998&sh=1126&sm=cut&q=70",
-    },
-    {
-      nom: "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-oap-fr-ng-Library/default/dw7cba0f40/images/landing-page/offress-peciales/Exclusive-offer-pages-4_DESK-opt.jpg?sw=1998&sh=1126&sm=cut&q=70",
-    },
-    {
-      nom: "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-oap-fr-ng-Library/default/dw7cba0f40/images/landing-page/offress-peciales/Exclusive-offer-pages-4_DESK-opt.jpg?sw=1998&sh=1126&sm=cut&q=70",
-    },
-  ];
+function Carusel({ item }) {
+  const data = item;
+  console.log(data);
+  const [swiperRef, setSwiperRef] = useState(false);
+  console.log();
+
   return (
     <Swiper
       effect={"cards"}
@@ -31,8 +23,14 @@ function Carusel() {
       className="mySwiper"
     >
       {data.map((item) => (
-        <SwiperSlide style={{ backgroundImage: `url(${item.nom})` }}>
-          <h1>{item.nom}</h1>
+        <SwiperSlide
+          key={item.id}
+          style={{ backgroundImage: `url(${item.image})` }}
+          onClick={(e) => {
+            setSwiperRef(true);
+          }}
+        >
+          {swiperRef && <Card item={item} />}
         </SwiperSlide>
       ))}
     </Swiper>
