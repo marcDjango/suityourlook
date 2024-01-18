@@ -9,11 +9,9 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 
 // import required modules
-function Carusel({ item }) {
+function Carusel({ item, onCardClick }) {
   const data = item;
-  console.log(data);
   const [swiperRef, setSwiperRef] = useState(false);
-  console.log();
   return (
     <Swiper
       effect={"cards"}
@@ -27,9 +25,10 @@ function Carusel({ item }) {
           style={{ backgroundImage: `url(${item.image})` }}
           onClick={() => {
             setSwiperRef(true);
+            onCardClick(item);
           }}
         >
-          {swiperRef && <Card item={item} />}
+          {swiperRef}
         </SwiperSlide>
       ))}
     </Swiper>

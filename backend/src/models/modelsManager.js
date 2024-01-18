@@ -1,11 +1,10 @@
+/*eslint-disable*/
 // Importing the AbstractManager class
 const AbstractManager = require("./AbstractManager");
 
 // Defining the chargingStationManager class that extends AbstractManager
 class modelsManager extends AbstractManager {
-  // Constructor initializes the class and sets the table name to "charging_station"
   constructor() {
-    // Calling the constructor of the parent class (AbstractManager) with the table name
     super({ table: "models" });
   }
 
@@ -22,8 +21,15 @@ class modelsManager extends AbstractManager {
      INNER JOIN models_products ON models.id = models_products.models_id 
      INNER JOIN products ON models_products.products_id = products.id`
     );
-    // Returning the first row (assuming there is only one result)
     return rows;
+  }
+
+  async postModelsAndProducts(modelsData) {
+    const [response] = await this.database.query(
+      `INSERT INTO models_products (models_id, products_id) VALUES (?, ?)`,
+      [modelsData.models_id, modelsData.products_id]
+    );
+    return response.insertId;
   }
 }
 
