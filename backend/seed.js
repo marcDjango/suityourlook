@@ -38,6 +38,54 @@ const seed = async () => {
         product_category: "Hair Care",
         product_price: 10,
       },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dw1c2cf447/ProductImages/OAP7233/3600524074647/3600524074647_1.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Elseve Bond Repair",
+        product_category: "Shampoo",
+        product_price: 5.99,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dw570400b9/ProductImages/3600524118426/3600524118426-01.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Elseve Pro Bond Repair Sérum",
+        product_category: "Hair Care",
+        product_price: 13.5,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dwf5b642a0/ProductImages/OAP7391/30149649/0000030149649_1.jpg?sw=465&sh=465&sm=cut&sfrm=png&q=70",
+        brand: "L'Oréal",
+        product_name: "Mascara Panorama Volume Millions de Cils",
+        product_category: "Make Up",
+        product_price: 14.9,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dw017d1a19/ProductImages/OAP6052/3600522337072/3600522337072_1.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Infaillible 24h DUO",
+        product_category: "Make Up",
+        product_price: 14.9,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dwb95a7b4c/ProductImages/OAP3000/3600524057503/3600524057503_1.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Accord Parfait",
+        product_category: "Make Up",
+        product_price: 12.66,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dwb95a7b4c/ProductImages/OAP3000/3600524057503/3600524057503_1.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Infaillible 24H ",
+        product_category: "Make Up",
+        product_price: 6.3,
+      },
     ];
 
     const modelData = [
@@ -121,6 +169,7 @@ const seed = async () => {
         skin_tone: "Light",
         lips_type: "Full",
       },
+
       {
         image:
           "https://upload.wikimedia.org/wikipedia/commons/5/5b/Gal_Gadot_cropped_lighting_corrected_2b.jpg",
@@ -210,6 +259,30 @@ const seed = async () => {
       {
         models_id: 3,
         products_id: 3,
+      },
+      {
+        models_id: 7,
+        products_id: 4,
+      },
+      {
+        models_id: 7,
+        products_id: 5,
+      },
+      {
+        models_id: 7,
+        products_id: 6,
+      },
+      {
+        models_id: 7,
+        products_id: 7,
+      },
+      {
+        models_id: 7,
+        products_id: 8,
+      },
+      {
+        models_id: 7,
+        products_id: 9,
       },
     ];
     // Generating Seed Data

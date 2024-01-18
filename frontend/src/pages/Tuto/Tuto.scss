@@ -1,0 +1,10 @@
+.tuto-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  padding: 40px;
+  .tuto-frame {
+    max-width: 95%;
+  }
+}

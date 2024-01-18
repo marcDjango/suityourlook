@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
 
@@ -12,7 +13,12 @@ function Navbar() {
     "HOME",
     "SERVICES EXCLUSIFS",
     "NOS ENGAGEMENTS",
+    "SUIT YOUR LOOK",
   ];
+  const navigate = useNavigate();
+  const handleClickRegister = () => {
+    navigate("/login");
+  };
   return (
     <div>
       <div className="header-navbar-main">
@@ -20,10 +26,14 @@ function Navbar() {
           <div className="header-navbar-left">
             <p>Besoin d'aide?</p>
           </div>
-          <img className="image-logo" src={logo} alt="" />
+          <img className="nav-img" src={logo} alt="" />
           <div className="header-navbar-rigth">
             <p>Inscription newsletter</p>
-            <button type="button" className="btn-moncompte">
+            <button
+              type="button"
+              className="btn-moncompte"
+              onClick={handleClickRegister}
+            >
               Mon compte
             </button>
             <p>Mon panier (0)</p>

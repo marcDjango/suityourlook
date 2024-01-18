@@ -2,12 +2,18 @@
 import React, { useEffect, useState } from "react";
 import Carusel from "./Carusel";
 import SortButon from "./SortButon";
+import Modal from "../modal/modal";
+import Card from "../Card/Card";
 import "./cardList.scss";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 
 function CardsList() {
   const [data, setData] = useState([]);
+  const [isModal, setIsModal] = useState(false);
+  const [isCard, setIsCard] = useState(false);
+  const [dataCategories, setDataCategories] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const dataSoft = [
     {
       name: "hairColorOptions",
@@ -85,6 +91,7 @@ function CardsList() {
         }
 
         const resalt = await response.json();
+
         setData(resalt);
       } catch (err) {
         console.error(err);
@@ -94,7 +101,7 @@ function CardsList() {
   }, []);
   let categories = [];
   let categoriesSoftMap;
-
+  console.log(data);
   if (data.length) {
     categories = Object.groupBy(data, ({ category }) => category);
   }
@@ -119,8 +126,14 @@ function CardsList() {
     setDataMap(Object.groupBy(categoriesSoftMap, ({ category }) => category));
   }, [active]);
 
+  const handleCardOpen = (item) => {
+    setDataCategories([item]);
+    setIsCard(true);
+  };
+
   const [styleContainer, setStyleContainer] = useState();
   console.log(dataMap);
+
   return (
     <div className="cardsList">
       <section className="soft-containers">
@@ -148,7 +161,7 @@ function CardsList() {
           </div>
         ))}
       </section>
-      {dataMap &&
+      {/* {dataMap &&
         Object.entries(dataMap).map((item) => (
           <div key={item[1][0].id} style={{ width: "20%" }}>
             <button type="button" className="title-card-btn">
@@ -156,7 +169,38 @@ function CardsList() {
             </button>
             <Carusel item={item[1]} />
           </div>
-        ))}
+        ))} */}
+      {dataMap &&
+        Object.entries(dataMap).map((entry) => {
+          const categoryKey = entry[0];
+          const categoryItems = entry[1];
+
+          return (
+            <div key={entry[1][0].id} style={{ width: "20%" }}>
+              <button
+                type="button"
+                className="title-card-btn"
+                onClick={() => {
+                  setDataCategories(categoryItems);
+                  setIsModal(!isModal);
+                }}
+              >
+                {categoryKey}
+              </button>
+              <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+            </div>
+          );
+        })}
+      {isModal && (
+        <Modal
+          setIsModal={setIsModal}
+          isModal={isModal}
+          dataCategories={dataCategories}
+        />
+      )}
+      {isCard && (
+        <Card item={dataCategories[0]} setIsCard={setIsCard} isCard={isCard} />
+      )}
     </div>
   );
 }
