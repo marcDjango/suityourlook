@@ -1,11 +1,25 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import Carusel from "./Carusel";
 import "./cardList.scss";
+
+import {
+  hairColorOptions,
+  haircutOptions,
+  skinTypeOptions,
+  lipsTypeOptions,
+} from "../../data/modelsData";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 
 function CardsList() {
   const [data, setData] = useState([]);
+  const dataSoft = [
+    hairColorOptions,
+    haircutOptions,
+    skinTypeOptions,
+    lipsTypeOptions,
+  ];
 
   useEffect(() => {
     const fetchModelsProducts = async () => {
@@ -30,6 +44,11 @@ function CardsList() {
 
   return (
     <div className="cardsList">
+      {/* <section>
+        {dataSoft.map((item) => (
+          <h1>name</h1>
+        ))}
+      </section> */}
       {categories &&
         Object.entries(categories).map((item) => (
           <div key={item[1][0].id} style={{ width: "20%" }}>
