@@ -47,7 +47,7 @@ router.get("/users", userControllers.browse);
 router.get("/products", productControllers.browse);
 router.get("/products/:id", productControllers.read);
 
-router.get("/models/products", modelsControllers.readModelsAndProducts);
+router.get("/models-products", modelsControllers.readModelsAndProducts);
 
 router.get("/models", modelsControllers.browse);
 router.get("/models/:id", modelsControllers.read);
