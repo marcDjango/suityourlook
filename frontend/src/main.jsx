@@ -22,7 +22,7 @@ import Tuto from "./pages/Tuto/Tuto";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<App />} />
+      <Route index element={<LandingPage />} />
       <Route path="list-cards" element={<CardsList />} />
       {/* <Route path="show-product" element={<ShowProduct />} /> */}
       {/* <Route path="Contact" element={<Contact />} /> */}
@@ -31,7 +31,6 @@ const router = createBrowserRouter(
       <Route path="/tuto" element={<Tuto />} />
       <Route path="/admin-form-model" element={<AdminFormModel />} />
       <Route path="/admin-form-product" element={<AdminFormProduct />} />
-      <Route path="/landing-page" element={<LandingPage />} />
     </Route>
   )
 );

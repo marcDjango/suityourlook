@@ -1,13 +1,54 @@
+/*eslint-disable*/
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./LandingPage.scss";
+import { useEffect } from "react";
 import Section1 from "../../assets/images/model1.jpg";
 import Section2 from "../../assets/images/model2.svg";
 import Section3 from "../../assets/images/model3.svg";
 
 function LandingPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const elementToAnimate = document.getElementsByClassName("section");
+
+    const handleIntersection = (entries) => {
+      console.log(entries);
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    };
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+    Array.from(elementToAnimate).forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  const handleClick = () => {
+    navigate("/list-cards");
+  };
+
   return (
     <div className="landing-page-main-container">
-      <div className="section-1">
+      <div className="section-1 section">
         <img className="img-1" src={Section1} alt="" />
         <div className="text-1">
           <h2 className="title-1">
@@ -22,13 +63,13 @@ function LandingPage() {
             personnalisees qui connectent vos produits a l'authenticite de vos
             clients.
           </p>
-          <button className="btn-1" type="button">
+          <button className="btn-1" type="button" onClick={handleClick}>
             En savoir plus
           </button>
         </div>
       </div>
 
-      <div className="section-2">
+      <div className="section-2 section">
         <img className="img-2" src={Section2} alt="" />
         <div className="text-2">
           <h2 className="title-2">
@@ -43,13 +84,13 @@ function LandingPage() {
             teinte de peau et a la personnalite uniques de chaque utilisateur.
           </p>
 
-          <button className="btn-2" type="button">
+          <button className="btn-2" type="button" onClick={handleClick}>
             En savoir plus
           </button>
         </div>
       </div>
 
-      <div className="section-3">
+      <div className="section-3 section">
         <img className="img-3" src={Section3} alt="" />
         <div className="text-3">
           <h2 className="title-3">
@@ -57,11 +98,11 @@ function LandingPage() {
           </h2>
           <p className="first-p-3">
             Maximisez l'impact des produits L'Oreal en integrant Suit Your Look,
-            la cle de votre succes commercial alliant technologie,
+            la cle de votre succes commercial alliant Intelligence Artificielle,
             recommandations personnalisees, et qualite.
           </p>
 
-          <button className="btn-3" type="button">
+          <button className="btn-3" type="button" onClick={handleClick}>
             En savoir plus
           </button>
         </div>

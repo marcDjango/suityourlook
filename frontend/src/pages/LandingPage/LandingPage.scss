@@ -168,3 +168,15 @@
     }
   }
 }
+
+.section {
+  transition-duration: 1s;
+  opacity: 0;
+  &.active {
+    opacity: 1;
+  }
+}
+
+// .section.active {
+//   // opacity: 1;
+// }
