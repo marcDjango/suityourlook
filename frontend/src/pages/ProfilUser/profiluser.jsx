@@ -4,7 +4,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./profiluser.scss";
-import { useNavigate } from "react-router-dom";
 
 function Profiluser() {
   const [isChangeProfil, setIsChangeProfil] = useState(true);
@@ -87,9 +86,6 @@ function Profiluser() {
     }
     // Redirection de l'utilisateur vers la page d'accueil
   };
-
-  const navigate = useNavigate();
-
   const handleNavigate = () => {
     navigate("/favorite");
   };
