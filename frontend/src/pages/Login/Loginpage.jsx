@@ -91,7 +91,7 @@ function Login() {
               maxLength="255"
             />
             <label className="label" htmlFor="genre">
-              Genre :
+              Genre
               <select className="select" name="genre" id="genre">
                 <option>Mr</option>
                 <option>Mme</option>
@@ -101,7 +101,7 @@ function Login() {
               className="input"
               labelName="phone"
               type="phone"
-              labelText="Numéro de téléphone :"
+              labelText="Numéro de téléphone"
               maxLength="10"
             />
 
