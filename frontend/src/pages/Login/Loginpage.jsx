@@ -101,7 +101,7 @@ function Login() {
               className="input"
               labelName="phone"
               type="phone"
-              labelText="Numéros de téléphone :"
+              labelText="Numéro de téléphone :"
               maxLength="10"
             />
 
