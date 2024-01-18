@@ -13,6 +13,7 @@ function Navbar() {
     "HOME",
     "SERVICES EXCLUSIFS",
     "NOS ENGAGEMENTS",
+    "SUIT YOUR LOOK",
   ];
   const navigate = useNavigate();
   const handleClickRegister = () => {
@@ -25,7 +26,7 @@ function Navbar() {
           <div className="header-navbar-left">
             <p>Besoin d'aide?</p>
           </div>
-          <img className="image-logo" src={logo} alt="" />
+          <img className="nav-img" src={logo} alt="" />
           <div className="header-navbar-rigth">
             <p>Inscription newsletter</p>
             <button
