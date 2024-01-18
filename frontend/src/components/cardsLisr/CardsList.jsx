@@ -140,69 +140,80 @@ function CardsList() {
   console.log(dataMap);
 
   return (
-    <div className="cardsList">
-      <section className="soft-containers">
-        {dataSoft.map((item, index) => (
-          <div key={index} className="soft-cantainer">
-            <button
-              type="button"
-              className="title-soft-style"
-              onClick={(e) => {
-                styleContainer === e.target.textContent
-                  ? setStyleContainer()
-                  : setStyleContainer(e.target.textContent);
-              }}
-            >
-              {item.name}
-            </button>
-            {styleContainer === item.name && (
-              <SortButon
-                item={item.style}
-                active={active}
-                setActive={setActive}
-                setStyleContainer={setStyleContainer}
-              />
-            )}
-          </div>
-        ))}
-      </section>
-
-      {dataMap &&
-        Object.entries(dataMap).map((entry) => {
-          const categoryKey = entry[0];
-          const categoryItems = entry[1];
-
-          return (
-            <div
-              key={entry[1][0].id}
-              style={{ width: "20%" }}
-              className="card-container-item"
-            >
+    <>
+      <div className="cardsList">
+        <section className="soft-containers">
+          {dataSoft.map((item, index) => (
+            <div key={index} className="soft-cantainer">
               <button
                 type="button"
-                className="title-card-btn"
-                onClick={() => {
-                  setDataCategories(categoryItems);
-                  setIsModal(!isModal);
+                className="title-soft-style"
+                onClick={(e) => {
+                  styleContainer === e.target.textContent
+                    ? setStyleContainer()
+                    : setStyleContainer(e.target.textContent);
                 }}
               >
-                {categoryKey}
+                {item.name}
               </button>
-              <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+              {styleContainer === item.name && (
+                <SortButon
+                  item={item.style}
+                  active={active}
+                  setActive={setActive}
+                  setStyleContainer={setStyleContainer}
+                />
+              )}
             </div>
-          );
-        })}
-      {isModal && (
-        <Modal
-          setIsModal={setIsModal}
-          isModal={isModal}
-          dataCategories={dataCategories}
-        />
-      )}
-      {isCard && (
-        <Card item={dataCategories[0]} setIsCard={setIsCard} isCard={isCard} />
-      )}
-    </div>
+          ))}
+        </section>
+
+        {dataMap &&
+          Object.entries(dataMap).map((entry) => {
+            const categoryKey = entry[0];
+            const categoryItems = entry[1];
+
+            return (
+              <div
+                key={entry[1][0].id}
+                style={{ width: "20%" }}
+                className="card-container-item"
+              >
+                <button
+                  type="button"
+                  className="title-card-btn"
+                  onClick={() => {
+                    setDataCategories(categoryItems);
+                    setIsModal(!isModal);
+                  }}
+                >
+                  {categoryKey}
+                </button>
+                <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+              </div>
+            );
+          })}
+        {isModal && (
+          <Modal
+            setIsModal={setIsModal}
+            isModal={isModal}
+            dataCategories={dataCategories}
+          />
+        )}
+        {isCard && (
+          <Card
+            item={dataCategories[0]}
+            setIsCard={setIsCard}
+            isCard={isCard}
+          />
+        )}
+      </div>
+      <div className="card-list-div">
+        <Link to="/tuto" className="card-list-link">
+          Tester notre IA
+        </Link>
+      </div>
+    </>
   );
 }
 
