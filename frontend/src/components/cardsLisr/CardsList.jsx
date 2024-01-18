@@ -143,83 +143,69 @@ function CardsList() {
   console.log(dataMap);
 
   return (
-    <>
-      <div className="cardsList">
-        <section className="soft-containers">
-          {dataSoft.map((item, index) => (
-            <div key={index} className="soft-cantainer">
+    <div className="cardsList">
+      <section className="soft-containers">
+        {dataSoft.map((item, index) => (
+          <div key={index} className="soft-cantainer">
+            <button
+              type="button"
+              className="title-soft-style"
+              onClick={(e) => {
+                styleContainer === e.target.textContent
+                  ? setStyleContainer()
+                  : setStyleContainer(e.target.textContent);
+              }}
+            >
+              {item.name}
+            </button>
+            {styleContainer === item.name && (
+              <SortButon
+                item={item.style}
+                active={active}
+                setActive={setActive}
+                setStyleContainer={setStyleContainer}
+              />
+            )}
+          </div>
+        ))}
+      </section>
+
+      {dataMap &&
+        Object.entries(dataMap).map((entry) => {
+          const categoryKey = entry[0];
+          const categoryItems = entry[1];
+
+          return (
+            <div
+              key={entry[1][0].id}
+              style={{ width: "20%" }}
+              className="card-container-item"
+            >
               <button
                 type="button"
-                className="title-soft-style"
-                onClick={(e) => {
-                  styleContainer === e.target.textContent
-                    ? setStyleContainer()
-                    : setStyleContainer(e.target.textContent);
+                className="title-card-btn"
+                onClick={() => {
+                  setDataCategories(categoryItems);
+                  setIsModal(!isModal);
                 }}
               >
-                {item.name}
+                {categoryKey}
               </button>
-              {styleContainer === item.name && (
-                <SortButon
-                  item={item.style}
-                  active={active}
-                  setActive={setActive}
-                  setStyleContainer={setStyleContainer}
-                />
-              )}
+              <Carusel item={categoryItems} onCardClick={handleCardOpen} />
             </div>
-          ))}
-        </section>
-        {/* {dataMap &&
-        Object.entries(dataMap).map((item) => (
-          <div key={item[1][0].id} style={{ width: "20%" }}>
-            <button type="button" className="title-card-btn">
-              {item[0]}
-            </button>
-            <Carusel item={item[1]} />
-          </div>
-        ))} */}
-        {dataMap &&
-          Object.entries(dataMap).map((entry) => {
-            const categoryKey = entry[0];
-            const categoryItems = entry[1];
-
-            return (
-              <div key={categoryItems[0].id} style={{ width: "20%" }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setDataCategories(categoryItems);
-                    setIsModal(!isModal);
-                  }}
-                >
-                  {categoryKey}
-                </button>
-                <Carusel item={categoryItems} onCardClick={handleCardOpen} />
-              </div>
-            );
-          })}
-        {isModal && (
-          <Modal
-            setIsModal={setIsModal}
-            isModal={isModal}
-            dataCategories={dataCategories}
-          />
-        )}
-        {isCard && (
-          <Card
-            item={dataCategories[0]}
-            setIsCard={setIsCard}
-            isCard={isCard}
-          />
-        )}
-      </div>
-      <div className="card-list-div">
-        <Link to="/tuto" className="card-list-link">
-          Tester notre IA
-        </Link>
-      </div>
-    </>
+          );
+        })}
+      {isModal && (
+        <Modal
+          setIsModal={setIsModal}
+          isModal={isModal}
+          dataCategories={dataCategories}
+        />
+      )}
+      {isCard && (
+        <Card item={dataCategories[0]} setIsCard={setIsCard} isCard={isCard} />
+      )}
+    </div>
   );
 }
 
