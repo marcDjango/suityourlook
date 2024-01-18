@@ -71,7 +71,7 @@ router.delete("/models/:id", modelsControllers.destroy);
 
 // Route for CLOUDINARY
 router.post("/models/upload", modelsControllers.uploadCloud);
-router.get("/models/images", modelsControllers.getImagesFromCloud);
+// router.get("/models/images", modelsControllers.getImagesFromCloud)
 
 // Route for CLOUDINARY
 router.post("/products/upload", productControllers.uploadCloud);

@@ -5,8 +5,9 @@ import "./FormProduct.scss";
 import { useState } from "react";
 import InputSelect from "../InputSelect/InputSelect";
 import { brandOptions, categoriesOptions } from "../../services/productOptions";
+import WaitingUpload from "../../assets/images/upload-maquillage.png";
 
-function FormUpload() {
+function FormProduct() {
   const [previewSource, setPreviewSource] = useState();
 
   const previewFile = (file) => {
@@ -39,16 +40,20 @@ function FormUpload() {
     formData.forEach((value, key) => {
       objectToPost[key] = value;
     });
+    console.log(objectToPost);
 
     objectToPost.image = base64EncodedImage;
 
-    console.log(objectToPost);
+    const token = localStorage.getItem("token");
 
     try {
       await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products/upload`, {
         method: "POST",
         body: JSON.stringify({ objectToPost }),
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
     } catch (error) {
       console.error(error);
@@ -56,11 +61,17 @@ function FormUpload() {
   };
 
   return (
-    <div className="form-upload-main-container">
-      <h1 className="form-main-title">Ajouter un modèle</h1>
-      <form className="form-upload-container" onSubmit={handleSubmitFile}>
-        <label htmlFor="image">
-          <img src={previewSource} alt="chosen" />
+    <div className="form-product-main-container">
+      <h1 className="main-title">Ajouter un produit</h1>
+      <form className="formu" onSubmit={handleSubmitFile}>
+        <label className="label" htmlFor="image">
+          <div className="image">
+            {previewSource ? (
+              <img src={previewSource} alt="chosen" />
+            ) : (
+              <img className="preview-image" src={WaitingUpload} alt="chosen" />
+            )}
+          </div>
           <input
             id="image"
             type="file"
@@ -69,31 +80,36 @@ function FormUpload() {
           />
         </label>
 
-        {/* </form> */}
-
-        <h2 className="form-second-title">Sélectionnez des options :</h2>
-        {/* <form className="form-options-container" onSubmit={handleSubmitFile}> */}
+        {/* <hr style={{ border: "1px solid black", width: "400px" }} /> */}
+        <h2 className="second-title">Sélectionnez des options</h2>
         <Input
           className="form-input"
-          labelName="name"
-          labelText="Nom du modèle"
-          type="name"
+          labelName="product_name"
+          labelText="Nom du produit"
+          type="product_name"
+          maxLength="100"
+        />
+        <Input
+          className="form-input"
+          labelName="product_price"
+          labelText="Prix"
+          type="product_price"
           maxLength="100"
         />
         <InputSelect
-          labelName="hair_color"
+          labelName="product_category"
           labelTitle="Catégorie"
-          id="hair_color"
+          id="product_category"
           modelsOptions={categoriesOptions}
         />
         <InputSelect
-          labelName="hair_style"
+          labelName="brand"
           labelTitle="Marque du produit"
-          id="hair_style"
+          id="brand"
           modelsOptions={brandOptions}
         />
 
-        <div className="form-upload-btn">
+        <div className="button">
           <button type="submit" name="submit">
             Ajouter
           </button>
@@ -103,4 +119,4 @@ function FormUpload() {
   );
 }
 
-export default FormUpload;
+export default FormProduct;

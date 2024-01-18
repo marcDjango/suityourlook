@@ -2,7 +2,6 @@
 
 const tables = require("../tables");
 const { cloudinary } = require("../../cloudinary");
-require("dotenv").config();
 
 const browse = async (req, res, next) => {
   try {

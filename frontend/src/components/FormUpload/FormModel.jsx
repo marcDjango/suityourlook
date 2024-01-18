@@ -11,8 +11,9 @@ import {
   lipsTypeOptions,
   categoriesOptions,
 } from "../../services/modelsOptions";
+import WaitingUpload from "../../assets/images/upload-image.png";
 
-function FormUpload() {
+function FormModel() {
   const [previewSource, setPreviewSource] = useState();
 
   const previewFile = (file) => {
@@ -48,13 +49,16 @@ function FormUpload() {
 
     objectToPost.image = base64EncodedImage;
 
-    console.log(objectToPost);
+    const token = localStorage.getItem("token");
 
     try {
       await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/models/upload`, {
         method: "POST",
         body: JSON.stringify({ objectToPost }),
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
     } catch (error) {
       console.error(error);
@@ -62,11 +66,17 @@ function FormUpload() {
   };
 
   return (
-    <div className="form-upload-main-container">
-      <h1 className="form-main-title">Ajouter un modèle</h1>
-      <form className="form-upload-container" onSubmit={handleSubmitFile}>
-        <label htmlFor="image">
-          <img src={previewSource} alt="chosen" />
+    <div className="form-model-main-container">
+      <h1 className="main-title">Ajouter un modèle</h1>
+      <form className="formu" onSubmit={handleSubmitFile}>
+        <label className="label" htmlFor="image">
+          <div className="image">
+            {previewSource ? (
+              <img src={previewSource} alt="chosen" />
+            ) : (
+              <img className="preview-image" src={WaitingUpload} alt="chosen" />
+            )}
+          </div>
           <input
             id="image"
             type="file"
@@ -74,15 +84,8 @@ function FormUpload() {
             onChange={handleFileInputChange}
           />
         </label>
-        {/* <div className="form-upload-btn">
-          <button type="submit" name="submit">
-            Ajouter
-          </button>
-        </div>
-        </form> */}
 
-        <h2 className="form-second-title">Sélectionnez des options :</h2>
-        {/* <form className="form-options-container" onSubmit={handleSubmitFile}> */}
+        <h2 className="second-title">Sélectionnez des options</h2>
         <Input
           className="form-input"
           labelName="name"
@@ -123,7 +126,7 @@ function FormUpload() {
           modelsOptions={lipsTypeOptions}
         />
 
-        <div className="form-upload-btn">
+        <div className="button">
           <button type="submit" name="submit">
             Ajouter
           </button>
@@ -133,4 +136,4 @@ function FormUpload() {
   );
 }
 
-export default FormUpload;
+export default FormModel;
