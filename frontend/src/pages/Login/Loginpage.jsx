@@ -54,7 +54,7 @@ function Login() {
       <div className="register-page">
         <div className="register-input">
           <h1 className="register-title">Créer un compte</h1>
-          <Form className="form" method="post" action="/register" replace>
+          <Form className="form" method="post" action="/login" replace>
             <Input
               className="input"
               labelName="firstname"
