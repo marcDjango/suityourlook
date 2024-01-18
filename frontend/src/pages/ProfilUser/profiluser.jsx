@@ -3,11 +3,18 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from "react";
 import "./profiluser.scss";
+import { useNavigate } from "react-router-dom";
 
 function Profiluser() {
   const [isChangeProfil, setIsChangeProfil] = useState(true);
   const [isShowProfil, setIsShowProfil] = useState(false);
   const isUserconnect = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
+  const handleClick = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
   const UpdateProfil = async ({ request }) => {
     // Récupération des données du formulaire depuis la requête
@@ -115,7 +122,11 @@ function Profiluser() {
               </div>
             </div>
             <div className="side-button">
-              <button type="button" className="btn-deconnexion">
+              <button
+                type="button"
+                className="btn-deconnexion"
+                onClick={handleClick}
+              >
                 DECONNEXION
               </button>
             </div>
