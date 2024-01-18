@@ -145,8 +145,42 @@ function CardsList() {
   return (
     <>
       <div className="cardsList">
-        {categories &&
-          Object.entries(categories).map((entry) => {
+        <section className="soft-containers">
+          {dataSoft.map((item, index) => (
+            <div key={index} className="soft-cantainer">
+              <button
+                type="button"
+                className="title-soft-style"
+                onClick={(e) => {
+                  styleContainer === e.target.textContent
+                    ? setStyleContainer()
+                    : setStyleContainer(e.target.textContent);
+                }}
+              >
+                {item.name}
+              </button>
+              {styleContainer === item.name && (
+                <SortButon
+                  item={item.style}
+                  active={active}
+                  setActive={setActive}
+                  setStyleContainer={setStyleContainer}
+                />
+              )}
+            </div>
+          ))}
+        </section>
+        {/* {dataMap &&
+        Object.entries(dataMap).map((item) => (
+          <div key={item[1][0].id} style={{ width: "20%" }}>
+            <button type="button" className="title-card-btn">
+              {item[0]}
+            </button>
+            <Carusel item={item[1]} />
+          </div>
+        ))} */}
+        {dataMap &&
+          Object.entries(dataMap).map((entry) => {
             const categoryKey = entry[0];
             const categoryItems = entry[1];
 
