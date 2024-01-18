@@ -49,7 +49,7 @@ li:hover {
   flex-wrap: wrap;
   /* padding-left: 10%; */
 }
-img {
+.nav-img {
   position: absolute;
   top: 1.7rem;
   left: 50%;

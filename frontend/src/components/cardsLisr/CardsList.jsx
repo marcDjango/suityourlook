@@ -1,6 +1,6 @@
 import React from "react";
 import Carusel from "./Carusel";
-
+// import Modal from "../modal/modal";
 import "./cardList.scss";
 
 const data = [
@@ -37,13 +37,15 @@ const data = [
 ];
 function CardsList() {
   return (
-    <div className="cardsList">
-      {data.map((item) => (
-        <div style={{ width: "20%" }}>
-          <h1>sgd</h1>
-          <Carusel item={item} />
-        </div>
-      ))}
+    <div className="cardlist-contain">
+      <div className="cardsList">
+        {data.map((item) => (
+          <div style={{ width: "20%" }}>
+            <h1>{item.title}</h1>
+            <Carusel item={item} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

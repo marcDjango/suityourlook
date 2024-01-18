@@ -20,7 +20,7 @@ function Navbar() {
           <div className="header-navbar-left">
             <p>Besoin d'aide?</p>
           </div>
-          <img src={logo} alt="" />
+          <img className="nav-img" src={logo} alt="" />
           <div className="header-navbar-rigth">
             <p>Inscription newsletter</p>
             <button type="button" className="btn-moncompte">
