@@ -101,13 +101,13 @@ const seed = async () => {
       },
       {
         image:
-          "https://cache.marieclaire.fr/data/photo/w1000_ci/5j/looks-beyonce19.jpg",
-        category: "Travail",
-        name: "Beyoncé",
-        hair_color: "Black",
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705619099/3_vgabkg.png",
+        category: "Entre amis",
+        name: "Laura",
+        hair_color: "Châtain",
         hair_style: "Long",
-        skin_tone: "Dark",
-        lips_type: "Large",
+        skin_tone: "Claire",
+        lips_type: "Fine",
       },
       {
         image:

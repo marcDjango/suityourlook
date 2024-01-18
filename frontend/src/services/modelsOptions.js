@@ -1,5 +1,6 @@
 /*eslint-disable*/
 export const hairColorOptions = [
+  "--",
   "Noir",
   "Brun foncé",
   "Brun",
@@ -14,6 +15,7 @@ export const hairColorOptions = [
   "Autre",
 ];
 export const categoriesOptions = [
+  "--",
   "Soirée",
   "Travail",
   "Entre amis",
@@ -23,6 +25,7 @@ export const categoriesOptions = [
 ];
 
 export const haircutOptions = [
+  "--",
   "Court",
   "Moyen",
   "Long",
@@ -31,24 +34,23 @@ export const haircutOptions = [
   "Frange",
   "Queue de cheval",
   "Chignon",
-  "Rasé sur les côtés",
   "Tresse",
   "Dreadlocks",
   "Autre",
 ];
 
 export const skinTypeOptions = [
-  "Peau normale",
-  "Peau sèche",
-  "Peau mixte",
-  "Peau sensible",
-  "Peau acnéique",
-  "Peau mature",
-  "Peau déshydratée",
+  "--",
+  "Pâle",
+  "Claire",
+  "Medium",
+  "Mate",
+  "Foncée",
   "Autre",
 ];
 
 export const lipsTypeOptions = [
+  "--",
   "Pulpeuses",
   "Fines",
   "Epaisses",
