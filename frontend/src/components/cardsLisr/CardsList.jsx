@@ -1,8 +1,11 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Carusel from "./Carusel";
+import SortButon from "./SortButon";
+import Modal from "../modal/modal";
 import "./cardList.scss";
 import Card from "../Card/Card";
-import Modal from "../modal/modal";
 
 import {
   hairColorOptions,
@@ -20,11 +23,72 @@ function CardsList() {
   const [dataCategories, setDataCategories] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const dataSoft = [
-    hairColorOptions,
-    haircutOptions,
-    skinTypeOptions,
-    lipsTypeOptions,
+    {
+      name: "hairColorOptions",
+      style: [
+        "Noir",
+        "Brun foncé",
+        "Brun",
+        "Châtain",
+        "Blond foncé",
+        "Blonde",
+        "Blond clair",
+        "Roux",
+        "Auburn",
+        "Gris",
+        "Blanc",
+        "Autre",
+      ],
+    },
+    {
+      name: "haircutOptions",
+      style: [
+        "Court",
+        "Moyen",
+        "Long",
+        "Dégradé",
+        "Undercut",
+        "Frange",
+        "Queue de cheval",
+        "Chignon",
+        "Rasé sur les côtés",
+        "Tresse",
+        "Dreadlocks",
+        "Autre",
+      ],
+    },
+    {
+      name: "skinTypeOptions",
+      style: [
+        "Peau normale",
+        "Peau sèche",
+        "Peau grasse",
+        "Peau mixte",
+        "Peau sensible",
+        "Peau acnéique",
+        "Peau mature",
+        "Peau déshydratée",
+        "Autre",
+      ],
+    },
+    {
+      name: "lipsTypeOptions",
+      style: [
+        "Lèvres pulpeuses",
+        "Lèvres fines",
+        "Lèvres épaisses",
+        "Lèvres asymétriques",
+        "Lèvres bien définies",
+        "Lèvres naturelles",
+        "Lèvres dessinées",
+        "Lèvres en forme de cœur",
+        "Lèvres en arc de Cupidon",
+        "Lèvres uniformes",
+        "Autre",
+      ],
+    },
   ];
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const fetchModelsProducts = async () => {
@@ -35,6 +99,7 @@ function CardsList() {
         }
 
         const resalt = await response.json();
+
         setData(resalt);
       } catch (err) {
         console.error(err);
@@ -43,48 +108,84 @@ function CardsList() {
     fetchModelsProducts();
   }, []);
   let categories = [];
+  let categoriesSoftMap;
+  console.log(data);
   if (data.length) {
     categories = Object.groupBy(data, ({ category }) => category);
   }
+  const [dataMap, setDataMap] = useState();
+  useEffect(() => {
+    setDataMap(Object.groupBy(data, ({ category }) => category));
+  }, [data]);
+  useEffect(() => {
+    let dataSortTrue = [];
+    let dataSortFalse = [];
+    for (let i = 0; i < Object.keys(categories).length; i++) {
+      const dataSort = Object.values(categories)[i];
+      dataSort.map((item) => {
+        if (Object.values(item).includes(active)) {
+          dataSortTrue.unshift(item);
+        } else {
+          dataSortFalse.unshift(item);
+        }
+      });
+    }
+    categoriesSoftMap = [...dataSortTrue, ...dataSortFalse];
+    setDataMap(Object.groupBy(categoriesSoftMap, ({ category }) => category));
+  }, [active]);
 
   const handleCardOpen = (item) => {
     setDataCategories([item]);
     setIsCard(true);
   };
 
-  return (
-    <div className="cardsList">
-      {categories &&
-        Object.entries(categories).map((entry) => {
-          const categoryKey = entry[0];
-          const categoryItems = entry[1];
+  const [styleContainer, setStyleContainer] = useState();
+  console.log(dataMap);
 
-          return (
-            <div key={categoryItems[0].id} style={{ width: "20%" }}>
-              <button
-                type="button"
-                onClick={() => {
-                  setDataCategories(categoryItems);
-                  setIsModal(!isModal);
-                }}
-              >
-                {categoryKey}
-              </button>
-              <Carusel item={categoryItems} onCardClick={handleCardOpen} />
-            </div>
-          );
-        })}
-      {isModal && (
-        <Modal
-          setIsModal={setIsModal}
-          isModal={isModal}
-          dataCategories={dataCategories}
-        />
-      )}
-      {isCard && (
-        <Card item={dataCategories[0]} setIsCard={setIsCard} isCard={isCard} />
-      )}
-    </div>
+  return (
+    <>
+      <div className="cardsList">
+        {categories &&
+          Object.entries(categories).map((entry) => {
+            const categoryKey = entry[0];
+            const categoryItems = entry[1];
+
+            return (
+              <div key={categoryItems[0].id} style={{ width: "20%" }}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDataCategories(categoryItems);
+                    setIsModal(!isModal);
+                  }}
+                >
+                  {categoryKey}
+                </button>
+                <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+              </div>
+            );
+          })}
+        {isModal && (
+          <Modal
+            setIsModal={setIsModal}
+            isModal={isModal}
+            dataCategories={dataCategories}
+          />
+        )}
+        {isCard && (
+          <Card
+            item={dataCategories[0]}
+            setIsCard={setIsCard}
+            isCard={isCard}
+          />
+        )}
+      </div>
+      <div className="card-list-div">
+        <Link to="/tuto" className="card-list-link">
+          Tester notre IA
+        </Link>
+      </div>
+    </>
   );
 }
 
