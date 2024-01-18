@@ -4,6 +4,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./Card.scss";
 import PropTypes from "prop-types";
+import basket from "../../assets/images/basket.svg";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 
@@ -81,16 +82,26 @@ function Card({ item, isCard, setIsCard }) {
         <div className="image-main-card">
           <img className="model-image" src={item.image} alt="modele" />
         </div>
-        <div className="text-main-card">
-          {filteredProducts &&
-            filteredProducts.map((product) => (
-              <div key={product.product_id}>
-                <h3>{product.product_category}</h3>
-                <p>{product.product_name}</p>
-                <p>{product.brand}</p>
-                <p>{product.product_price}</p>
-              </div>
-            ))}
+
+        <div className="test">
+          <div className="text-main-card">
+            {filteredProducts &&
+              filteredProducts.map((product) => (
+                <div className="part-text-main-card" key={product.product_id}>
+                  <div className="part-img-main-card">
+                    <img src={product.product_image} alt="" />
+                  </div>
+                  <div className="part-one">
+                    <p>{product.product_name}</p>
+                    <p>{product.brand}</p>
+                    <p>{product.product_price}€</p>
+                  </div>
+                  <div className="part-two">
+                    <img src={basket} alt="basket" />
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </div>

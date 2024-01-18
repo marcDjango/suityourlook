@@ -90,8 +90,7 @@ const seed = async () => {
 
     const modelData = [
       {
-        image:
-          "https://media.vogue.fr/photos/621ce51fd521d794b1af5027/2:3/w_2560%2Cc_limit/1358691846",
+        image: "https://i.ibb.co/9YB5Dmm/scarlett-johanssonv2.png",
         category: "Gala",
         name: "Scarlett Johansson",
         hair_color: "Blonde",
