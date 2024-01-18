@@ -3,7 +3,6 @@ import React, { useRef, useState, useNavigate } from "react";
 // Import Swiper React components
 import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Card from "../Card/Card";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-cards";

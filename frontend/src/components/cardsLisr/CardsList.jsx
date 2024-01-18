@@ -161,22 +161,18 @@ function CardsList() {
           </div>
         ))}
       </section>
-      {/* {dataMap &&
-        Object.entries(dataMap).map((item) => (
-          <div key={item[1][0].id} style={{ width: "20%" }}>
-            <button type="button" className="title-card-btn">
-              {item[0]}
-            </button>
-            <Carusel item={item[1]} />
-          </div>
-        ))} */}
+
       {dataMap &&
         Object.entries(dataMap).map((entry) => {
           const categoryKey = entry[0];
           const categoryItems = entry[1];
 
           return (
-            <div key={entry[1][0].id} style={{ width: "20%" }}>
+            <div
+              key={entry[1][0].id}
+              style={{ width: "20%" }}
+              className="card-container-item"
+            >
               <button
                 type="button"
                 className="title-card-btn"
