@@ -17,17 +17,18 @@ import AdminFormModel from "./pages/adminFormModel/adminFormModel";
 import AdminFormProduct from "./pages/adminFormProduct/adminFormProduct";
 import CardsList from "./components/cardsLisr/CardsList";
 import LandingPage from "./pages/LandingPage/LandingPage";
+import Tuto from "./pages/Tuto/Tuto";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<App />} />
       <Route path="list-cards" element={<CardsList />} />
-      <Route path="list-cards/card" element={<Card />} />
       {/* <Route path="show-product" element={<ShowProduct />} /> */}
       {/* <Route path="Contact" element={<Contact />} /> */}
       {/* <Route path="/register" element={<Register />} action={enrolment} /> */}
       <Route path="/login" element={<Login />} action={authenticate} />
+      <Route path="/tuto" element={<Tuto />} />
       <Route path="/admin-form-model" element={<AdminFormModel />} />
       <Route path="/admin-form-product" element={<AdminFormProduct />} />
       <Route path="/landing-page" element={<LandingPage />} />
