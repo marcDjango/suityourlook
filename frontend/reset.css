@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "CamptonBook";
+  src: url("../frontend/src/assets/font/CamptonBook.otf");
+}
 *,
 *::before,
 *::after {
@@ -110,6 +114,7 @@ section {
 body {
   line-height: 1;
   height: 100%;
+  font-family: "CamptonBook";
 }
 ol,
 ul {
@@ -161,9 +166,4 @@ input[type="search"]::-webkit-search-results-decoration {
 button {
   border: none;
   background: none;
-}
-
-@font-face {
-  font-family: "CamptonBook";
-  src: url("../frontend/src/assets/font/CamptonBook.otf");
 }

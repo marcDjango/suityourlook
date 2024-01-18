@@ -4,6 +4,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10rem;
+  .soft-containers {
+    display: flex;
+
+    .title-soft {
+      display: flex;
+      flex-direction: column;
+    }
+  }
   button {
     height: 2.8rem;
     width: 210px;

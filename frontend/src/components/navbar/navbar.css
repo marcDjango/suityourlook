@@ -1,6 +1,5 @@
 .contain-navbar-main {
   background-color: black;
-  font-family: "CamptonBook", sans-serif;
 }
 
 .contain-navbar {
@@ -26,7 +25,7 @@ li {
   display: block;
   padding: 0.875rem;
   font-size: 12px;
-  font-family: CaptonMedium, sans-serif;
+
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
@@ -37,7 +36,6 @@ li:hover {
 .header-navbar-main {
   display: flex;
   justify-content: center;
-  font-family: "CamptonBook", sans-serif;
 }
 
 .header-navbar {
@@ -49,7 +47,7 @@ li:hover {
   flex-wrap: wrap;
   /* padding-left: 10%; */
 }
-.image-logo {
+.nav-img {
   position: absolute;
   top: 1.7rem;
   left: 50%;

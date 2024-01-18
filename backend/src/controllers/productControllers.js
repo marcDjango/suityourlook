@@ -1,4 +1,5 @@
 const tables = require("../tables");
+const { cloudinary } = require("../../cloudinary");
 
 // ------------------ Méthode GET ------------------
 const browse = async (req, res, next) => {
@@ -52,6 +53,32 @@ const edit = async (req, res, next) => {
   }
 };
 
+// ------------------ Méthode POST for CLOUDINARY ------------------
+const uploadCloud = async (req, res) => {
+  // Post sur Cloudinary
+  try {
+    const { objectToPost } = req.body;
+    const uploadResponse = await cloudinary.uploader.upload(
+      objectToPost.image,
+      {
+        upload_presets: "wwh5pcwo",
+      }
+    );
+    delete objectToPost.image;
+    const updatedObject = { ...objectToPost, image: uploadResponse.secure_url };
+
+    console.info("updatedObject", updatedObject);
+    console.info("uploadResponse", uploadResponse);
+
+    // Post en database
+    const response = await tables.products.add(updatedObject);
+    console.info(response);
+    res.json({ response, msg: "YAYAYAYAA" });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 // ------------------ Méthode DELETE ------------------
 const destroy = async (req, res, next) => {
   try {
@@ -66,4 +93,4 @@ const destroy = async (req, res, next) => {
   }
 };
 
-module.exports = { browse, read, add, edit, destroy };
+module.exports = { browse, read, add, edit, destroy, uploadCloud };
