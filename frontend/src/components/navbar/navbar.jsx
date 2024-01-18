@@ -16,8 +16,13 @@ function Navbar() {
     "SUIT YOUR LOOK",
   ];
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   const handleClickRegister = () => {
-    navigate("/login");
+    if (!token) {
+      return navigate("/login");
+    }
+
+    return navigate("/profil");
   };
   return (
     <div>
