@@ -16,6 +16,7 @@ import Card from "./components/Card/Card";
 import AdminFormModel from "./pages/adminFormModel/adminFormModel";
 import AdminFormProduct from "./pages/adminFormProduct/adminFormProduct";
 import CardsList from "./components/cardsLisr/CardsList";
+import Profiluser from "./pages/ProfilUser/profiluser";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,7 +25,7 @@ const router = createBrowserRouter(
       <Route path="list-cards" element={<CardsList />} />
       <Route path="list-cards/card" element={<Card />} />
       {/* <Route path="show-product" element={<ShowProduct />} /> */}
-      {/* <Route path="Contact" element={<Contact />} /> */}
+      <Route path="profil" element={<Profiluser />} />
       {/* <Route path="/register" element={<Register />} action={enrolment} /> */}
       <Route path="/login" element={<Login />} action={authenticate} />
       <Route path="/admin-form-model" element={<AdminFormModel />} />
