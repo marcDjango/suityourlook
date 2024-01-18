@@ -1,9 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useCurrentBasketContext } from "../context/CurrentBasketContext";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
 
 function Navbar() {
+  const currentBasket = useCurrentBasketContext();
+
   const categories = [
     "NOS OFFRES",
     "MAQUILLAGE",
@@ -41,7 +44,7 @@ function Navbar() {
             >
               Mon compte
             </button>
-            <p>Mon panier (0)</p>
+            <p>Mon panier ({currentBasket})</p>
           </div>
         </div>
       </div>
