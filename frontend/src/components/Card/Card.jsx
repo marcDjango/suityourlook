@@ -5,7 +5,7 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
-import { useCurrentBasketContext } from "../context/CurrentBasketContext";
+import { useCounter } from "../context/CurrentBasketContext";
 import "./Card.scss";
 import basket from "../../assets/images/basket.svg";
 import heart from "../../assets/heart.svg";
@@ -14,7 +14,7 @@ import emptyHeart from "../../assets/heart-outline.svg";
 const { VITE_BACKEND_URL } = import.meta.env;
 
 function Card({ item, isCard, setIsCard }) {
-  const { currentBasket, setCurrentBasket } = useCurrentBasketContext();
+  const { currentBasket, setCurrentBasket } = useCounter();
   console.log(currentBasket);
   const [data, setData] = useState([]);
   const [favorite, setFavorite] = useState(false);
@@ -23,7 +23,7 @@ function Card({ item, isCard, setIsCard }) {
 
   const handleAddToBasket = () => {
     // Incrémentez la valeur globale du panier de 1
-    setCurrentBasket((prevCurrentBasket) => prevCurrentBasket + 1);
+    setCurrentBasket(currentBasket + 1);
   };
   useEffect(() => {
     if (isCard && cardRef.current) {

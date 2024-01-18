@@ -1,13 +1,13 @@
 /*eslint-disable*/
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useCurrentBasketContext } from "../context/CurrentBasketContext";
+import { useCounter } from "../context/CurrentBasketContext";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const currentBasket = useCurrentBasketContext();
+  const { currentBasket } = useCounter();
 
   const categories = [
     "NOS OFFRES",
