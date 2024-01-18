@@ -59,6 +59,11 @@
           img {
             height: 40px;
             width: 40x;
+            transition: transform 0.3s ease-in-out;
+          }
+          &:hover img {
+            transform: scale(5);
+            position: absolute;
           }
         }
 

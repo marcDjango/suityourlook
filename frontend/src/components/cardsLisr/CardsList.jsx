@@ -201,6 +201,7 @@ function CardsList() {
           setIsModal={setIsModal}
           isModal={isModal}
           dataCategories={dataCategories}
+          onCardClick={handleCardOpen}
         />
       )}
       {isCard && (
