@@ -3,26 +3,53 @@ import PropTypes from "prop-types";
 
 const CurrentBasketContext = createContext();
 
-export const useCurrentBasketContext = () => useContext(CurrentBasketContext);
-
-export function CurrentBasketContextProvider({ children }) {
+export default function CounterProvider({ children }) {
   const [currentBasket, setCurrentBasket] = useState(0);
 
-  const contextValue = useMemo(() => {
-    return { currentBasket, setCurrentBasket };
-  }, [currentBasket]);
+  const value = useMemo(
+    () => ({ currentBasket, setCurrentBasket }),
+    [currentBasket]
+  );
 
   return (
-    <CurrentBasketContext.Provider value={contextValue}>
+    <CurrentBasketContext.Provider value={value}>
       {children}
     </CurrentBasketContext.Provider>
   );
 }
 
-CurrentBasketContextProvider.propTypes = {
-  children: PropTypes.node,
+CounterProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-CurrentBasketContextProvider.defaultProps = {
-  children: undefined,
+export const useCounter = () => {
+  const context = useContext(CurrentBasketContext);
+  if (!context) {
+    throw new Error("useOptions must be used within a PlayerProvider");
+  }
+  return context;
 };
+
+// export const useCurrentBasketContext = () => useContext(CurrentBasketContext);
+
+// export function CurrentBasketContextProvider({ children }) {
+//   const [currentBasket, setCurrentBasket] = useState(0);
+
+//   const contextValue = useMemo(() => {
+//     return { currentBasket, setCurrentBasket };
+//   }, [currentBasket]);
+
+//   return (
+//     <CurrentBasketContext.Provider value={contextValue}>
+//       {children}
+//     </CurrentBasketContext.Provider>
+//   );
+// }
+
+// CurrentBasketContextProvider.propTypes = {
+//   children: PropTypes.node,
+// };
+
+// CurrentBasketContextProvider.defaultProps = {
+//   children: undefined,
+// };

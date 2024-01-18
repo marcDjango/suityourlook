@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useCurrentBasketContext } from "../context/CurrentBasketContext";
+import { useCounter } from "../context/CurrentBasketContext";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
 
 function Navbar() {
-  const currentBasket = useCurrentBasketContext();
+  const { currentBasket } = useCounter();
 
   const categories = [
     "NOS OFFRES",
