@@ -1,4 +1,3 @@
-/*eslint-disable*/
 const express = require("express");
 
 const router = express.Router();
@@ -20,6 +19,7 @@ const {
 const userControllers = require("./controllers/userControllers");
 const modelsControllers = require("./controllers/modelsControllers");
 const productControllers = require("./controllers/productControllers");
+const modelsProductsControllers = require("./controllers/modelsProductsControllers");
 
 // Route to get a list of products
 router.get("/models", modelsControllers.browse);
@@ -76,5 +76,7 @@ router.post("/models/upload", modelsControllers.uploadCloud);
 // Route for CLOUDINARY
 router.post("/products/upload", productControllers.uploadCloud);
 // router.get("/products/images", productControllers.getImagesFromCloud);
+
+router.post("/models-products", modelsProductsControllers.add);
 
 module.exports = router;

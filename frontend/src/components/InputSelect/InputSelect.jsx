@@ -6,7 +6,6 @@ function InputSelect({
   labelName,
   labelTitle,
   modelsOptions,
-  numberStock,
   setNumberStock,
   isHandleChange,
 }) {
