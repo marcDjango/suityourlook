@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Carusel from "./Carusel";
 import Modal from "../modal/modal";
+
 import "./cardList.scss";
+
 import Card from "../Card/Card";
 
 import {
@@ -53,38 +56,49 @@ function CardsList() {
   };
 
   return (
-    <div className="cardsList">
-      {categories &&
-        Object.entries(categories).map((entry) => {
-          const categoryKey = entry[0];
-          const categoryItems = entry[1];
+    <>
+      <div className="cardsList">
+        {categories &&
+          Object.entries(categories).map((entry) => {
+            const categoryKey = entry[0];
+            const categoryItems = entry[1];
 
-          return (
-            <div key={categoryItems[0].id} style={{ width: "20%" }}>
-              <button
-                type="button"
-                onClick={() => {
-                  setDataCategories(categoryItems);
-                  setIsModal(!isModal);
-                }}
-              >
-                {categoryKey}
-              </button>
-              <Carusel item={categoryItems} onCardClick={handleCardOpen} />
-            </div>
-          );
-        })}
-      {isModal && (
-        <Modal
-          setIsModal={setIsModal}
-          isModal={isModal}
-          dataCategories={dataCategories}
-        />
-      )}
-      {isCard && (
-        <Card item={dataCategories[0]} setIsCard={setIsCard} isCard={isCard} />
-      )}
-    </div>
+            return (
+              <div key={categoryItems[0].id} style={{ width: "20%" }}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDataCategories(categoryItems);
+                    setIsModal(!isModal);
+                  }}
+                >
+                  {categoryKey}
+                </button>
+                <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+              </div>
+            );
+          })}
+        {isModal && (
+          <Modal
+            setIsModal={setIsModal}
+            isModal={isModal}
+            dataCategories={dataCategories}
+          />
+        )}
+        {isCard && (
+          <Card
+            item={dataCategories[0]}
+            setIsCard={setIsCard}
+            isCard={isCard}
+          />
+        )}
+      </div>
+      <div className="card-list-div">
+        <Link to="/tuto" className="card-list-link">
+          Tester notre IA
+        </Link>
+      </div>
+    </>
   );
 }
 
