@@ -18,8 +18,9 @@ function FormModel() {
   const [previewSource, setPreviewSource] = useState();
   const [numberProduct, setNumberProduct] = useState(1);
   const [numberStock, setNumberStock] = useState(1);
-  console.log(numberStock);
+  const [dataNameProduct, setDataNameProduct] = useState([]);
   const [dataProduct, setDataProduct] = useState([]);
+  console.log(dataNameProduct);
   console.log(dataProduct);
 
   const previewFile = (file) => {
@@ -50,8 +51,20 @@ function FormModel() {
 
     const objectToPost = {};
     formData.forEach((value, key) => {
-      objectToPost[key] = value;
+      if (key !== "ingredients" && key !== "number_stock") {
+        objectToPost[key] = value;
+      }
     });
+
+    const ingrArray = formData.getAll("ingredients");
+
+    const filteredProduct = dataProduct.filter((el) => {
+      if (ingrArray.includes(el.product_name)) {
+        return el.id;
+      }
+    });
+
+    console.log(filteredProduct);
 
     objectToPost.image = base64EncodedImage;
 
@@ -69,6 +82,43 @@ function FormModel() {
     } catch (error) {
       console.error(error);
     }
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/models`,
+        {
+          method: "GET",
+        }
+      );
+      const data = await response.json();
+      const newModel = data[data.length - 1];
+
+      if (newModel) {
+        await Promise.all(
+          filteredProduct.map(async (el) => {
+            const response = await fetch(
+              `${import.meta.env.VITE_BACKEND_URL}/api/models-products`,
+              {
+                method: "POST",
+                body: JSON.stringify({
+                  models_id: newModel.id,
+                  products_id: el.id,
+                }),
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+            if (response.ok) {
+              console.log("ok");
+            }
+          })
+        );
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const numbOfInput = () => {
@@ -78,10 +128,10 @@ function FormModel() {
       inputComponents.push(
         <InputSelect
           key={i}
-          labelName={`ingredients ${i}`}
+          labelName={`ingredients`}
           labelTitle={`ingredients ${i + 1}`}
-          id={`lips_type_${i}`}
-          modelsOptions={dataProduct}
+          id={`ingredients_${i}`}
+          modelsOptions={dataNameProduct}
         />
       );
     }
@@ -97,13 +147,14 @@ function FormModel() {
         );
         if (response.ok) {
           const data = await response.json();
+          setDataProduct(data);
 
           if (data) {
             let array = [];
             data.map((el) => {
               array = [...array, el.product_name];
             });
-            setDataProduct(array);
+            setDataNameProduct(array);
           }
         }
       } catch (error) {
@@ -113,8 +164,6 @@ function FormModel() {
 
     fetchDataProducts();
   }, []);
-
-  console.log(dataProduct);
 
   return (
     <div className="form-model-main-container">
@@ -176,21 +225,21 @@ function FormModel() {
           id="lips_type"
           modelsOptions={lipsTypeOptions}
         />
+        <InputSelect
+          labelName="number_stock"
+          labelTitle="Nombre de produits"
+          id="number_stock"
+          modelsOptions={numberOptions}
+          isHandleChange
+          setNumberStock={setNumberStock}
+        />
+        {numberProduct && <>{numbOfInput()}</>}
 
         <div className="button">
           <button type="submit" name="submit">
             Ajouter
           </button>
         </div>
-        <InputSelect
-          labelName="lips_type"
-          labelTitle="Nombre de produits"
-          id="lips_type"
-          modelsOptions={numberOptions}
-          isHandleChange
-          setNumberStock={setNumberStock}
-        />
-        {numberProduct && <>{numbOfInput()}</>}
       </form>
     </div>
   );
