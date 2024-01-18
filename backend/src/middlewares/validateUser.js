@@ -61,7 +61,7 @@ const validateUser = (req, res, next) => {
     errors.push({
       field: "hashed_password",
       message:
-        "Oups ! Vous avez dépassé la limite de caractères autorisée pour ce champ. Veuillez réduire le nombre de caractères à 30 ou moins et réessayer.",
+        "Oups ! Vous avez dépassé la limite de caractères autorisée pour ce champ. Veuillez réduire le nombre de caractères à 255 ou moins et réessayer.",
     });
   }
   if (genre == null) {
