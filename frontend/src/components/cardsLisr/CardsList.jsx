@@ -131,6 +131,7 @@ function CardsList() {
   const handleCardOpen = (item) => {
     setDataCategories([item]);
     setIsCard(true);
+    setIsModal(false);
   };
 
   const [styleContainer, setStyleContainer] = useState();
@@ -164,6 +165,7 @@ function CardsList() {
             setIsModal={setIsModal}
             isModal={isModal}
             dataCategories={dataCategories}
+            onCardClick={handleCardOpen}
           />
         )}
         {isCard && (
