@@ -1,18 +1,30 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect, useState, useRef } from "react";
-import "./Card.scss";
 import PropTypes from "prop-types";
+import { useCounter } from "../context/CurrentBasketContext";
+import "./Card.scss";
 import basket from "../../assets/images/basket.svg";
+import heart from "../../assets/heart.svg";
+import emptyHeart from "../../assets/heart-outline.svg";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 
 function Card({ item, isCard, setIsCard }) {
+  const { currentBasket, setCurrentBasket } = useCounter();
+  console.log(currentBasket);
   const [data, setData] = useState([]);
+  const [favorite, setFavorite] = useState(false);
   console.log("testdata", item);
   const cardRef = useRef(null);
 
+  const handleAddToBasket = () => {
+    // Incrémentez la valeur globale du panier de 1
+    setCurrentBasket(currentBasket + 1);
+  };
   useEffect(() => {
     if (isCard && cardRef.current) {
       cardRef.current.scrollIntoView({ behavior: "smooth" });
@@ -54,6 +66,35 @@ function Card({ item, isCard, setIsCard }) {
   console.log("groupedProducts", groupedProducts);
   console.log("image", item.image);
 
+  const uploadFavorite = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const payload = JSON.parse(localStorage.getItem("user"));
+
+      const response = await fetch(`${VITE_BACKEND_URL}/api/favorite/`, {
+        method: "POST",
+        body: JSON.stringify({
+          models_id: item.id,
+          users_id: payload.id,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.ok) {
+        console.log("ok");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleFavorite = () => {
+    setFavorite(!favorite);
+    uploadFavorite();
+  };
+
   return (
     <div
       className="modal"
@@ -83,6 +124,13 @@ function Card({ item, isCard, setIsCard }) {
           <img className="model-image" src={item.image} alt="modele" />
         </div>
 
+        <button type="button" onClick={handleFavorite}>
+          {favorite ? (
+            <img src={heart} alt="coeur" />
+          ) : (
+            <img src={emptyHeart} alt="coeur vide" />
+          )}
+        </button>
         <div className="test">
           <div className="text-main-card">
             {filteredProducts &&
@@ -97,7 +145,13 @@ function Card({ item, isCard, setIsCard }) {
                     <p>{product.product_price}€</p>
                   </div>
                   <div className="part-two">
-                    <img src={basket} alt="basket" />
+                    <button
+                      type="button"
+                      style={{ cursor: "pointer" }}
+                      onClick={handleAddToBasket}
+                    >
+                      <img src={basket} alt="basket" />
+                    </button>
                   </div>
                 </div>
               ))}

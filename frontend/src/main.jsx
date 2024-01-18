@@ -19,6 +19,7 @@ import CardsList from "./components/cardsLisr/CardsList";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Profiluser from "./pages/ProfilUser/profiluser";
 import Tuto from "./pages/Tuto/Tuto";
+import CounterProvider from "./components/context/CurrentBasketContext";
 import Favorite from "./pages/Favorite/Favorite";
 
 const router = createBrowserRouter(
@@ -40,4 +41,8 @@ const router = createBrowserRouter(
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<RouterProvider router={router} />);
+root.render(
+  <CounterProvider>
+    <RouterProvider router={router} />
+  </CounterProvider>
+);
