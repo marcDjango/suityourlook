@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/button-has-type */
+/*eslint-disable*/
 import React, { useState } from "react";
 import "./profiluser.scss";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +15,22 @@ function Profiluser() {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     navigate("/");
+  };
+
+  const isAdminModel = () => {
+    if (localStorage.getItem("user")) {
+      return navigate("/admin-form-model");
+    } else {
+      console.log("User not found in local storage or token removal failed.");
+    }
+  };
+
+  const isAdminProduct = () => {
+    if (localStorage.getItem("user")) {
+      return navigate("/admin-form-product");
+    } else {
+      console.log("User not found in local storage or token removal failed.");
+    }
   };
 
   const UpdateProfil = async ({ request }) => {
@@ -118,6 +135,20 @@ function Profiluser() {
               <div className="side-links">
                 {" "}
                 <button className="btn-link">LISTE DES FAVORIS</button>
+                <p>&gt;</p>
+              </div>
+              <div className="side-links">
+                {" "}
+                <button className="btn-link" onClick={isAdminProduct}>
+                  ADMIN PRODUCTS
+                </button>
+                <p>&gt;</p>
+              </div>
+              <div className="side-links">
+                {" "}
+                <button className="btn-link" onClick={isAdminModel}>
+                  ADMIN MODELS
+                </button>
                 <p>&gt;</p>
               </div>
             </div>

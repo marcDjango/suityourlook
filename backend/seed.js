@@ -90,11 +90,12 @@ const seed = async () => {
 
     const modelData = [
       {
-        image: "https://i.ibb.co/9YB5Dmm/scarlett-johanssonv2.png",
-        category: "Gala",
-        name: "Scarlett Johansson",
-        hair_color: "Blonde",
-        hair_style: "Mi-long",
+        image:
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705619109/entre_amis_qsx7zm.png",
+        category: "Entre amis",
+        name: "Laura",
+        hair_color: "Brun foncé",
+        hair_style: "Long",
         skin_tone: "Medium",
         lips_type: "Fine",
       },
