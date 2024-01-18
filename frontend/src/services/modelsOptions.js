@@ -51,14 +51,11 @@ export const skinTypeOptions = [
 
 export const lipsTypeOptions = [
   "--",
-  "Pulpeuses",
-  "Fines",
-  "Epaisses",
-  "Asymétriques",
-  "Naturelles",
-  "Dessinées",
+  "Pulpeuse",
+  "Fine",
+  "Epaisse",
+  "Dessinée",
   "En forme de cœur",
-  "En arc de Cupidon",
   "Autre",
 ];
 
