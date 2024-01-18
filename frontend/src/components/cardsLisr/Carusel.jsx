@@ -14,7 +14,6 @@ function Carusel({ item }) {
   console.log(data);
   const [swiperRef, setSwiperRef] = useState(false);
   console.log();
-
   return (
     <Swiper
       effect={"cards"}

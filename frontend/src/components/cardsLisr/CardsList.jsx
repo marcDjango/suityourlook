@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Carusel from "./Carusel";
-
 import "./cardList.scss";
 
 const { VITE_BACKEND_URL } = import.meta.env;
