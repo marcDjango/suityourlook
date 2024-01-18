@@ -9,13 +9,14 @@
   line-height: normal;
 
   .input-composent-css {
+    font-family: "CamptonBook", sans-serif;
     appearance: none;
     -webkit-appearance: none; /* Pour la compatibilité avec les navigateurs basés sur WebKit (comme Chrome et Safari) */
     -moz-appearance: none; /* Pour la compatibilité avec Firefox */
     border: none; /* Supprime la bordure par défaut */
     outline: none; /* Supprime la bordure de mise au point par défaut */
     /* Ajoute d'autres styles personnalisés ici si nécessaire */
-    width: 320px;
+    width: 300px;
     height: 35px;
     box-shadow: rgb(0, 0, 0) 0px 2px 0px 0px;
   }
@@ -32,7 +33,7 @@
     line-height: normal;
 
     .input-composent-css {
-      width: 320px;
+      width: 300pxpx;
       height: 35px;
       box-shadow: rgb(0, 0, 0) 0px 1px 0px 0px;
 

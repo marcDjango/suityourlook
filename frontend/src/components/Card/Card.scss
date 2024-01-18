@@ -1,5 +1,3 @@
-$style: "CamptonBook";
-
 .modal {
   width: 100%;
   min-height: 100%;
@@ -7,7 +5,6 @@ $style: "CamptonBook";
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: $style;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
   left: 0;
@@ -17,10 +14,8 @@ $style: "CamptonBook";
     justify-content: center;
     flex-direction: column;
     width: 400px;
-    height: 600px;
+    height: auto;
     border: 1px solid;
-    padding: 16px;
-    border-radius: 20px;
     background: white;
 
     .image-main-card {
@@ -29,23 +24,66 @@ $style: "CamptonBook";
       align-items: center;
       width: 100%;
       height: 50%;
+      background-color: black;
+      padding: 16px;
 
       .model-image {
         width: 100%;
-        height: 100%;
-        padding: 8px;
+        height: 300px;
         object-fit: cover;
       }
     }
-    .text-main-card {
-      display: flex;
-      flex-direction: column;
-      padding: 8px;
-      gap: 8px;
-      height: 50%;
 
-      h3 {
-        font-size: 16px;
+    .test {
+      height: auto;
+      margin: 16px;
+      overflow: hidden;
+
+      .text-main-card {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px;
+        max-height: 100%;
+        background-color: white;
+        color: black;
+        border: 6px solid;
+        overflow: auto;
+        .line {
+          height: 1px;
+          width: 100%;
+          background-color: black;
+        }
+        .part-img-main-card {
+          width: 40px;
+          img {
+            height: 40px;
+            width: 40x;
+          }
+        }
+
+        h3 {
+          font-size: 16px;
+        }
+        p {
+          font-size: 16px;
+        }
+        .part-text-main-card {
+          display: flex;
+          justify-content: space-between;
+          border-bottom: 2px solid;
+
+          .part-one {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding-right: 16px;
+            padding-left: 16px;
+            gap: 4px;
+          }
+        }
       }
     }
   }
