@@ -1,0 +1,20 @@
+.favorite-container {
+  .button-favorite {
+    font-size: xx-large;
+    border: 3px solid black;
+    margin: 5px;
+  }
+  .contain-favorite {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    padding-inline: 3dvw;
+    div {
+      width: 30dvw;
+      height: auto;
+      padding: 1rem;
+      border: 10px solid black;
+    }
+  }
+}

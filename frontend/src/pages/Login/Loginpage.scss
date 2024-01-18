@@ -29,16 +29,17 @@
           .continue {
             background-color: black;
             border: none;
-            text-align: center;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
+            font-size: 20px;
+            font-family: "CamptonBook", sans-serif;
             color: white;
-            min-width: 200px;
-            padding: 4px;
+            min-width: 300px;
+            padding: 0;
+            padding-block: 1rem;
             &:hover {
-              background-color: #ff0101;
+              transform: scale(0.95);
+            }
+            &:active {
+              transform: scale(0.9);
             }
           }
         }
@@ -115,14 +116,20 @@
       }
 
       .continue {
-        background: black;
-        text-align: center;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+        background-color: black;
+        border: none;
+        font-size: 20px;
+        font-family: "CamptonBook", sans-serif;
         color: white;
-        padding: 4px;
+        min-width: 300px;
+        padding: 0;
+        padding-block: 1rem;
+        &:hover {
+          transform: scale(0.95);
+        }
+        &:active {
+          transform: scale(0.9);
+        }
       }
     }
   }
@@ -157,18 +164,19 @@
               align-items: center;
             }
             .continue {
-              background: black;
-              text-align: center;
-
-              font-size: clamp(12px, 2vw, 18px);
-              font-style: normal;
-              font-weight: 400;
-              line-height: normal;
-              padding-inline: 8px;
-
-              width: 320px;
+              background-color: black;
+              border: none;
+              font-size: 20px;
+              font-family: "CamptonBook", sans-serif;
+              color: white;
+              min-width: 300px;
+              padding: 0;
+              padding-block: 1rem;
               &:hover {
-                background-color: #b92929;
+                transform: scale(0.95);
+              }
+              &:active {
+                transform: scale(0.9);
               }
             }
           }
@@ -213,6 +221,7 @@
   .login-register-page {
     display: grid;
     grid-template-columns: 40% 60%;
+    column-gap: 4rem;
     margin-top: 40px;
     margin-inline: 10%;
     .register-page {
@@ -266,18 +275,19 @@
           }
         }
         .continue {
-          background: black;
-          text-align: center;
-
-          font-size: clamp(12px, 2vw, 18px);
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-          padding-inline: 8px;
-          margin-top: 24px;
-          width: 320px;
+          background-color: black;
+          border: none;
+          font-size: 20px;
+          font-family: "CamptonBook", sans-serif;
+          color: white;
+          min-width: 300px;
+          padding: 0;
+          padding-block: 1rem;
           &:hover {
-            background-color: #b92929;
+            transform: scale(0.95);
+          }
+          &:active {
+            transform: scale(0.9);
           }
         }
       }

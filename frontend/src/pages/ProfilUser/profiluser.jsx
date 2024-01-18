@@ -2,12 +2,19 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/button-has-type */
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./profiluser.scss";
 
 function Profiluser() {
   const [isChangeProfil, setIsChangeProfil] = useState(true);
   const [isShowProfil, setIsShowProfil] = useState(false);
   const isUserconnect = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
+  const handleClick = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
   const UpdateProfil = async ({ request }) => {
     // Récupération des données du formulaire depuis la requête
@@ -79,6 +86,9 @@ function Profiluser() {
     }
     // Redirection de l'utilisateur vers la page d'accueil
   };
+  const handleNavigate = () => {
+    navigate("/favorite");
+  };
 
   return (
     <div className="contain-profilpage">
@@ -110,12 +120,18 @@ function Profiluser() {
               </div>
               <div className="side-links">
                 {" "}
-                <button className="btn-link">LISTE DES FAVORIS</button>
+                <button className="btn-link" onClick={handleNavigate}>
+                  LISTE DES FAVORIS
+                </button>
                 <p>&gt;</p>
               </div>
             </div>
             <div className="side-button">
-              <button type="button" className="btn-deconnexion">
+              <button
+                type="button"
+                className="btn-deconnexion"
+                onClick={handleClick}
+              >
                 DECONNEXION
               </button>
             </div>
