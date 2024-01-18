@@ -20,6 +20,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import Profiluser from "./pages/ProfilUser/profiluser";
 import Tuto from "./pages/Tuto/Tuto";
 import { CurrentBasketContextProvider } from "./components/context/CurrentBasketContext";
+import Favorite from "./pages/Favorite/Favorite";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
       <Route path="/tuto" element={<Tuto />} />
       <Route path="/admin-form-model" element={<AdminFormModel />} />
       <Route path="/admin-form-product" element={<AdminFormProduct />} />
+      <Route path="/favorite" element={<Favorite />} />
     </Route>
   )
 );

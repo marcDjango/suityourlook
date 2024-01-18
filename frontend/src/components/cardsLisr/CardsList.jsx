@@ -137,6 +137,7 @@ function CardsList() {
   const handleCardOpen = (item) => {
     setDataCategories([item]);
     setIsCard(true);
+    setIsModal(false);
   };
 
   const [styleContainer, setStyleContainer] = useState();
@@ -145,15 +146,46 @@ function CardsList() {
   return (
     <>
       <div className="cardsList">
-        {categories &&
-          Object.entries(categories).map((entry) => {
+        <section className="soft-containers">
+          {dataSoft.map((item, index) => (
+            <div key={index} className="soft-cantainer">
+              <button
+                type="button"
+                className="title-soft-style"
+                onClick={(e) => {
+                  styleContainer === e.target.textContent
+                    ? setStyleContainer()
+                    : setStyleContainer(e.target.textContent);
+                }}
+              >
+                {item.name}
+              </button>
+              {styleContainer === item.name && (
+                <SortButon
+                  item={item.style}
+                  active={active}
+                  setActive={setActive}
+                  setStyleContainer={setStyleContainer}
+                />
+              )}
+            </div>
+          ))}
+        </section>
+
+        {dataMap &&
+          Object.entries(dataMap).map((entry) => {
             const categoryKey = entry[0];
             const categoryItems = entry[1];
 
             return (
-              <div key={categoryItems[0].id} style={{ width: "20%" }}>
+              <div
+                key={entry[1][0].id}
+                style={{ width: "20%" }}
+                className="card-container-item"
+              >
                 <button
                   type="button"
+                  className="title-card-btn"
                   onClick={() => {
                     setDataCategories(categoryItems);
                     setIsModal(!isModal);
