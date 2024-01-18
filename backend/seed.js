@@ -54,7 +54,7 @@ const seed = async () => {
       {
         image:
           "https://cache.marieclaire.fr/data/photo/w1000_ci/5j/looks-beyonce19.jpg",
-        category: "Soirée",
+        category: "Travail",
         name: "Beyoncé",
         hair_color: "Black",
         hair_style: "Long",
@@ -63,8 +63,8 @@ const seed = async () => {
       },
       {
         image:
-          "https://unsplash.com/fr/photos/femme-en-blazer-orange-debout-AzVexpHvuKY",
-        category: "Travail",
+          "https://images.unsplash.com/photo-1582876533492-51fd2f162272?q=80&w=2576&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        category: "Soirée",
         name: "Celine",
         hair_color: "Black",
         hair_style: "Frisée",

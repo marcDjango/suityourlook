@@ -25,7 +25,7 @@ function Carusel({ item }) {
         <SwiperSlide
           key={item.id}
           style={{ backgroundImage: `url(${item.image})` }}
-          onClick={(e) => {
+          onClick={() => {
             setSwiperRef(true);
           }}
         >
