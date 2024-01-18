@@ -49,7 +49,7 @@ li {
   white-space: nowrap;
 }
 li:hover {
-  color: red;
+  color: rgb(227, 40, 71);
 }
 .header-navbar-main {
   display: flex;

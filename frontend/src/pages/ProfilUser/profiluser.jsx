@@ -3,8 +3,8 @@
 /* eslint-disable react/button-has-type */
 /*eslint-disable*/
 import React, { useState } from "react";
-import "./profiluser.scss";
 import { useNavigate } from "react-router-dom";
+import "./profiluser.scss";
 
 function Profiluser() {
   const [isChangeProfil, setIsChangeProfil] = useState(true);
@@ -103,6 +103,9 @@ function Profiluser() {
     }
     // Redirection de l'utilisateur vers la page d'accueil
   };
+  const handleNavigate = () => {
+    navigate("/favorite");
+  };
 
   return (
     <div className="contain-profilpage">
@@ -134,7 +137,9 @@ function Profiluser() {
               </div>
               <div className="side-links">
                 {" "}
-                <button className="btn-link">LISTE DES FAVORIS</button>
+                <button className="btn-link" onClick={handleNavigate}>
+                  LISTE DES FAVORIS
+                </button>
                 <p>&gt;</p>
               </div>
               <div className="side-links">
