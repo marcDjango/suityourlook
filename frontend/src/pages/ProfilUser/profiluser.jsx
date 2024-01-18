@@ -7,19 +7,20 @@ import "./profiluser.scss";
 function Profiluser() {
   const [isChangeProfil, setIsChangeProfil] = useState(true);
   const [isShowProfil, setIsShowProfil] = useState(false);
+  const isUserconnect = JSON.parse(localStorage.getItem("user"));
 
   const UpdateProfil = async ({ request }) => {
     // Récupération des données du formulaire depuis la requête
 
     try {
       const form = await request.formData();
-      if (isShowProfil) {
+      if (isUserconnect.id) {
         const formData = Object.fromEntries(form);
         // Envoi d'une requête POST au backend pour l'authentification
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/users/:id`,
           {
-            method: "POST",
+            method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
