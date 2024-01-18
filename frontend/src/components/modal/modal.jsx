@@ -5,7 +5,7 @@
 import React, { useEffect, useRef } from "react";
 import "./modal.scss";
 
-function Modal({ isModal, setIsModal, dataCategories }) {
+function Modal({ isModal, setIsModal, dataCategories, onCardClick }) {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -13,7 +13,8 @@ function Modal({ isModal, setIsModal, dataCategories }) {
       modalRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [isModal, dataCategories]);
-
+  // eslint-disable-next-line no-restricted-syntax
+  console.log("TEST", dataCategories);
   return (
     <div className="contain-modal" onClick={() => setIsModal(!isModal)}>
       <div
@@ -26,7 +27,11 @@ function Modal({ isModal, setIsModal, dataCategories }) {
       >
         <div className="main-body-modal">
           {dataCategories.map((element) => (
-            <div key={element.id} className="Card">
+            <div
+              key={element.id}
+              className="Card"
+              onClick={() => onCardClick(element)}
+            >
               <img src={element.image} alt="" />
             </div>
           ))}
