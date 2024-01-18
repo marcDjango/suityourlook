@@ -1,10 +1,18 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Carusel from "./Carusel";
 import SortButon from "./SortButon";
 import Modal from "../modal/modal";
-import Card from "../Card/Card";
 import "./cardList.scss";
+import Card from "../Card/Card";
+
+import {
+  hairColorOptions,
+  haircutOptions,
+  skinTypeOptions,
+  lipsTypeOptions,
+} from "../../data/modelsData";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 

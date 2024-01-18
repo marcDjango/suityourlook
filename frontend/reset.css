@@ -2,6 +2,14 @@
   font-family: "CamptonBook";
   src: url("../frontend/src/assets/font/CamptonBook.otf");
 }
+@font-face {
+  font-family: "TheBoldFont";
+  src: url("../frontend/src/assets/font/theBoldFont.otf");
+}
+@font-face {
+  font-family: "Akira";
+  src: url("../frontend/src/assets/font/akiraExpended.otf");
+}
 *,
 *::before,
 *::after {
