@@ -33,6 +33,7 @@ app.use(
       process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
       "http://mysite.com",
       "http://another-domain.com",
+      "http://192.168.84.163:3000",
     ],
   })
 );

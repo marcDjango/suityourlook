@@ -20,6 +20,7 @@ const userControllers = require("./controllers/userControllers");
 const modelsControllers = require("./controllers/modelsControllers");
 const productControllers = require("./controllers/productControllers");
 const modelsProductsControllers = require("./controllers/modelsProductsControllers");
+const favoriteControllers = require("./controllers/favoriteControllers");
 
 // Route to get a list of products
 router.get("/models", modelsControllers.browse);
@@ -57,6 +58,9 @@ router.use(verifyToken);
 
 router.put("/users/:id", userControllers.edit);
 router.delete("/users/:id", userControllers.destroy);
+
+router.get("/favorite", favoriteControllers.readFavorite);
+router.post("/favorite", favoriteControllers.add);
 
 // Add middleware to verify if the user is an admin
 router.use(verifyAdmin);
