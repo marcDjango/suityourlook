@@ -11,12 +11,13 @@ import Login, { authenticate } from "./pages/Login/Loginpage";
 import RootLayout from "./RootLayout";
 import App from "./App";
 import Card from "./components/Card/Card";
+import CardsList from "./components/cardsLisr/CardsList";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<App />} />
-      {/* <Route path="list-cards" element={<Card />} /> */}
+      <Route path="list-cards" element={<CardsList />} />
       <Route path="list-cards/card" element={<Card />} />
       {/* <Route path="show-product" element={<ShowProduct />} /> */}
       {/* <Route path="Contact" element={<Contact />} /> */}
