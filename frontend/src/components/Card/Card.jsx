@@ -1,12 +1,14 @@
+/* eslint-disable */
 // eslint-disable-next-line no-unused-vars
 import { useEffect, useState } from "react";
 import "./Card.scss";
 import model1 from "../../assets/images/model1.jpg";
 
-function Card() {
+function Card({ item }) {
+  console.log(item);
   // const [data, setData] = useState([]);
 
-  // useEffect(() => {
+  // useEffect(() => {https://media.discordapp.net/attachments/1197106714521129031/1197245472188936313/IMG_0219.png?ex=65ba90bc&is=65a81bbc&hm=406fb92a58c4fa8dbd8a24eecf2291c05a04448ed0f9048f6378c89fa4c292ef&=&format=webp&quality=lossless&width=526&height=936
   //   const fetchModelsProducts = async () => {
   //     try {
   //       const response = await fetch("/api/models_products");
