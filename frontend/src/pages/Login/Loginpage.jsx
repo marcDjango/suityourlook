@@ -12,9 +12,7 @@ function Login() {
     localStorage.removeItem("token");
     navigate("/");
   };
-  const handleClickRegister = () => {
-    navigate("/register");
-  };
+
   return (
     <div className="login-register-page">
       <div className="login-page">
@@ -48,18 +46,8 @@ function Login() {
           </div>
         </div>
         <div className="logout-page">
-          <button type="submit" onClick={handleClick}>
+          <button className="logout-button" type="submit" onClick={handleClick}>
             Déconnexion
-          </button>
-        </div>
-        <div className="login-text">
-          <div className="text">Pas de compte??</div>
-          <button
-            className="register"
-            type="submit"
-            onClick={handleClickRegister}
-          >
-            INSCRITS-TOI
           </button>
         </div>
       </div>
