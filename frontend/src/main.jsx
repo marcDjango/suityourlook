@@ -16,6 +16,7 @@ import Card from "./components/Card/Card";
 import AdminFormModel from "./pages/adminFormModel/adminFormModel";
 import AdminFormProduct from "./pages/adminFormProduct/adminFormProduct";
 import CardsList from "./components/cardsLisr/CardsList";
+import LandingPage from "./pages/LandingPage/LandingPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} action={authenticate} />
       <Route path="/admin-form-model" element={<AdminFormModel />} />
       <Route path="/admin-form-product" element={<AdminFormProduct />} />
+      <Route path="/landing-page" element={<LandingPage />} />
     </Route>
   )
 );

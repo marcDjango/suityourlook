@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 import Carusel from "./Carusel";
-import Modal from "../modal/modal";
 import "./cardList.scss";
 
 import {
@@ -15,8 +14,6 @@ const { VITE_BACKEND_URL } = import.meta.env;
 
 function CardsList() {
   const [data, setData] = useState([]);
-  const [isModal, setIsModal] = useState(false);
-  const [dataCategories, setDataCategories] = useState([]);
   const dataSoft = [
     hairColorOptions,
     haircutOptions,
@@ -53,25 +50,12 @@ function CardsList() {
         ))}
       </section> */}
       {categories &&
-        Object.entries(categories).map((item) => {
-          console.log(item[1]);
-          const rep = item[1];
-          return <div key={item[1][0].id} style={{ width: "20%" }}>
-            <button type="button" onClick={() => {setDataCategories(item[1]);
-            setIsModal(!isModal);
-            }}>
-              {item[0]}
-            </button>
+        Object.entries(categories).map((item) => (
+          <div key={item[1][0].id} style={{ width: "20%" }}>
+            <button type="button">{item[0]}</button>
             <Carusel item={item[1]} />
           </div>
-})}
-      {isModal && (
-        <Modal
-          setIsModal={setIsModal}
-          isModal={isModal}
-          dataCategories={dataCategories}
-        />
-      )}
+        ))}
     </div>
   );
 }
