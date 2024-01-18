@@ -15,11 +15,11 @@ export const hairColorOptions = [
 ];
 export const categoriesOptions = [
   "Soirée",
-  "Rendez-vous Pro",
-  "Premier date",
-  "Rencontre belle famille",
-  "Soirée chic",
+  "Travail",
   "Entre amis",
+  "Mariage",
+  "Gala",
+  "Artistique",
 ];
 
 export const haircutOptions = [
@@ -40,7 +40,6 @@ export const haircutOptions = [
 export const skinTypeOptions = [
   "Peau normale",
   "Peau sèche",
-  "Peau grasse",
   "Peau mixte",
   "Peau sensible",
   "Peau acnéique",
@@ -50,16 +49,14 @@ export const skinTypeOptions = [
 ];
 
 export const lipsTypeOptions = [
-  "Lèvres pulpeuses",
-  "Lèvres fines",
-  "Lèvres épaisses",
-  "Lèvres asymétriques",
-  "Lèvres bien définies",
-  "Lèvres naturelles",
-  "Lèvres dessinées",
-  "Lèvres en forme de cœur",
-  "Lèvres en arc de Cupidon",
-  "Lèvres uniformes",
+  "Pulpeuses",
+  "Fines",
+  "Epaisses",
+  "Asymétriques",
+  "Naturelles",
+  "Dessinées",
+  "En forme de cœur",
+  "En arc de Cupidon",
   "Autre",
 ];
 
