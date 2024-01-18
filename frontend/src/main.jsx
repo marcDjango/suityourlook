@@ -13,6 +13,7 @@ import RootLayout from "./RootLayout";
 import App from "./App";
 import Card from "./components/Card/Card";
 import CardsList from "./components/cardsLisr/CardsList";
+import Tuto from "./pages/Tuto/Tuto";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       {/* <Route path="Contact" element={<Contact />} /> */}
       {/* <Route path="/register" element={<Register />} action={enrolment} /> */}
       <Route path="/login" element={<Login />} action={authenticate} />
+      <Route path="/tuto" element={<Tuto />} />
     </Route>
   )
 );
