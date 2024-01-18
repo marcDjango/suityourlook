@@ -1,7 +1,8 @@
-/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import Carusel from "./Carusel";
+import Modal from "../modal/modal";
 import "./cardList.scss";
+import Card from "../Card/Card";
 
 import {
   hairColorOptions,
@@ -14,6 +15,10 @@ const { VITE_BACKEND_URL } = import.meta.env;
 
 function CardsList() {
   const [data, setData] = useState([]);
+  const [isModal, setIsModal] = useState(false);
+  const [isCard, setIsCard] = useState(false);
+  const [dataCategories, setDataCategories] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const dataSoft = [
     hairColorOptions,
     haircutOptions,
@@ -42,20 +47,43 @@ function CardsList() {
     categories = Object.groupBy(data, ({ category }) => category);
   }
 
+  const handleCardOpen = (item) => {
+    setDataCategories([item]);
+    setIsCard(true);
+  };
+
   return (
     <div className="cardsList">
-      {/* <section>
-        {dataSoft.map((item) => (
-          <h1>name</h1>
-        ))}
-      </section> */}
       {categories &&
-        Object.entries(categories).map((item) => (
-          <div key={item[1][0].id} style={{ width: "20%" }}>
-            <button type="button">{item[0]}</button>
-            <Carusel item={item[1]} />
-          </div>
-        ))}
+        Object.entries(categories).map((entry) => {
+          const categoryKey = entry[0];
+          const categoryItems = entry[1];
+
+          return (
+            <div key={categoryItems[0].id} style={{ width: "20%" }}>
+              <button
+                type="button"
+                onClick={() => {
+                  setDataCategories(categoryItems);
+                  setIsModal(!isModal);
+                }}
+              >
+                {categoryKey}
+              </button>
+              <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+            </div>
+          );
+        })}
+      {isModal && (
+        <Modal
+          setIsModal={setIsModal}
+          isModal={isModal}
+          dataCategories={dataCategories}
+        />
+      )}
+      {isCard && (
+        <Card item={dataCategories[0]} setIsCard={setIsCard} isCard={isCard} />
+      )}
     </div>
   );
 }

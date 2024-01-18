@@ -38,6 +38,54 @@ const seed = async () => {
         product_category: "Hair Care",
         product_price: 10,
       },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dw1c2cf447/ProductImages/OAP7233/3600524074647/3600524074647_1.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Elseve Bond Repair",
+        product_category: "Shampoo",
+        product_price: 5.99,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dw570400b9/ProductImages/3600524118426/3600524118426-01.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Elseve Pro Bond Repair Sérum",
+        product_category: "Hair Care",
+        product_price: 13.5,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dwf5b642a0/ProductImages/OAP7391/30149649/0000030149649_1.jpg?sw=465&sh=465&sm=cut&sfrm=png&q=70",
+        brand: "L'Oréal",
+        product_name: "Mascara Panorama Volume Millions de Cils",
+        product_category: "Make Up",
+        product_price: 14.9,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dw017d1a19/ProductImages/OAP6052/3600522337072/3600522337072_1.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Infaillible 24h DUO",
+        product_category: "Make Up",
+        product_price: 14.9,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dwb95a7b4c/ProductImages/OAP3000/3600524057503/3600524057503_1.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Accord Parfait",
+        product_category: "Make Up",
+        product_price: 12.66,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dwb95a7b4c/ProductImages/OAP3000/3600524057503/3600524057503_1.jpg?sw=375&sh=375&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Infaillible 24H ",
+        product_category: "Make Up",
+        product_price: 6.3,
+      },
     ];
 
     const modelData = [
@@ -70,6 +118,87 @@ const seed = async () => {
         hair_style: "Frisée",
         skin_tone: "Dark",
         lips_type: "Plump",
+      },
+      {
+        image:
+          "https://assets.ynap-content.com/story-metadata-image-1537436915819.jpeg",
+        category: "Gala",
+        name: "Emma Watson",
+        hair_color: "Brown",
+        hair_style: "Long",
+        skin_tone: "Light",
+        lips_type: "Full",
+      },
+      {
+        image:
+          "https://www.byrdie.com/thmb/xGD8y_ERDJ9-LmZRS5LbPpAy8QI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cdn.cliqueinc.com__cache__posts__261173__priyanka-chopra-diy-skincare-261173-1529603346196-main.700x0c-c1492540b45e43f2a82511c380753b4a.jpg",
+        category: "Soirée",
+        name: "Priyanka Chopra",
+        hair_color: "Brown",
+        hair_style: "Wavy",
+        skin_tone: "Medium",
+        lips_type: "Plump",
+      },
+      {
+        image:
+          "https://i.pinimg.com/originals/cf/76/02/cf7602b77b623b187e4637568e0cde0c.jpg",
+        category: "Travail",
+        name: "Chris Hemsworth",
+        hair_color: "Blonde",
+        hair_style: "Buzz Cut",
+        skin_tone: "Fair",
+        lips_type: "Thin",
+      },
+      {
+        image:
+          "https://www.gala.fr/imgre/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgal.2Fvar.2Fgal.2Fstorage.2Fimages.2Fmedia.2Fmultiupload_du_15_juillet_2016.2Fzoe-saldana.2F3608532-1-fre-FR.2Fzoe-saldana.2Ejpg/420x420/quality/80/zoe-saldana-son-violent-coup-de-gueule-contre-le-racisme-ordinaire.jpg",
+        category: "Travail",
+        name: "Zoe Saldana",
+        hair_color: "Black",
+        hair_style: "Bob",
+        skin_tone: "Medium",
+        lips_type: "Thin",
+      },
+      {
+        image:
+          "https://www.femina.ch/assets/content/migration/main/2-natalie-portman-novembre-2016-los-angeles-hollywood-film-awards_0.jpg",
+        category: "Gala",
+        name: "Natalie Portman",
+        hair_color: "Brown",
+        hair_style: "Curly",
+        skin_tone: "Light",
+        lips_type: "Full",
+      },
+
+      {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/5/5b/Gal_Gadot_cropped_lighting_corrected_2b.jpg",
+        category: "Soirée",
+        name: "Gal Gadot",
+        hair_color: "Black",
+        hair_style: "Ponytail",
+        skin_tone: "Medium",
+        lips_type: "Plump",
+      },
+      {
+        image:
+          "https://media.glamourmagazine.co.uk/photos/6138b0139734ef64a15ef9d0/master/pass/margot-robbie-glamour-29sep16-getty-b.jpg",
+        category: "Gala",
+        name: "Margot Robbie",
+        hair_color: "Blonde",
+        hair_style: "Bun",
+        skin_tone: "Fair",
+        lips_type: "Plump",
+      },
+      {
+        image:
+          "https://i.pinimg.com/474x/a2/c1/6a/a2c16a45b38973d457e7c21be11718eb.jpg",
+        category: "Travail",
+        name: "Zendaya",
+        hair_color: "Brown",
+        hair_style: "Braids",
+        skin_tone: "Medium",
+        lips_type: "Full",
       },
     ];
 
@@ -130,6 +259,30 @@ const seed = async () => {
       {
         models_id: 3,
         products_id: 3,
+      },
+      {
+        models_id: 7,
+        products_id: 4,
+      },
+      {
+        models_id: 7,
+        products_id: 5,
+      },
+      {
+        models_id: 7,
+        products_id: 6,
+      },
+      {
+        models_id: 7,
+        products_id: 7,
+      },
+      {
+        models_id: 7,
+        products_id: 8,
+      },
+      {
+        models_id: 7,
+        products_id: 9,
       },
     ];
     // Generating Seed Data
