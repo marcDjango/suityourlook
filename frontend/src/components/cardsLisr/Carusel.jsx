@@ -11,9 +11,7 @@ import "swiper/css/effect-cards";
 // import required modules
 function Carusel({ item }) {
   const data = item;
-  console.log(data);
   const [swiperRef, setSwiperRef] = useState(false);
-  console.log();
   return (
     <Swiper
       effect={"cards"}
