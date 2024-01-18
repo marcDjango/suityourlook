@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React from "react";
+import React, { useEffect } from "react";
 import Input from "../Input/Input";
 import "./FormModel.scss";
 import { useState } from "react";
@@ -10,11 +10,17 @@ import {
   skinTypeOptions,
   lipsTypeOptions,
   categoriesOptions,
+  numberOptions,
 } from "../../services/modelsOptions";
 import WaitingUpload from "../../assets/images/upload-image.png";
 
 function FormModel() {
   const [previewSource, setPreviewSource] = useState();
+  const [numberProduct, setNumberProduct] = useState(1);
+  const [numberStock, setNumberStock] = useState(1);
+  console.log(numberStock);
+  const [dataProduct, setDataProduct] = useState([]);
+  console.log(dataProduct);
 
   const previewFile = (file) => {
     const reader = new FileReader();
@@ -64,6 +70,51 @@ function FormModel() {
       console.error(error);
     }
   };
+
+  const numbOfInput = () => {
+    const inputComponents = [];
+
+    for (let i = 0; i < numberStock; i++) {
+      inputComponents.push(
+        <InputSelect
+          key={i}
+          labelName={`ingredients ${i}`}
+          labelTitle={`ingredients ${i + 1}`}
+          id={`lips_type_${i}`}
+          modelsOptions={dataProduct}
+        />
+      );
+    }
+
+    return inputComponents;
+  };
+
+  useEffect(() => {
+    const fetchDataProducts = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/products`
+        );
+        if (response.ok) {
+          const data = await response.json();
+
+          if (data) {
+            let array = [];
+            data.map((el) => {
+              array = [...array, el.product_name];
+            });
+            setDataProduct(array);
+          }
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchDataProducts();
+  }, []);
+
+  console.log(dataProduct);
 
   return (
     <div className="form-model-main-container">
@@ -131,6 +182,15 @@ function FormModel() {
             Ajouter
           </button>
         </div>
+        <InputSelect
+          labelName="lips_type"
+          labelTitle="Nombre de produits"
+          id="lips_type"
+          modelsOptions={numberOptions}
+          isHandleChange
+          setNumberStock={setNumberStock}
+        />
+        {numberProduct && <>{numbOfInput()}</>}
       </form>
     </div>
   );
