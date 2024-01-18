@@ -8,3 +8,24 @@
     max-width: 95%;
   }
 }
+.tuto-list-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .tuto-list-link {
+    padding: 8px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    border: solid 1px;
+    width: 150px;
+    justify-content: center;
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+}
