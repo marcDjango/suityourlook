@@ -1,14 +1,14 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect, useState } from "react";
 import "./Card.scss";
+import PropTypes from "prop-types";
 import model1 from "../../assets/images/model1.jpg";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 
-function Card() {
+function Card({ item }) {
   const [data, setData] = useState([]);
-  const [selectedModelId, setSelectedModelId] = useState(null);
-  const dataCarousel = 3;
+  console.log("testdata", item);
 
   useEffect(() => {
     const fetchModelsProducts = async () => {
@@ -28,13 +28,11 @@ function Card() {
     fetchModelsProducts();
   }, []);
 
-  useEffect(() => {
-    setSelectedModelId(dataCarousel);
-  }, [dataCarousel]);
+  // useEffect(() => {
+  //   setSelectedModelId(dataCarousel);
+  // }, [dataCarousel]);
 
-  const filteredProducts = data.filter(
-    (product) => product.id === selectedModelId
-  );
+  const filteredProducts = data.filter((product) => product.id === item.id);
 
   const groupedProducts = filteredProducts.reduce((acc, product) => {
     if (!acc[product.product_category]) {
@@ -47,7 +45,6 @@ function Card() {
   }, {});
 
   console.log("data", data);
-  console.log("selectedModelId", selectedModelId);
   console.log("filteredProducts", filteredProducts);
   console.log("groupedProducts", groupedProducts);
 
@@ -73,3 +70,10 @@ function Card() {
 }
 
 export default Card;
+
+Card.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number,
+    // other properties of item
+  }).isRequired,
+};
