@@ -6,7 +6,13 @@ import SortButon from "./SortButon";
 import Modal from "../modal/modal";
 import "./cardList.scss";
 import Card from "../Card/Card";
-import "./cardList.scss";
+
+import {
+  hairColorOptions,
+  haircutOptions,
+  skinTypeOptions,
+  lipsTypeOptions,
+} from "../../data/modelsData";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 
