@@ -5,14 +5,21 @@
   flex-wrap: wrap;
   gap: 10rem;
   .soft-containers {
+    width: 100%;
     display: flex;
+    justify-content: space-around;
 
     .title-soft {
       display: flex;
       flex-direction: column;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.287);
+    }
+    .title-soft-btn:hover {
+      transform: scale(1.2);
     }
   }
-  button {
+  .title-card-btn {
     height: 2.8rem;
     width: 210px;
     border-radius: 24px;
@@ -21,6 +28,9 @@
     font-size: 12px;
     border: 1px solid black;
     margin: 10px 0;
+  }
+  .title-soft-btn-active {
+    color: red;
   }
   .swiper {
     width: 100%;

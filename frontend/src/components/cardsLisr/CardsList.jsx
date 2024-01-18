@@ -1,15 +1,10 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import Carusel from "./Carusel";
+import SortButon from "./SortButon";
 import Modal from "../modal/modal";
-import "./cardList.scss";
 import Card from "../Card/Card";
-
-import {
-  hairColorOptions,
-  haircutOptions,
-  skinTypeOptions,
-  lipsTypeOptions,
-} from "../../data/modelsData";
+import "./cardList.scss";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 
@@ -20,11 +15,72 @@ function CardsList() {
   const [dataCategories, setDataCategories] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const dataSoft = [
-    hairColorOptions,
-    haircutOptions,
-    skinTypeOptions,
-    lipsTypeOptions,
+    {
+      name: "hairColorOptions",
+      style: [
+        "Noir",
+        "Brun foncé",
+        "Brun",
+        "Châtain",
+        "Blond foncé",
+        "Blonde",
+        "Blond clair",
+        "Roux",
+        "Auburn",
+        "Gris",
+        "Blanc",
+        "Autre",
+      ],
+    },
+    {
+      name: "haircutOptions",
+      style: [
+        "Court",
+        "Moyen",
+        "Long",
+        "Dégradé",
+        "Undercut",
+        "Frange",
+        "Queue de cheval",
+        "Chignon",
+        "Rasé sur les côtés",
+        "Tresse",
+        "Dreadlocks",
+        "Autre",
+      ],
+    },
+    {
+      name: "skinTypeOptions",
+      style: [
+        "Peau normale",
+        "Peau sèche",
+        "Peau grasse",
+        "Peau mixte",
+        "Peau sensible",
+        "Peau acnéique",
+        "Peau mature",
+        "Peau déshydratée",
+        "Autre",
+      ],
+    },
+    {
+      name: "lipsTypeOptions",
+      style: [
+        "Lèvres pulpeuses",
+        "Lèvres fines",
+        "Lèvres épaisses",
+        "Lèvres asymétriques",
+        "Lèvres bien définies",
+        "Lèvres naturelles",
+        "Lèvres dessinées",
+        "Lèvres en forme de cœur",
+        "Lèvres en arc de Cupidon",
+        "Lèvres uniformes",
+        "Autre",
+      ],
+    },
   ];
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const fetchModelsProducts = async () => {
@@ -35,6 +91,7 @@ function CardsList() {
         }
 
         const resalt = await response.json();
+
         setData(resalt);
       } catch (err) {
         console.error(err);
@@ -43,26 +100,86 @@ function CardsList() {
     fetchModelsProducts();
   }, []);
   let categories = [];
+  let categoriesSoftMap;
+  console.log(data);
   if (data.length) {
     categories = Object.groupBy(data, ({ category }) => category);
   }
+  const [dataMap, setDataMap] = useState();
+  useEffect(() => {
+    setDataMap(Object.groupBy(data, ({ category }) => category));
+  }, [data]);
+  useEffect(() => {
+    let dataSortTrue = [];
+    let dataSortFalse = [];
+    for (let i = 0; i < Object.keys(categories).length; i++) {
+      const dataSort = Object.values(categories)[i];
+      dataSort.map((item) => {
+        if (Object.values(item).includes(active)) {
+          dataSortTrue.unshift(item);
+        } else {
+          dataSortFalse.unshift(item);
+        }
+      });
+    }
+    categoriesSoftMap = [...dataSortTrue, ...dataSortFalse];
+    setDataMap(Object.groupBy(categoriesSoftMap, ({ category }) => category));
+  }, [active]);
 
   const handleCardOpen = (item) => {
     setDataCategories([item]);
     setIsCard(true);
   };
 
+  const [styleContainer, setStyleContainer] = useState();
+  console.log(dataMap);
+
   return (
     <div className="cardsList">
-      {categories &&
-        Object.entries(categories).map((entry) => {
+      <section className="soft-containers">
+        {dataSoft.map((item, index) => (
+          <div key={index} className="soft-cantainer">
+            <button
+              type="button"
+              className="title-soft-style"
+              onClick={(e) => {
+                styleContainer === e.target.textContent
+                  ? setStyleContainer()
+                  : setStyleContainer(e.target.textContent);
+              }}
+            >
+              {item.name}
+            </button>
+            {styleContainer === item.name && (
+              <SortButon
+                item={item.style}
+                active={active}
+                setActive={setActive}
+                setStyleContainer={setStyleContainer}
+              />
+            )}
+          </div>
+        ))}
+      </section>
+      {/* {dataMap &&
+        Object.entries(dataMap).map((item) => (
+          <div key={item[1][0].id} style={{ width: "20%" }}>
+            <button type="button" className="title-card-btn">
+              {item[0]}
+            </button>
+            <Carusel item={item[1]} />
+          </div>
+        ))} */}
+      {dataMap &&
+        Object.entries(dataMap).map((entry) => {
           const categoryKey = entry[0];
           const categoryItems = entry[1];
 
           return (
-            <div key={categoryItems[0].id} style={{ width: "20%" }}>
+            <div key={entry[1][0].id} style={{ width: "20%" }}>
               <button
                 type="button"
+                className="title-card-btn"
                 onClick={() => {
                   setDataCategories(categoryItems);
                   setIsModal(!isModal);
