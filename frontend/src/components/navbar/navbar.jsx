@@ -56,7 +56,7 @@ function Navbar() {
               <li key={lien}>{lien}</li>
             ))}
             <ul>
-              <Link to="/">Suit Your Look</Link>
+              <Link to="/list-cards">Suit Your Look</Link>
             </ul>
           </ul>
           <button type="button" className="btn-recherche">
