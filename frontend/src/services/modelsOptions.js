@@ -11,7 +11,7 @@ export const hairColorOptions = [
   "Roux",
   "Auburn",
   "Gris",
-  "Blanc",
+  "Coloré",
   "Autre",
 ];
 export const categoriesOptions = [
@@ -32,10 +32,10 @@ export const haircutOptions = [
   "Dégradé",
   "Undercut",
   "Frange",
-  "Queue de cheval",
+  "Bohème",
   "Chignon",
   "Tresse",
-  "Dreadlocks",
+  "Afro",
   "Autre",
 ];
 
@@ -55,7 +55,7 @@ export const lipsTypeOptions = [
   "Fine",
   "Epaisse",
   "Dessinée",
-  "En forme de cœur",
+  "En cœur",
   "Autre",
 ];
 
