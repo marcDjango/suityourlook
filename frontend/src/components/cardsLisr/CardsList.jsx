@@ -25,11 +25,9 @@ function CardsList() {
         "Châtain",
         "Blond foncé",
         "Blond",
-        "Blond clair",
         "Roux",
-        "Auburn",
         "Gris",
-        "Blanc",
+        "Coloré",
         "Autre",
       ],
     },
@@ -42,39 +40,20 @@ function CardsList() {
         "Dégradé",
         "Undercut",
         "Frange",
-        "Queue de cheval",
+        "Bohème",
         "Chignon",
         "Tresse",
-        "Dreadlocks",
+        "Afro",
         "Autre",
       ],
     },
     {
       name: "Type de peau",
-      style: [
-        "Normale",
-        "Sèche",
-        "Mixte",
-        "Sensible",
-        "Acnéique",
-        "Mature",
-        "Déshydratée",
-        "Autre",
-      ],
+      style: ["Pâle", "Claire", "Medium", "Mate", "Foncée", "Autre"],
     },
     {
       name: "Type de bouche",
-      style: [
-        "Pulpeuses",
-        "Fines",
-        "Epaisses",
-        "Asymétriques",
-        "Naturelles",
-        "Dessinées",
-        "En forme de cœur",
-        "En arc de Cupidon",
-        "Autre",
-      ],
+      style: ["Pulpeuse", "Fine", "Epaisse", "Dessinée", "En cœur", "Autre"],
     },
   ];
   const [active, setActive] = useState(false);
@@ -206,7 +185,7 @@ function CardsList() {
       </div>
       <div className="card-list-div">
         <Link to="/tuto" className="card-list-link">
-          Tester notre IA
+          TESTER NOTRE IA
         </Link>
       </div>
     </>

@@ -14,7 +14,7 @@ function Tuto() {
       <Frame3 />
       <div className="tuto-list-div">
         <Link to="/" className="tuto-list-link">
-          Tester notre IA
+          TESTER NOTRE IA
         </Link>
       </div>
     </div>

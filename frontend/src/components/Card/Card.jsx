@@ -147,9 +147,9 @@ function Card({ item, isCard, setIsCard }) {
                   <div className="part-two">
                     <button
                       type="button"
+                      className="button-shop"
                       style={{ cursor: "pointer" }}
                       onClick={handleAddToBasket}
-                      className="button-shop"
                     >
                       <img src={basket} alt="basket" />
                     </button>
