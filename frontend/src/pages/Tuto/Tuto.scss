@@ -13,6 +13,7 @@
   flex-direction: column;
   align-items: center;
   .tuto-list-link {
+    font-size: 24px;
     padding: 8px;
     margin-top: 20px;
     display: flex;
@@ -21,11 +22,12 @@
     text-decoration: none;
     color: white;
     border: solid 1px;
-    width: 150px;
+    width: 300px;
     justify-content: center;
     &:hover {
       background-color: white;
       color: black;
+      transform: scale(1.15);
     }
   }
 }
