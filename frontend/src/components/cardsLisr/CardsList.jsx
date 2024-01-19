@@ -139,46 +139,48 @@ function CardsList() {
             </div>
           ))}
         </section>
+        <div className="cardsList-container">
+          {" "}
+          {dataMap &&
+            Object.entries(dataMap).map((entry) => {
+              const categoryKey = entry[0];
+              const categoryItems = entry[1];
 
-        {dataMap &&
-          Object.entries(dataMap).map((entry) => {
-            const categoryKey = entry[0];
-            const categoryItems = entry[1];
-
-            return (
-              <div
-                key={entry[1][0].id}
-                style={{ width: "20%" }}
-                className="card-container-item"
-              >
-                <button
-                  type="button"
-                  className="title-card-btn"
-                  onClick={() => {
-                    setDataCategories(categoryItems);
-                    setIsModal(!isModal);
-                  }}
+              return (
+                <div
+                  key={entry[1][0].id}
+                  style={{ width: "25%" }}
+                  className="card-container-item"
                 >
-                  {categoryKey}
-                </button>
-                <Carusel item={categoryItems} onCardClick={handleCardOpen} />
-              </div>
-            );
-          })}
-        {isModal && (
-          <Modal
-            setIsModal={setIsModal}
-            isModal={isModal}
-            dataCategories={dataCategories}
-          />
-        )}
-        {isCard && (
-          <Card
-            item={dataCategories[0]}
-            setIsCard={setIsCard}
-            isCard={isCard}
-          />
-        )}
+                  <button
+                    type="button"
+                    className="title-card-btn"
+                    onClick={() => {
+                      setDataCategories(categoryItems);
+                      setIsModal(!isModal);
+                    }}
+                  >
+                    {categoryKey}
+                  </button>
+                  <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+                </div>
+              );
+            })}
+          {isModal && (
+            <Modal
+              setIsModal={setIsModal}
+              isModal={isModal}
+              dataCategories={dataCategories}
+            />
+          )}
+          {isCard && (
+            <Card
+              item={dataCategories[0]}
+              setIsCard={setIsCard}
+              isCard={isCard}
+            />
+          )}
+        </div>
       </div>
       <div className="card-list-div">
         <Link to="/tuto" className="card-list-link">
