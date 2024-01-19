@@ -7,13 +7,6 @@ import Modal from "../modal/modal";
 import "./cardList.scss";
 import Card from "../Card/Card";
 
-import {
-  hairColorOptions,
-  haircutOptions,
-  skinTypeOptions,
-  lipsTypeOptions,
-} from "../../data/modelsData";
-
 const { VITE_BACKEND_URL } = import.meta.env;
 
 function CardsList() {
@@ -24,14 +17,14 @@ function CardsList() {
   // eslint-disable-next-line no-unused-vars
   const dataSoft = [
     {
-      name: "hairColorOptions",
+      name: "Couleur de cheveux",
       style: [
         "Noir",
         "Brun foncé",
         "Brun",
         "Châtain",
         "Blond foncé",
-        "Blonde",
+        "Blond",
         "Blond clair",
         "Roux",
         "Auburn",
@@ -41,7 +34,7 @@ function CardsList() {
       ],
     },
     {
-      name: "haircutOptions",
+      name: "Type de coiffure",
       style: [
         "Court",
         "Moyen",
@@ -51,39 +44,35 @@ function CardsList() {
         "Frange",
         "Queue de cheval",
         "Chignon",
-        "Rasé sur les côtés",
         "Tresse",
         "Dreadlocks",
         "Autre",
       ],
     },
     {
-      name: "skinTypeOptions",
+      name: "Type de peau",
       style: [
-        "Peau normale",
-        "Peau sèche",
-        "Peau grasse",
-        "Peau mixte",
-        "Peau sensible",
-        "Peau acnéique",
-        "Peau mature",
-        "Peau déshydratée",
+        "Normale",
+        "Sèche",
+        "Mixte",
+        "Sensible",
+        "Acnéique",
+        "Mature",
+        "Déshydratée",
         "Autre",
       ],
     },
     {
-      name: "lipsTypeOptions",
+      name: "Type de bouche",
       style: [
-        "Lèvres pulpeuses",
-        "Lèvres fines",
-        "Lèvres épaisses",
-        "Lèvres asymétriques",
-        "Lèvres bien définies",
-        "Lèvres naturelles",
-        "Lèvres dessinées",
-        "Lèvres en forme de cœur",
-        "Lèvres en arc de Cupidon",
-        "Lèvres uniformes",
+        "Pulpeuses",
+        "Fines",
+        "Epaisses",
+        "Asymétriques",
+        "Naturelles",
+        "Dessinées",
+        "En forme de cœur",
+        "En arc de Cupidon",
         "Autre",
       ],
     },
@@ -144,70 +133,80 @@ function CardsList() {
   console.log(dataMap);
 
   return (
-    <div className="cardsList">
-      <section className="soft-containers">
-        {dataSoft.map((item, index) => (
-          <div key={index} className="soft-cantainer">
-            <button
-              type="button"
-              className="title-soft-style"
-              onClick={(e) => {
-                styleContainer === e.target.textContent
-                  ? setStyleContainer()
-                  : setStyleContainer(e.target.textContent);
-              }}
-            >
-              {item.name}
-            </button>
-            {styleContainer === item.name && (
-              <SortButon
-                item={item.style}
-                active={active}
-                setActive={setActive}
-                setStyleContainer={setStyleContainer}
-              />
-            )}
-          </div>
-        ))}
-      </section>
-
-      {dataMap &&
-        Object.entries(dataMap).map((entry) => {
-          const categoryKey = entry[0];
-          const categoryItems = entry[1];
-
-          return (
-            <div
-              key={entry[1][0].id}
-              style={{ width: "20%" }}
-              className="card-container-item"
-            >
+    <>
+      <div className="cardsList">
+        <section className="soft-containers">
+          {dataSoft.map((item, index) => (
+            <div key={index} className="soft-cantainer">
               <button
                 type="button"
-                className="title-card-btn"
-                onClick={() => {
-                  setDataCategories(categoryItems);
-                  setIsModal(!isModal);
+                className="title-soft-style"
+                onClick={(e) => {
+                  styleContainer === e.target.textContent
+                    ? setStyleContainer()
+                    : setStyleContainer(e.target.textContent);
                 }}
               >
-                {categoryKey}
+                {item.name}
               </button>
-              <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+              {styleContainer === item.name && (
+                <SortButon
+                  item={item.style}
+                  active={active}
+                  setActive={setActive}
+                  setStyleContainer={setStyleContainer}
+                />
+              )}
             </div>
-          );
-        })}
-      {isModal && (
-        <Modal
-          setIsModal={setIsModal}
-          isModal={isModal}
-          dataCategories={dataCategories}
-          onCardClick={handleCardOpen}
-        />
-      )}
-      {isCard && (
-        <Card item={dataCategories[0]} setIsCard={setIsCard} isCard={isCard} />
-      )}
-    </div>
+          ))}
+        </section>
+
+        {dataMap &&
+          Object.entries(dataMap).map((entry) => {
+            const categoryKey = entry[0];
+            const categoryItems = entry[1];
+
+            return (
+              <div
+                key={entry[1][0].id}
+                style={{ width: "20%" }}
+                className="card-container-item"
+              >
+                <button
+                  type="button"
+                  className="title-card-btn"
+                  onClick={() => {
+                    setDataCategories(categoryItems);
+                    setIsModal(!isModal);
+                  }}
+                >
+                  {categoryKey}
+                </button>
+                <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+              </div>
+            );
+          })}
+        {isModal && (
+          <Modal
+            setIsModal={setIsModal}
+            isModal={isModal}
+            dataCategories={dataCategories}
+          />
+        )}
+        {isCard && (
+          <Card
+            item={dataCategories[0]}
+            setIsCard={setIsCard}
+            isCard={isCard}
+          />
+        )}
+      </div>
+      <div className="card-list-div">
+        <Link to="/tuto" className="card-list-link">
+          Tester notre IA
+        </Link>
+      </div>
+    </>
   );
 }
 

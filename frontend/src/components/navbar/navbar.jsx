@@ -1,9 +1,14 @@
+/*eslint-disable*/
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useCounter } from "../context/CurrentBasketContext";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
+  const { currentBasket } = useCounter();
+
   const categories = [
     "NOS OFFRES",
     "MAQUILLAGE",
@@ -13,7 +18,6 @@ function Navbar() {
     "HOME",
     "SERVICES EXCLUSIFS",
     "NOS ENGAGEMENTS",
-    "SUIT YOUR LOOK",
   ];
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
@@ -41,7 +45,7 @@ function Navbar() {
             >
               Mon compte
             </button>
-            <p>Mon panier (0)</p>
+            <p>Mon panier ({currentBasket})</p>
           </div>
         </div>
       </div>
@@ -51,6 +55,9 @@ function Navbar() {
             {categories.map((lien) => (
               <li key={lien}>{lien}</li>
             ))}
+            <ul>
+              <Link to="/">Suit Your Look</Link>
+            </ul>
           </ul>
           <button type="button" className="btn-recherche">
             Recherche un produit...
