@@ -124,7 +124,7 @@ function Card({ item, isCard, setIsCard }) {
           <img className="model-image" src={item.image} alt="modele" />
         </div>
 
-        <button type="button" onClick={handleFavorite}>
+        <button type="button" className="button-heart" onClick={handleFavorite}>
           {favorite ? (
             <img src={heart} alt="coeur" />
           ) : (
@@ -149,6 +149,7 @@ function Card({ item, isCard, setIsCard }) {
                       type="button"
                       style={{ cursor: "pointer" }}
                       onClick={handleAddToBasket}
+                      className="button-shop"
                     >
                       <img src={basket} alt="basket" />
                     </button>
