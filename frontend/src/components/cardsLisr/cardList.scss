@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 1rem;
 }
 .cardsList {
   display: flex;
@@ -15,10 +16,15 @@
     padding: 10px 0;
     width: 20%;
     max-height: 100%;
+    margin: 1rem;
 
     .title-soft-style {
       font-size: 1rem;
       margin-top: 10px;
+      border: 1px solid black;
+      width: 150px;
+      padding: 0.5rem;
+      font-size: 18px;
 
       cursor: pointer;
       text-align: start;
@@ -52,7 +58,7 @@
     height: 2.8rem;
     width: 210px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
     border: 1px solid black;
     background-color: rgba(255, 255, 255, 0.5);
     margin: 16px 30px;
@@ -60,6 +66,7 @@
   .title-card-btn:hover {
     transform: scale(1.1);
     color: rgb(227, 40, 71);
+    transition-duration: 1s;
   }
   .title-soft-btn-active {
     color: rgb(227, 40, 71);
@@ -78,7 +85,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-block: 40px;
+  margin-block: 3rem;
   .card-list-link {
     padding: 8px;
     margin-top: 20px;
