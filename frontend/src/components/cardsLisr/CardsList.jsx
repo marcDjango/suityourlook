@@ -17,7 +17,7 @@ function CardsList() {
   // eslint-disable-next-line no-unused-vars
   const dataSoft = [
     {
-      name: "Couleur de cheveux",
+      name: "Cheveux",
       style: [
         "Noir",
         "Brun foncé",
@@ -32,7 +32,7 @@ function CardsList() {
       ],
     },
     {
-      name: "Type de coiffure",
+      name: "Coiffure",
       style: [
         "Court",
         "Moyen",
@@ -48,11 +48,11 @@ function CardsList() {
       ],
     },
     {
-      name: "Type de peau",
+      name: "Peau",
       style: ["Pâle", "Claire", "Medium", "Mate", "Foncée", "Autre"],
     },
     {
-      name: "Type de bouche",
+      name: "Lèvres",
       style: ["Pulpeuse", "Fine", "Epaisse", "Dessinée", "En cœur", "Autre"],
     },
   ];
@@ -111,6 +111,7 @@ function CardsList() {
   const [styleContainer, setStyleContainer] = useState();
   console.log(dataMap);
 
+  // ---------------------- RENDER ----------------------
   return (
     <>
       <div className="cardsList">

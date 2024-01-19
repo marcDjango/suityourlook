@@ -13,24 +13,26 @@
   .soft-containers {
     display: flex;
     flex-direction: column;
+    row-gap: 2rem;
     padding: 10px 0;
-    width: 20%;
+    width: 400px;
     max-height: 100%;
-    margin: 1rem;
-
+    margin-left: 2rem;
+    margin-top: 2rem;
     .title-soft-style {
       font-size: 1rem;
-      margin-top: 10px;
-      border: 1px solid black;
+      border-bottom: 1px solid gray;
       width: 150px;
-      padding: 0.5rem;
-      font-size: 18px;
+      padding-bottom: 0.7rem;
+      font-size: 1.2rem;
+      font-weight: bold;
 
       cursor: pointer;
       text-align: start;
     }
     .title-soft-style:hover {
-      transform: scale(1.1);
+      transition-duration: 0.7s;
+      transform: scale(1.2);
       color: rgb(227, 40, 71);
     }
     .title-soft {
@@ -38,17 +40,22 @@
       z-index: 99;
       display: flex;
       flex-direction: column;
-
       background-color: rgba(255, 255, 255, 0.8);
       cursor: pointer;
     }
     .title-soft-btn {
       text-align: start;
-      padding: 0 30px;
-    }
-    .title-soft-btn:hover {
-      transform: scale(1.3);
-      color: rgb(227, 40, 71);
+      padding: 0.5rem;
+      font-size: 16px;
+
+      &:hover {
+        transition-duration: 0.7s;
+        transform: scale(0.95);
+        color: rgb(227, 40, 71);
+      }
+      &:active {
+        color: rgb(56, 40, 227);
+      }
     }
   }
   .card-container-item {
@@ -68,9 +75,9 @@
     color: rgb(227, 40, 71);
     transition-duration: 1s;
   }
-  .title-soft-btn-active {
-    color: rgb(227, 40, 71);
-  }
+  // .title-soft-btn-active {
+  //   color: rgb(56, 40, 227);
+  // }
   .swiper {
     width: 100%;
     height: 320px;
