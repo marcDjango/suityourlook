@@ -1,12 +1,24 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCounter } from "../context/CurrentBasketContext";
 import logo from "../../assets/logo.png";
+import basketnavbar from "../../assets/basket.svg";
+
 import "./navbar.css";
 
 function Navbar() {
   const { currentBasket } = useCounter();
+  const navigate = useNavigate();
 
+  const handleNavigation = (lien) => {
+    if (lien === "HOME") {
+      navigate("/");
+    } else {
+      // Gérer la navigation pour les autres liens si nécessaire
+    }
+  };
   const categories = [
     "NOS OFFRES",
     "MAQUILLAGE",
@@ -18,7 +30,7 @@ function Navbar() {
     "NOS ENGAGEMENTS",
     "SUIT YOUR LOOK",
   ];
-  const navigate = useNavigate();
+
   const token = localStorage.getItem("token");
   const handleClickRegister = () => {
     if (!token) {
@@ -45,6 +57,7 @@ function Navbar() {
               Mon compte
             </button>
             <p>Mon panier ({currentBasket})</p>
+            <img className="icon-basket" src={basketnavbar} alt="basket" />
           </div>
         </div>
       </div>
@@ -52,7 +65,9 @@ function Navbar() {
         <div className="contain-navbar">
           <ul>
             {categories.map((lien) => (
-              <li key={lien}>{lien}</li>
+              <li key={lien} onClick={() => handleNavigation(lien)}>
+                {lien}
+              </li>
             ))}
           </ul>
           <button type="button" className="btn-recherche">

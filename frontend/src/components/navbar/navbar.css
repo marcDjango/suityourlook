@@ -66,6 +66,10 @@ li:hover {
   font-size: 12px;
   align-items: center;
 }
+.icon-basket {
+  width: 20px;
+  height: 20px;
+}
 .btn-recherche {
   height: 2.8rem;
   width: 210px;
@@ -82,6 +86,7 @@ li:hover {
   font-size: 10px;
   border-radius: 5px;
   margin-inline: 1.5rem;
+  cursor: pointer;
 }
 .loupe {
   background-image: url("../../assets/search.svg");
