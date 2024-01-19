@@ -221,7 +221,7 @@ function FormModel() {
         />
         <InputSelect
           labelName="lips_type"
-          labelTitle="Type de lèvres"
+          labelTitle="Type de bouche"
           id="lips_type"
           modelsOptions={lipsTypeOptions}
         />
