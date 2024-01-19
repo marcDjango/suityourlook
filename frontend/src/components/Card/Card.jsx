@@ -167,7 +167,6 @@ export default Card;
 Card.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.number,
-    image: PropTypes.string, // Add this line
-    // other properties of item
+    image: PropTypes.string,
   }).isRequired,
 };

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React, { useEffect, useState } from "react";
 import "./Favorite.scss";
 
@@ -14,7 +15,10 @@ function Favorite() {
 
         const payload = JSON.parse(localStorage.getItem("user"));
         const yourFavorite = data.filter((el) => el.id === payload.id);
+        console.log("Filtered data:", yourFavorite);
         setListFavorite(yourFavorite);
+
+        console.log("Updated listFavorite:", yourFavorite);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -22,6 +26,11 @@ function Favorite() {
 
     fetchData();
   }, []);
+
+  // const handleCardOpen = (item) => {
+  //   setDataCategories([item]);
+  //   setIsCard(true);
+  // };
 
   return (
     <div className="favorite-container">
@@ -36,6 +45,7 @@ function Favorite() {
         {listFavorite &&
           listFavorite.map((el) => (
             <div key={el.model_id}>
+              {console.log("Data for current element (el):", el)}
               <button type="button">
                 <img src={el.model_image} alt={el.models_name} />
               </button>
