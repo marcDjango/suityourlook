@@ -192,6 +192,7 @@ function CardsList() {
               setIsModal={setIsModal}
               isModal={isModal}
               dataCategories={dataCategories}
+              onCardClick={handleCardOpen}
             />
           )}
           {isCard && (
@@ -205,7 +206,7 @@ function CardsList() {
       </div>
       <div className="card-list-div">
         <Link to="/tuto" className="card-list-link">
-          Tester notre IA
+          TESTER NOTRE IA
         </Link>
       </div>
     </>
