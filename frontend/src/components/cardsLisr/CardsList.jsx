@@ -7,13 +7,6 @@ import Modal from "../modal/modal";
 import "./cardList.scss";
 import Card from "../Card/Card";
 
-import {
-  hairColorOptions,
-  haircutOptions,
-  skinTypeOptions,
-  lipsTypeOptions,
-} from "../../data/modelsData";
-
 const { VITE_BACKEND_URL } = import.meta.env;
 
 function CardsList() {
@@ -24,7 +17,7 @@ function CardsList() {
   // eslint-disable-next-line no-unused-vars
   const dataSoft = [
     {
-      name: "hairColorOptions",
+      name: "Couleur de cheveux",
       style: [
         "Noir",
         "Brun foncé",
@@ -41,7 +34,7 @@ function CardsList() {
       ],
     },
     {
-      name: "haircutOptions",
+      name: "Type de coiffure",
       style: [
         "Court",
         "Moyen",
@@ -57,7 +50,7 @@ function CardsList() {
       ],
     },
     {
-      name: "skinTypeOptions",
+      name: "Type de peau",
       style: [
         "Normale",
         "Sèche",
@@ -70,7 +63,7 @@ function CardsList() {
       ],
     },
     {
-      name: "lipsTypeOptions",
+      name: "Type de bouche",
       style: [
         "Pulpeuses",
         "Fines",
