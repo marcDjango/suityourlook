@@ -84,6 +84,10 @@ li:hover {
   font-size: 12px;
   align-items: center;
 }
+.icon-basket {
+  width: 20px;
+  height: 20px;
+}
 .btn-recherche {
   height: 2.8rem;
   width: 210px;
