@@ -81,7 +81,7 @@ function FormProduct() {
         </label>
 
         {/* <hr style={{ border: "1px solid black", width: "400px" }} /> */}
-        <h2 className="second-title">Sélectionnez des options</h2>
+        <h2 className="second-title">Sélectionner des options</h2>
         <Input
           className="form-input"
           labelName="product_name"
