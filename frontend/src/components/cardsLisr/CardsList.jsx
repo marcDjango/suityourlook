@@ -112,7 +112,7 @@ function CardsList() {
   console.log(dataMap);
 
   return (
-    <>
+    <div className="merci-adrien">
       <div className="cardsList">
         <section className="soft-containers">
           {dataSoft.map((item, index) => (
@@ -188,7 +188,7 @@ function CardsList() {
           TESTER NOTRE IA
         </Link>
       </div>
-    </>
+    </div>
   );
 }
 

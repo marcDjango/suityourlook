@@ -27,6 +27,7 @@
       height: 50%;
       background-color: black;
       padding: 8px;
+      padding: 8px;
 
       .model-image {
         width: 100%;
@@ -44,10 +45,20 @@
       padding-left: 8px;
     }
 
+    .button-heart {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      padding: 4px;
+      cursor: pointer;
+      padding-left: 8px;
+    }
+
     .test {
       height: auto;
       margin: 16px;
       overflow: hidden;
+      margin-top: 0px;
       margin-top: 0px;
 
       .text-main-card {
@@ -55,11 +66,14 @@
         flex-direction: column;
         gap: 16px;
         padding: 16px;
+        gap: 16px;
+        padding: 16px;
         max-height: 300px;
         background-color: white;
         color: black;
-        border: 6px solid;
-        overflow: auto;
+        border: 8px solid;
+        overflow-y: scroll;
+
         .line {
           height: 1px;
           width: 100%;
@@ -70,6 +84,11 @@
           img {
             height: 40px;
             width: 40x;
+            transition: transform 0.3s ease-in-out;
+          }
+          &:hover img {
+            transform: scale(3);
+            position: absolute;
           }
         }
 
@@ -83,6 +102,7 @@
           display: flex;
           justify-content: space-between;
           padding-bottom: 8px;
+          padding-bottom: 8px;
           border-bottom: 2px solid;
 
           .part-one {
@@ -94,6 +114,27 @@
             padding-right: 16px;
             padding-left: 16px;
             gap: 4px;
+          }
+          .part-two {
+            .button-shop {
+              aspect-ratio: 1;
+              transition: transform 0.3s ease-in-out;
+            }
+
+            .button-shop:active,
+            .button-shop:hover {
+              outline: 2px solid red;
+              border-radius: 50%;
+              aspect-ratio: 1;
+            }
+
+            .button-shop:hover {
+              transform: scale(1.2);
+            }
+
+            .button-shop:active {
+              transform: scale(0.95);
+            }
           }
           .part-two {
             .button-shop {
