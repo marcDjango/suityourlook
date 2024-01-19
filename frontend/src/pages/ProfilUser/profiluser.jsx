@@ -117,7 +117,7 @@ function Profiluser() {
         <div className="contain-profilpage-main">
           {/* //Debut de la side bar */}
           <div className="side-profilpage">
-            <div className="side-name">Bonjour Romero Marcelo</div>
+            <div className="side-name">Bonjour Théo Napoly</div>
             <div className="side-details">Détails du compte client</div>
             <div className="side-navigation">
               <div className="side-links">
@@ -227,13 +227,13 @@ function Profiluser() {
                       <label htmlFor="" className="label-form-input">
                         Prenom*
                       </label>
-                      <input type="text" placeholder="Marcelo" />
+                      <input type="text" placeholder="Théo" />
                     </div>
                     <div className="row-form-login">
                       <label htmlFor="" className="label-form-input">
                         Nom*
                       </label>
-                      <input type="text" placeholder="Romero" />
+                      <input type="text" placeholder="Napoly" />
                     </div>
                     <div className="row-form-login">
                       <label htmlFor="" className="label-form-input">
@@ -245,19 +245,13 @@ function Profiluser() {
                       <label htmlFor="" className="label-form-input">
                         Votre e-mail*
                       </label>
-                      <input
-                        type="text"
-                        placeholder="marceloromero2016ar@gmail.com"
-                      />
+                      <input type="text" placeholder="théonapoly@me.com" />
                     </div>
                     <div className="row-form-login">
                       <label htmlFor="" className="label-form-input">
                         Confirmer votre e-mail*
                       </label>
-                      <input
-                        type="text"
-                        placeholder="marceloromero2016ar@gmail.com"
-                      />
+                      <input type="text" placeholder="théonapoly@me.com" />
                     </div>
                   </div>
                   <button type="button" className="btn-action-modif">

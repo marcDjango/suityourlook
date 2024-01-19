@@ -86,6 +86,30 @@ const seed = async () => {
         product_category: "Make Up",
         product_price: 6.3,
       },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dwb95a7b4c/ProductImages/OAP3000/3600524057503/3600524057503_1.jpg?sw=698&sh=698&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Fond de teint accord parfait ",
+        product_category: "Make Up",
+        product_price: 12.66,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dwb95a7b4c/ProductImages/OAP3000/3600524057503/3600524057503_1.jpg?sw=698&sh=698&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Poudre accord parfait ",
+        product_category: "Make Up",
+        product_price: 15,
+      },
+      {
+        image:
+          "https://www.loreal-paris.fr/dw/image/v2/BHHX_PRD/on/demandware.static/-/Sites-lorealparis-fr-catalog/default/dw3d2fd98a/ProductImages/OAP6973/30172999/30172999_1.jpg?sw=698&sh=698&sm=cut&sfrm=jpg&q=70",
+        brand: "L'Oréal",
+        product_name: "Color Queen Ombre",
+        product_category: "Make Up",
+        product_price: 10,
+      },
     ];
 
     const modelData = [
@@ -255,8 +279,36 @@ const seed = async () => {
         products_id: 2,
       },
       {
-        models_id: 2,
+        models_id: 1,
         products_id: 3,
+      },
+      {
+        models_id: 1,
+        products_id: 4,
+      },
+      {
+        models_id: 1,
+        products_id: 5,
+      },
+      {
+        models_id: 2,
+        products_id: 6,
+      },
+      {
+        models_id: 2,
+        products_id: 7,
+      },
+      {
+        models_id: 2,
+        products_id: 8,
+      },
+      {
+        models_id: 2,
+        products_id: 9,
+      },
+      {
+        models_id: 2,
+        products_id: 10,
       },
       {
         models_id: 3,
@@ -268,6 +320,106 @@ const seed = async () => {
       },
       {
         models_id: 3,
+        products_id: 3,
+      },
+      {
+        models_id: 3,
+        products_id: 4,
+      },
+      {
+        models_id: 3,
+        products_id: 5,
+      },
+      {
+        models_id: 4,
+        products_id: 6,
+      },
+      {
+        models_id: 4,
+        products_id: 7,
+      },
+      {
+        models_id: 4,
+        products_id: 8,
+      },
+      {
+        models_id: 4,
+        products_id: 9,
+      },
+      {
+        models_id: 4,
+        products_id: 10,
+      },
+      {
+        models_id: 5,
+        products_id: 1,
+      },
+      {
+        models_id: 5,
+        products_id: 2,
+      },
+      {
+        models_id: 5,
+        products_id: 3,
+      },
+      {
+        models_id: 5,
+        products_id: 4,
+      },
+      {
+        models_id: 5,
+        products_id: 5,
+      },
+      {
+        models_id: 6,
+        products_id: 1,
+      },
+      {
+        models_id: 6,
+        products_id: 2,
+      },
+      {
+        models_id: 6,
+        products_id: 3,
+      },
+      {
+        models_id: 6,
+        products_id: 4,
+      },
+      {
+        models_id: 6,
+        products_id: 5,
+      },
+      {
+        models_id: 6,
+        products_id: 6,
+      },
+      {
+        models_id: 6,
+        products_id: 7,
+      },
+      {
+        models_id: 6,
+        products_id: 8,
+      },
+      {
+        models_id: 6,
+        products_id: 9,
+      },
+      {
+        models_id: 6,
+        products_id: 10,
+      },
+      {
+        models_id: 7,
+        products_id: 1,
+      },
+      {
+        models_id: 7,
+        products_id: 2,
+      },
+      {
+        models_id: 7,
         products_id: 3,
       },
       {
@@ -293,6 +445,110 @@ const seed = async () => {
       {
         models_id: 7,
         products_id: 9,
+      },
+      {
+        models_id: 7,
+        products_id: 10,
+      },
+      {
+        models_id: 8,
+        products_id: 1,
+      },
+      {
+        models_id: 8,
+        products_id: 2,
+      },
+      {
+        models_id: 8,
+        products_id: 3,
+      },
+      {
+        models_id: 8,
+        products_id: 4,
+      },
+      {
+        models_id: 8,
+        products_id: 5,
+      },
+      {
+        models_id: 9,
+        products_id: 1,
+      },
+      {
+        models_id: 9,
+        products_id: 2,
+      },
+      {
+        models_id: 9,
+        products_id: 3,
+      },
+      {
+        models_id: 9,
+        products_id: 4,
+      },
+      {
+        models_id: 9,
+        products_id: 5,
+      },
+      {
+        models_id: 10,
+        products_id: 1,
+      },
+      {
+        models_id: 10,
+        products_id: 2,
+      },
+      {
+        models_id: 10,
+        products_id: 3,
+      },
+      {
+        models_id: 10,
+        products_id: 4,
+      },
+      {
+        models_id: 10,
+        products_id: 5,
+      },
+      {
+        models_id: 11,
+        products_id: 1,
+      },
+      {
+        models_id: 11,
+        products_id: 2,
+      },
+      {
+        models_id: 11,
+        products_id: 3,
+      },
+      {
+        models_id: 11,
+        products_id: 4,
+      },
+      {
+        models_id: 11,
+        products_id: 5,
+      },
+      {
+        models_id: 12,
+        products_id: 6,
+      },
+      {
+        models_id: 12,
+        products_id: 7,
+      },
+      {
+        models_id: 12,
+        products_id: 8,
+      },
+      {
+        models_id: 12,
+        products_id: 9,
+      },
+      {
+        models_id: 12,
+        products_id: 10,
       },
     ];
     // Generating Seed Data
