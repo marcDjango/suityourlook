@@ -7,13 +7,6 @@ import Modal from "../modal/modal";
 import "./cardList.scss";
 import Card from "../Card/Card";
 
-import {
-  hairColorOptions,
-  haircutOptions,
-  skinTypeOptions,
-  lipsTypeOptions,
-} from "../../data/modelsData";
-
 const { VITE_BACKEND_URL } = import.meta.env;
 
 function CardsList() {
@@ -24,14 +17,14 @@ function CardsList() {
   // eslint-disable-next-line no-unused-vars
   const dataSoft = [
     {
-      name: "hairColorOptions",
+      name: "Couleur de cheveux",
       style: [
         "Noir",
         "Brun foncé",
         "Brun",
         "Châtain",
         "Blond foncé",
-        "Blonde",
+        "Blond",
         "Blond clair",
         "Roux",
         "Auburn",
@@ -41,7 +34,7 @@ function CardsList() {
       ],
     },
     {
-      name: "haircutOptions",
+      name: "Type de coiffure",
       style: [
         "Court",
         "Moyen",
@@ -51,39 +44,35 @@ function CardsList() {
         "Frange",
         "Queue de cheval",
         "Chignon",
-        "Rasé sur les côtés",
         "Tresse",
         "Dreadlocks",
         "Autre",
       ],
     },
     {
-      name: "skinTypeOptions",
+      name: "Type de peau",
       style: [
-        "Peau normale",
-        "Peau sèche",
-        "Peau grasse",
-        "Peau mixte",
-        "Peau sensible",
-        "Peau acnéique",
-        "Peau mature",
-        "Peau déshydratée",
+        "Normale",
+        "Sèche",
+        "Mixte",
+        "Sensible",
+        "Acnéique",
+        "Mature",
+        "Déshydratée",
         "Autre",
       ],
     },
     {
-      name: "lipsTypeOptions",
+      name: "Type de bouche",
       style: [
-        "Lèvres pulpeuses",
-        "Lèvres fines",
-        "Lèvres épaisses",
-        "Lèvres asymétriques",
-        "Lèvres bien définies",
-        "Lèvres naturelles",
-        "Lèvres dessinées",
-        "Lèvres en forme de cœur",
-        "Lèvres en arc de Cupidon",
-        "Lèvres uniformes",
+        "Pulpeuses",
+        "Fines",
+        "Epaisses",
+        "Asymétriques",
+        "Naturelles",
+        "Dessinées",
+        "En forme de cœur",
+        "En arc de Cupidon",
         "Autre",
       ],
     },

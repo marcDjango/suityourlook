@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/*eslint-disable*/
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCounter } from "../context/CurrentBasketContext";
@@ -7,6 +8,7 @@ import logo from "../../assets/logo.png";
 import basketnavbar from "../../assets/basket.svg";
 
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const { currentBasket } = useCounter();
@@ -28,7 +30,6 @@ function Navbar() {
     "HOME",
     "SERVICES EXCLUSIFS",
     "NOS ENGAGEMENTS",
-    "SUIT YOUR LOOK",
   ];
 
   const token = localStorage.getItem("token");
@@ -69,6 +70,9 @@ function Navbar() {
                 {lien}
               </li>
             ))}
+            <ul>
+              <Link to="/">Suit Your Look</Link>
+            </ul>
           </ul>
           <button type="button" className="btn-recherche">
             Recherche un produit...
