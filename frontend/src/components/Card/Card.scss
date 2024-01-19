@@ -8,6 +8,7 @@
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
   left: 0;
+  backdrop-filter: blur(4px);
 
   .main-card {
     display: flex;
