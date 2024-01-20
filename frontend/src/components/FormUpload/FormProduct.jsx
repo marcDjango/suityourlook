@@ -6,9 +6,11 @@ import { useState } from "react";
 import InputSelect from "../InputSelect/InputSelect";
 import { brandOptions, categoriesOptions } from "../../services/productOptions";
 import WaitingUpload from "../../assets/images/upload-maquillage.png";
+import { useNavigate } from "react-router-dom";
 
 function FormProduct() {
   const [previewSource, setPreviewSource] = useState();
+  const navigate = useNavigate();
 
   const previewFile = (file) => {
     const reader = new FileReader();
@@ -62,6 +64,10 @@ function FormProduct() {
 
   return (
     <div className="form-product-main-container">
+      <div className="btn-navigate">
+        <button onClick={() => navigate(-1)}>Prev</button>
+        <button onClick={() => navigate(1)}>Next</button>
+      </div>
       <h1 className="main-title">Ajouter un produit</h1>
       <form className="formu" onSubmit={handleSubmitFile}>
         <label className="label" htmlFor="image">

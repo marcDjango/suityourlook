@@ -245,13 +245,13 @@ function Profiluser() {
                       <label htmlFor="" className="label-form-input">
                         Votre e-mail*
                       </label>
-                      <input type="text" placeholder="théonapoly@me.com" />
+                      <input type="text" placeholder="theonapoly@me.com" />
                     </div>
                     <div className="row-form-login">
                       <label htmlFor="" className="label-form-input">
                         Confirmer votre e-mail*
                       </label>
-                      <input type="text" placeholder="théonapoly@me.com" />
+                      <input type="text" placeholder="theonapoly@me.com" />
                     </div>
                   </div>
                   <button type="button" className="btn-action-modif">

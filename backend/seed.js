@@ -119,19 +119,19 @@ const seed = async () => {
         category: "Entre amis",
         name: "Laura",
         hair_color: "Brun foncé",
-        hair_style: "Long",
+        hair_style: "Ondulé",
         skin_tone: "Medium",
-        lips_type: "Pulpeuse",
+        lips_type: "Dessinée",
       },
       {
         image:
-          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705619099/3_vgabkg.png",
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705619107/5_onxb9g.png",
         category: "Entre amis",
-        name: "Laurent",
-        hair_color: "Roux",
-        hair_style: "Court",
-        skin_tone: "Pâle",
-        lips_type: "Fine",
+        name: "Diana",
+        hair_color: "Noir",
+        hair_style: "Long",
+        skin_tone: "Claire",
+        lips_type: "Naturelle",
       },
       {
         image:
@@ -142,6 +142,16 @@ const seed = async () => {
         hair_style: "Long",
         skin_tone: "Medium",
         lips_type: "Pulpeuse",
+      },
+      {
+        image:
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705619104/femme_entre_amis_xntmev.png",
+        category: "Entre amis",
+        name: "Marine",
+        hair_color: "Brun foncé",
+        hair_style: "Long",
+        skin_tone: "Claire",
+        lips_type: "Autre",
       },
       {
         image:
@@ -172,6 +182,16 @@ const seed = async () => {
         hair_style: "Chignon",
         skin_tone: "Foncée",
         lips_type: "Epaisse",
+      },
+      {
+        image:
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705769383/5_ud8v6u.png",
+        category: "Gala",
+        name: "Maude",
+        hair_color: "Roux",
+        hair_style: "Long",
+        skin_tone: "Pâle",
+        lips_type: "Fine",
       },
       {
         image:
@@ -234,6 +254,56 @@ const seed = async () => {
         skin_tone: "Claire",
         lips_type: "En coeur",
       },
+      {
+        image:
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705769405/soire%CC%81e_hoewej.png",
+        category: "Soirée",
+        name: "Fa",
+        hair_color: "Noir",
+        hair_style: "Afro",
+        skin_tone: "Foncée",
+        lips_type: "En coeur",
+      },
+      {
+        image:
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705769404/3_ehh2go.png",
+        category: "Soirée",
+        name: "Mirah",
+        hair_color: "Noir",
+        hair_style: "Ondulé",
+        skin_tone: "Foncée",
+        lips_type: "Pulpeuse",
+      },
+      {
+        image:
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705769405/5_vvdgze.png",
+        category: "Soirée",
+        name: "Louise",
+        hair_color: "Châtain",
+        hair_style: "Chignon",
+        skin_tone: "Claire",
+        lips_type: "Naturelle",
+      },
+      {
+        image:
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705622526/bureau_mi9uxj.png",
+        category: "Travail",
+        name: "Marie",
+        hair_color: "Châtain",
+        hair_style: "Long",
+        skin_tone: "Claire",
+        lips_type: "Naturelle",
+      },
+      {
+        image:
+          "https://res.cloudinary.com/dikhzx4qt/image/upload/v1705622523/femme_bureau_2_rjs2ml.png",
+        category: "Travail",
+        name: "Véronique",
+        hair_color: "Gris",
+        hair_style: "Court",
+        skin_tone: "Claire",
+        lips_type: "Naturelle",
+      },
     ];
 
     const userData = [
@@ -290,6 +360,7 @@ const seed = async () => {
         models_id: 1,
         products_id: 5,
       },
+      // Modèle 2
       {
         models_id: 2,
         products_id: 6,
@@ -310,6 +381,7 @@ const seed = async () => {
         models_id: 2,
         products_id: 10,
       },
+      // Modèle 3
       {
         models_id: 3,
         products_id: 1,
@@ -330,6 +402,7 @@ const seed = async () => {
         models_id: 3,
         products_id: 5,
       },
+      // Modèle 4
       {
         models_id: 4,
         products_id: 6,
@@ -350,6 +423,7 @@ const seed = async () => {
         models_id: 4,
         products_id: 10,
       },
+      // Modèle 5
       {
         models_id: 5,
         products_id: 1,
@@ -370,6 +444,7 @@ const seed = async () => {
         models_id: 5,
         products_id: 5,
       },
+      // Modèle 6
       {
         models_id: 6,
         products_id: 1,
@@ -410,6 +485,7 @@ const seed = async () => {
         models_id: 6,
         products_id: 10,
       },
+      // Modèle 7
       {
         models_id: 7,
         products_id: 1,
@@ -450,6 +526,7 @@ const seed = async () => {
         models_id: 7,
         products_id: 10,
       },
+      // Modèle 8
       {
         models_id: 8,
         products_id: 1,
@@ -470,6 +547,7 @@ const seed = async () => {
         models_id: 8,
         products_id: 5,
       },
+      // Modèle 9
       {
         models_id: 9,
         products_id: 1,
@@ -490,6 +568,7 @@ const seed = async () => {
         models_id: 9,
         products_id: 5,
       },
+      // Modèle 10
       {
         models_id: 10,
         products_id: 1,
@@ -510,6 +589,7 @@ const seed = async () => {
         models_id: 10,
         products_id: 5,
       },
+      // Modèle 11
       {
         models_id: 11,
         products_id: 1,
@@ -530,6 +610,7 @@ const seed = async () => {
         models_id: 11,
         products_id: 5,
       },
+      // Modèle 12
       {
         models_id: 12,
         products_id: 6,
@@ -549,6 +630,109 @@ const seed = async () => {
       {
         models_id: 12,
         products_id: 10,
+      },
+      // Modèle 13
+      {
+        models_id: 13,
+        products_id: 1,
+      },
+      {
+        models_id: 13,
+        products_id: 2,
+      },
+      {
+        models_id: 13,
+        products_id: 3,
+      },
+      {
+        models_id: 13,
+        products_id: 4,
+      },
+
+      // Modèle 14
+      {
+        models_id: 14,
+        products_id: 1,
+      },
+      {
+        models_id: 14,
+        products_id: 2,
+      },
+      {
+        models_id: 14,
+        products_id: 3,
+      },
+      {
+        models_id: 14,
+        products_id: 4,
+      },
+      // Modèle 15
+      {
+        models_id: 15,
+        products_id: 1,
+      },
+      {
+        models_id: 15,
+        products_id: 2,
+      },
+      {
+        models_id: 15,
+        products_id: 3,
+      },
+      {
+        models_id: 15,
+        products_id: 4,
+      },
+      // Modèle 16
+      {
+        models_id: 16,
+        products_id: 1,
+      },
+      {
+        models_id: 16,
+        products_id: 2,
+      },
+      {
+        models_id: 16,
+        products_id: 3,
+      },
+      {
+        models_id: 16,
+        products_id: 4,
+      },
+      // Modèle 17
+      {
+        models_id: 17,
+        products_id: 1,
+      },
+      {
+        models_id: 17,
+        products_id: 2,
+      },
+      {
+        models_id: 17,
+        products_id: 3,
+      },
+      {
+        models_id: 17,
+        products_id: 4,
+      },
+      // Modèle 18
+      {
+        models_id: 18,
+        products_id: 1,
+      },
+      {
+        models_id: 18,
+        products_id: 2,
+      },
+      {
+        models_id: 18,
+        products_id: 3,
+      },
+      {
+        models_id: 18,
+        products_id: 4,
       },
     ];
     // Generating Seed Data

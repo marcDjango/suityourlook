@@ -7,14 +7,21 @@
   .contain-favorite {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    padding: 10px;
-    padding-inline: 3dvw;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
     div {
-      width: 30dvw;
-      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 1rem;
-      border: 10px solid black;
+      height: auto;
+      background-color: rgb(210, 55, 55);
+      border: 5px solid black;
+      img {
+        border: 3px solid black;
+      }
     }
   }
 }

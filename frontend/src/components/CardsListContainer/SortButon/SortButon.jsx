@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from "react";
+import "./SortButon.scss";
 
 function SortButon({ item, active, setActive, setStyleContainer }) {
   return (
@@ -8,14 +9,12 @@ function SortButon({ item, active, setActive, setStyleContainer }) {
         <button
           type="button"
           key={index}
-          className={
-            active === items ? "title-soft-btn-active" : "title-soft-btn"
-          }
+          className="title-soft-btn"
           onClick={(e) => {
             setActive(e.target.textContent);
-            const timer = setTimeout(() => {
+            setTimeout(() => {
               setStyleContainer();
-            }, [300]);
+            }, 200);
           }}
         >
           {items}

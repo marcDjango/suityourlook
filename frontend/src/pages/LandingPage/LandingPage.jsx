@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LandingPage.scss";
 import { useEffect } from "react";
 import Section1 from "../../assets/images/model1.jpg";
@@ -84,9 +84,14 @@ function LandingPage() {
             teinte de peau et a la personnalite uniques de chaque utilisateur.
           </p>
 
-          <button className="btn-2" type="button" onClick={handleClick}>
-            En savoir plus
-          </button>
+          <Link
+            className="btn-2"
+            type="button"
+            to="/tuto"
+            style={{ textDecoration: "none" }}
+          >
+            Tester notre IA
+          </Link>
         </div>
       </div>
 

@@ -13,6 +13,7 @@ import {
   numberOptions,
 } from "../../services/modelsOptions";
 import WaitingUpload from "../../assets/images/upload-image.png";
+import { useNavigate } from "react-router-dom";
 
 function FormModel() {
   const [previewSource, setPreviewSource] = useState();
@@ -20,6 +21,7 @@ function FormModel() {
   const [numberStock, setNumberStock] = useState(1);
   const [dataNameProduct, setDataNameProduct] = useState([]);
   const [dataProduct, setDataProduct] = useState([]);
+  const navigate = useNavigate();
   console.log(dataNameProduct);
   console.log(dataProduct);
 
@@ -167,6 +169,10 @@ function FormModel() {
 
   return (
     <div className="form-model-main-container">
+      <div className="btn-navigate">
+        <button onClick={() => navigate(-1)}>Prev</button>
+        <button onClick={() => navigate(1)}>Next</button>
+      </div>
       <h1 className="main-title">Ajouter un modèle</h1>
       <form className="formu" onSubmit={handleSubmitFile}>
         <label className="label" htmlFor="image">

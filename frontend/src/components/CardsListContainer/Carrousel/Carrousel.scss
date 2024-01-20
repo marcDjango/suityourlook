@@ -1,0 +1,13 @@
+.swiper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 400px;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.145);
+  .swiper-slide {
+    background: no-repeat center center;
+    background-size: cover;
+  }
+}

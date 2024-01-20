@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useRef, useState, useNavigate } from "react";
+import "./Carrousel.scss";
 // Import Swiper React components
 import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,7 +9,7 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 
 // import required modules
-function Carusel({ item, onCardClick }) {
+function Carrousel({ item, onCardClick }) {
   const data = item;
   const [swiperRef, setSwiperRef] = useState(false);
   return (
@@ -16,7 +17,7 @@ function Carusel({ item, onCardClick }) {
       effect={"cards"}
       grabCursor={true}
       modules={[EffectCards]}
-      className="mySwiper"
+      className="swiper"
     >
       {data.map((item) => (
         <SwiperSlide
@@ -34,4 +35,4 @@ function Carusel({ item, onCardClick }) {
   );
 }
 
-export default Carusel;
+export default Carrousel;
