@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from "react";
 // import "../reset.css";
 import { Outlet } from "react-router-dom";

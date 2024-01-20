@@ -124,7 +124,7 @@ function Card({ item, isCard, setIsCard }) {
           <img className="model-image" src={item.image} alt="modele" />
         </div>
 
-        <button type="button" className="button-heart" onClick={handleFavorite}>
+        <button className="favoris" type="button" onClick={handleFavorite}>
           {favorite ? (
             <img src={heart} alt="coeur" />
           ) : (

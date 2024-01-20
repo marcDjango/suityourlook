@@ -27,11 +27,6 @@ function Favorite() {
     fetchData();
   }, []);
 
-  // const handleCardOpen = (item) => {
-  //   setDataCategories([item]);
-  //   setIsCard(true);
-  // };
-
   return (
     <div className="favorite-container">
       <button

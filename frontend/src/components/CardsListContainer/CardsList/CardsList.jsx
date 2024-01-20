@@ -1,29 +1,32 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Carusel from "./Carusel";
-import SortButon from "./SortButon";
-import Modal from "../modal/modal";
-import "./cardList.scss";
-import Card from "../Card/Card";
+import Carrousel from "../Carrousel/Carrousel";
+import SortButon from "../SortButon/SortButon";
+import Modal from "../../modal/modal";
+import Card from "../../Card/Card";
+import "./CardsList.scss";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 
 function CardsList() {
+  // STATES
   const [data, setData] = useState([]);
   const [isModal, setIsModal] = useState(false);
   const [isCard, setIsCard] = useState(false);
   const [dataCategories, setDataCategories] = useState([]);
-  // eslint-disable-next-line no-unused-vars
+  const [dataMap, setDataMap] = useState();
+  const [active, setActive] = useState(false);
+  const [styleContainer, setStyleContainer] = useState();
+
   const dataSoft = [
     {
-      name: "Couleur de cheveux",
+      name: "Cheveux",
       style: [
         "Noir",
         "Brun foncé",
         "Brun",
         "Châtain",
-        "Blond foncé",
         "Blond",
         "Roux",
         "Gris",
@@ -32,12 +35,11 @@ function CardsList() {
       ],
     },
     {
-      name: "Type de coiffure",
+      name: "Coiffure",
       style: [
         "Court",
-        "Moyen",
         "Long",
-        "Dégradé",
+        "Ondulé",
         "Undercut",
         "Frange",
         "Bohème",
@@ -48,15 +50,14 @@ function CardsList() {
       ],
     },
     {
-      name: "Type de peau",
+      name: "Peau",
       style: ["Pâle", "Claire", "Medium", "Mate", "Foncée", "Autre"],
     },
     {
-      name: "Type de bouche",
-      style: ["Pulpeuse", "Fine", "Epaisse", "Dessinée", "En cœur", "Autre"],
+      name: "Lèvres",
+      style: ["Pulpeuse", "Fine", "Naturelle", "Dessinée", "En cœur", "Autre"],
     },
   ];
-  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const fetchModelsProducts = async () => {
@@ -66,31 +67,30 @@ function CardsList() {
           throw new Error("Erreur réseau");
         }
 
-        const resalt = await response.json();
+        const result = await response.json();
 
-        setData(resalt);
+        setData(result);
       } catch (err) {
         console.error(err);
       }
     };
     fetchModelsProducts();
   }, []);
-  let categories = [];
-  let categoriesSoftMap;
-  console.log(data);
-  if (data.length) {
-    categories = Object.groupBy(data, ({ category }) => category);
-  }
-  const [dataMap, setDataMap] = useState();
+
+  const categories = data.length
+    ? Object.groupBy(data, ({ category }) => category)
+    : [];
+
   useEffect(() => {
     setDataMap(Object.groupBy(data, ({ category }) => category));
   }, [data]);
+
   useEffect(() => {
     let dataSortTrue = [];
     let dataSortFalse = [];
     for (let i = 0; i < Object.keys(categories).length; i++) {
       const dataSort = Object.values(categories)[i];
-      dataSort.map((item) => {
+      dataSort.forEach((item) => {
         if (Object.values(item).includes(active)) {
           dataSortTrue.unshift(item);
         } else {
@@ -98,28 +98,47 @@ function CardsList() {
         }
       });
     }
-    categoriesSoftMap = [...dataSortTrue, ...dataSortFalse];
+    const categoriesSoftMap = [...dataSortTrue, ...dataSortFalse];
     setDataMap(Object.groupBy(categoriesSoftMap, ({ category }) => category));
   }, [active]);
 
+  // Modal
   const handleCardOpen = (item) => {
     setDataCategories([item]);
     setIsCard(true);
     setIsModal(false);
   };
 
-  const [styleContainer, setStyleContainer] = useState();
-  console.log(dataMap);
-
+  // ---------------------- RENDER ----------------------
   return (
-    <div className="merci-adrien">
-      <div className="cardsList">
-        <section className="soft-containers">
+    // <div className="mega-container">
+    <>
+      <div className="cardsList-main-container">
+        {isModal && (
+          <Modal
+            setIsModal={setIsModal}
+            isModal={isModal}
+            dataCategories={dataCategories}
+            onCardClick={handleCardOpen}
+          />
+        )}
+        {isCard && (
+          <Card
+            item={dataCategories[0]}
+            setIsCard={setIsCard}
+            isCard={isCard}
+          />
+        )}
+        <section className="sort-container">
           {dataSoft.map((item, index) => (
-            <div key={index} className="soft-cantainer">
+            <div
+              key={index}
+              className="sort-titles-container"
+              style={{ color: "green" }}
+            >
               <button
                 type="button"
-                className="title-soft-style"
+                className="sort-titles"
                 onClick={(e) => {
                   styleContainer === e.target.textContent
                     ? setStyleContainer()
@@ -128,6 +147,7 @@ function CardsList() {
               >
                 {item.name}
               </button>
+
               {styleContainer === item.name && (
                 <SortButon
                   item={item.style}
@@ -139,8 +159,8 @@ function CardsList() {
             </div>
           ))}
         </section>
-        <div className="cardsList-container">
-          {" "}
+
+        <div className="galerie-main-container">
           {dataMap &&
             Object.entries(dataMap).map((entry) => {
               const categoryKey = entry[0];
@@ -148,13 +168,13 @@ function CardsList() {
 
               return (
                 <div
-                  key={entry[1][0].id}
+                  key={categoryItems[0].id} // Utilisez directement categoryItems[0].id
                   style={{ width: "25%" }}
-                  className="card-container-item"
+                  className="galerie-cards"
                 >
                   <button
                     type="button"
-                    className="title-card-btn"
+                    className="galerie-title"
                     onClick={() => {
                       setDataCategories(categoryItems);
                       setIsModal(!isModal);
@@ -162,33 +182,17 @@ function CardsList() {
                   >
                     {categoryKey}
                   </button>
-                  <Carusel item={categoryItems} onCardClick={handleCardOpen} />
+                  <Carrousel
+                    item={categoryItems}
+                    onCardClick={handleCardOpen}
+                  />
                 </div>
               );
             })}
-          {isModal && (
-            <Modal
-              setIsModal={setIsModal}
-              isModal={isModal}
-              dataCategories={dataCategories}
-              onCardClick={handleCardOpen}
-            />
-          )}
-          {isCard && (
-            <Card
-              item={dataCategories[0]}
-              setIsCard={setIsCard}
-              isCard={isCard}
-            />
-          )}
         </div>
       </div>
-      <div className="card-list-div">
-        <Link to="/tuto" className="card-list-link">
-          TESTER NOTRE IA
-        </Link>
-      </div>
-    </div>
+    </>
+    // </div>
   );
 }
 

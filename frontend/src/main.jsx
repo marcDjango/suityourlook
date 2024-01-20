@@ -11,11 +11,9 @@ import ReactDOM from "react-dom/client";
 import Login, { authenticate } from "./pages/Login/Loginpage";
 // import Register, { enrolment } from "./pages/Register/Register";
 import RootLayout from "./RootLayout";
-import App from "./App";
-import Card from "./components/Card/Card";
 import AdminFormModel from "./pages/adminFormModel/adminFormModel";
 import AdminFormProduct from "./pages/adminFormProduct/adminFormProduct";
-import CardsList from "./components/cardsLisr/CardsList";
+import CardsList from "./components/CardsListContainer/CardsList/CardsList";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Profiluser from "./pages/ProfilUser/profiluser";
 import Tuto from "./pages/Tuto/Tuto";
@@ -27,7 +25,6 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<LandingPage />} />
       <Route path="list-cards" element={<CardsList />} />
-      {/* <Route path="show-product" element={<ShowProduct />} /> */}
       <Route path="profil" element={<Profiluser />} />
       {/* <Route path="/register" element={<Register />} action={enrolment} /> */}
       <Route path="/login" element={<Login />} action={authenticate} />
