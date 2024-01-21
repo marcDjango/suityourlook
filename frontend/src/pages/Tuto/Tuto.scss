@@ -1,0 +1,33 @@
+.tuto-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  padding: 40px;
+  .tuto-frame {
+    max-width: 95%;
+  }
+}
+.tuto-list-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .tuto-list-link {
+    font-size: 24px;
+    padding: 8px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    border: solid 1px;
+    width: 300px;
+    justify-content: center;
+    &:hover {
+      background-color: white;
+      color: black;
+      transform: scale(1.15);
+    }
+  }
+}

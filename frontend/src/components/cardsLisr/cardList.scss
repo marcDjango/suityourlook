@@ -1,0 +1,112 @@
+.merci-adrien {
+  position: relative;
+}
+.cardsList {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+
+  .cardsList-container {
+    width: 97vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100vh;
+  }
+  .soft-containers {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    width: 20%;
+    max-height: 100%;
+    margin: 1rem;
+
+    .title-soft-style {
+      font-size: 1rem;
+      margin-top: 10px;
+      border: 1px solid black;
+      width: 150px;
+      padding: 0.5rem;
+      font-size: 18px;
+
+      cursor: pointer;
+      text-align: start;
+    }
+    .title-soft-style:hover {
+      transform: scale(1.1);
+      color: rgb(227, 40, 71);
+    }
+    .title-soft {
+      padding-top: 10px;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+
+      background-color: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+    }
+    .title-soft-btn {
+      text-align: start;
+      padding: 0 30px;
+    }
+    .title-soft-btn:hover {
+      transform: scale(1.3);
+      color: rgb(227, 40, 71);
+    }
+  }
+  .card-container-item {
+    margin: 0 60px 0 0;
+  }
+  .title-card-btn {
+    height: 2.8rem;
+    width: 210px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 16px 30px;
+  }
+  .title-card-btn:hover {
+    transform: scale(1.1);
+    color: rgb(227, 40, 71);
+    transition-duration: 1s;
+  }
+  .title-soft-btn-active {
+    color: rgb(227, 40, 71);
+  }
+  .swiper {
+    width: 100%;
+    height: 320px;
+
+    .swiper-slide {
+      background: no-repeat center center;
+      background-size: cover;
+    }
+  }
+}
+.card-list-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // margin-block: 3rem;
+  .card-list-link {
+    padding: 8px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border: solid 1px;
+    width: 300px;
+    justify-content: center;
+    font-size: 24px;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      transform: scale(1.15);
+    }
+  }
+}

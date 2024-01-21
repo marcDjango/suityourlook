@@ -1,0 +1,43 @@
+.label-composent-css {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  .input-composent-css {
+    font-family: "CamptonBook", sans-serif;
+    appearance: none;
+    -webkit-appearance: none; /* Pour la compatibilité avec les navigateurs basés sur WebKit (comme Chrome et Safari) */
+    -moz-appearance: none; /* Pour la compatibilité avec Firefox */
+    border: none; /* Supprime la bordure par défaut */
+    outline: none; /* Supprime la bordure de mise au point par défaut */
+    /* Ajoute d'autres styles personnalisés ici si nécessaire */
+    width: 300px;
+    height: 35px;
+    box-shadow: rgb(0, 0, 0) 0px 2px 0px 0px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .label-composent-css {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-size: clamp(12px, 2vw, 18px);
+    font-style: normal;
+    font-weight: 400;
+
+    line-height: normal;
+
+    .input-composent-css {
+      width: 300pxpx;
+      height: 35px;
+      box-shadow: rgb(0, 0, 0) 0px 1px 0px 0px;
+
+      font-size: clamp(14px, 2.5vw, 22px);
+    }
+  }
+}

@@ -1,0 +1,296 @@
+.login-register-page {
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    // min-height: calc(100vh - 160px);
+    margin-block: 40px;
+    .input-block {
+      .login-input {
+        .login-title {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 28px;
+        }
+        .form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 30px;
+          margin-top: 20px;
+
+          .input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .continue {
+            background-color: black;
+            border: none;
+            font-size: 20px;
+            font-family: "CamptonBook", sans-serif;
+            color: white;
+            min-width: 300px;
+            padding: 0;
+            padding-block: 1rem;
+            &:hover {
+              transform: scale(0.95);
+            }
+            &:active {
+              transform: scale(0.9);
+            }
+          }
+        }
+      }
+    }
+    .logout-page {
+      display: flex;
+      .logout-button {
+        &:hover {
+          color: #b92929;
+        }
+      }
+    }
+    .login-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      .text {
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+      }
+
+      .register {
+        background: black;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: white;
+        min-width: 200px;
+        padding: 4px;
+        &:hover {
+          background-color: #b92929;
+        }
+      }
+    }
+  }
+  .register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    min-height: calc(100vh - 160px);
+
+    .register-input {
+      width: 100%;
+      margin-top: 40px;
+      .register-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 20px;
+        .label {
+          .select {
+            background-color: white;
+            border: none;
+            border: solid 1px;
+            border-color: #c0c0c0;
+            padding: 6px;
+          }
+        }
+      }
+
+      .continue {
+        background-color: black;
+        border: none;
+        font-size: 20px;
+        font-family: "CamptonBook", sans-serif;
+        color: white;
+        min-width: 300px;
+        padding: 0;
+        padding-block: 1rem;
+        &:hover {
+          transform: scale(0.95);
+        }
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .login-register-page {
+    .login-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+
+      .input-block {
+        display: flex;
+        flex-direction: row;
+
+        .login-input {
+          min-width: 350px;
+          .login-title {
+          }
+          .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 45px;
+            margin-block: 60px;
+
+            .input {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            .continue {
+              background-color: black;
+              border: none;
+              font-size: 20px;
+              font-family: "CamptonBook", sans-serif;
+              color: white;
+              min-width: 300px;
+              padding: 0;
+              padding-block: 1rem;
+              &:hover {
+                transform: scale(0.95);
+              }
+              &:active {
+                transform: scale(0.9);
+              }
+            }
+          }
+        }
+      }
+      .logout-page {
+        display: flex;
+        .logout-button {
+          font-size: clamp(12px, 2vw, 18px);
+        }
+      }
+      .login-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+
+        .text {
+          font-size: clamp(14px, 2.5vw, 24px);
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 142.857% */
+        }
+        .register {
+          background: black;
+
+          font-size: clamp(12px, 2vw, 18px);
+          font-style: normal;
+          color: white;
+          font-weight: 400;
+          line-height: normal;
+          width: 320px;
+          &:hover {
+            background-color: #b92929;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 800px) {
+  .login-register-page {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    column-gap: 4rem;
+    margin-top: 40px;
+    margin-inline: 10%;
+    .register-page {
+      .register-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .register-title {
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 95%;
+          filter: brightness(0.75);
+          margin-inline: 26px;
+        }
+        .form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          gap: 32px;
+          max-width: 865px;
+
+          .label-composent-css {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+            font-size: clamp(12px, 2vw, 18px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            width: 100%;
+            .input-composent-css {
+              width: clamp(320px, 34vw, 450px);
+              margin-top: 0px;
+            }
+          }
+          .label {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            font-size: clamp(12px, 2vw, 18px);
+            width: 100%;
+            .select {
+              margin-right: 25%;
+
+              font-size: clamp(12px, 2vw, 18px);
+            }
+          }
+        }
+        .continue {
+          background-color: black;
+          border: none;
+          font-size: 20px;
+          font-family: "CamptonBook", sans-serif;
+          color: white;
+          min-width: 300px;
+          padding: 0;
+          padding-block: 1rem;
+          &:hover {
+            transform: scale(0.95);
+          }
+          &:active {
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
+}

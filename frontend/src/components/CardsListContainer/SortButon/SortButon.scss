@@ -1,0 +1,25 @@
+.title-soft {
+  padding-top: 10px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+.title-soft-btn {
+  text-align: start;
+  padding: 0.5rem;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    transition-duration: 0.7s;
+    transform: scale(1.1);
+    color: rgb(227, 40, 71);
+    background-color: rgba(224, 224, 224, 0.745);
+  }
+  &:active,
+  &.active {
+    color: blue;
+  }
+}

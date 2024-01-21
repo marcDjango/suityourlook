@@ -1,0 +1,27 @@
+.favorite-container {
+  .button-favorite {
+    font-size: xx-large;
+    border: 3px solid black;
+    margin: 5px;
+  }
+  .contain-favorite {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      height: auto;
+      background-color: rgb(210, 55, 55);
+      border: 5px solid black;
+      img {
+        border: 3px solid black;
+      }
+    }
+  }
+}

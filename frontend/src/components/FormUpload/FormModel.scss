@@ -1,0 +1,87 @@
+.form-model-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  margin-top: 2rem;
+  // min-height: calc(100dvh - 300px);
+  .btn-navigate {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    button {
+      font-family: "CamptonBook", sans-serif;
+      border: 1px solid black;
+      border-radius: 50%;
+      text-align: center;
+      padding: 1rem;
+      cursor: pointer;
+      &:hover {
+        transition-duration: 1s;
+        background-color: rgba(255, 0, 0, 0.413);
+        transform: scale(0.95);
+      }
+    }
+  }
+  .main-title {
+    border: 1px solid black;
+    font-size: 24px;
+    font-family: "CamptonBook", sans-serif;
+    text-transform: uppercase;
+    padding: 24px;
+  }
+  .formu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+
+    .label {
+      .image {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+        padding: 12px;
+        border: 1px solid black;
+        // .preview-image {
+        // }
+      }
+      #image {
+        padding-top: 12px;
+      }
+    }
+    .second-title {
+      border: 1px solid black;
+      width: 240px;
+      padding: 9px;
+      text-align: center;
+      font-size: 18px;
+      font-family: "CamptonBook", sans-serif;
+    }
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      border: 1px solid black;
+      background-color: black;
+      cursor: pointer;
+      &:hover {
+        transform: scale(0.95);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+      button {
+        padding-block: 1rem;
+        width: 100%;
+        height: 100%;
+        font-size: 20px;
+        font-family: "CamptonBook", sans-serif;
+        text-transform: uppercase;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
